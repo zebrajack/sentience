@@ -1,6 +1,15 @@
 #summary Matching two images together
-#labels correspondence
+#labels correspondence,densestereo
 
 Stereo correspondence is the problem of discovering the closest possible match between two images captured symultaneously from cameras in different spatial locations.  Typically the cameras are alligned in such a way that each [ScanLine scan line] of the [ImageRectification rectified] images corresponds to the same line in the opposite image - something known as the [EpipolarConstraint epipolar constraint].
 
 It should be noted that solving the stereo correspondence problem unde the epipolar constraint is a special class of a more general problem domain.  Near identical methods may be used to solve the problem of matching two images taken from the same camera but separated by some small difference in time as the robot moves through space (structure from motion).  It may also be used to _stitch_ or _register_ images together to form larger panoramas, maps, or synchronise deformable models.  The ideal stereo correspondence algorithm therefore would be a specialised subclass of this very general matching solution.
+
+=== Sparse or Dense? ===
+
+There are two main approaches which can be taken to finding corresponding points in two or more images.  
+
+One way is to pick out [FeaturePoints feature points] of high distinctiveness, such as [http://en.wikipedia.org/wiki/Scale-invariant_feature_transform SIFT] features or [http://mi.eng.cam.ac.uk/~er258/work/fast.html FAST] corners.  These features can typically be detected and matched at high speed, making this sort of correspondence a viable solution for real time robotics applications.  Using distinctive features may also be useful for sparse landmark based [http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping SLAM].
+
+The other way is to try to match as many pixels as possible, typically known as _dense stereo matching_.  Dense stereo is useful if the system needs to recover the detailed geometry of the scene, in order to facilitate obstacle avoidance or object recognition.  Efficient methods for dense stereo correspondence have been slow to materialise.  There are a few companies selling commercial stereo vision products which utilise dedicated hardware in order perform _brute force_ correspondence searching.  Even with hardware acceleration this is a very unintelligent way to solve the problem, and is particularly prone to matching errors.  This problem can be solved in a more practical and far less expensive way by using _multi-scale receptive field contours_, whereby areas of the image are labelled according to their [CentreSurround centre/surround] frequency and amplitude prior to being matched.  Using an efficient algorithm dense stereo matching becomes a practical proposition for robotics use, even on low end single core processors.
+
