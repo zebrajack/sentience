@@ -1,0 +1,16 @@
+#summary Make your own stereo camera
+#labels webcam
+
+You don't need to use prohibitively expensive dedicated hardware to be able to experiment with stereoscopic vision.  Most webcams these days are of a reasonable quality and have a sufficiently high frame rate to be practical on slow moving domestic robots.
+
+Here's how to build a stereo camera in 30 minutes at a cost of under 30 quid (about $60).
+
+=== Choose your cameras ===
+
+There are zillions of webcams now on the market, and the models and megapixels are constantly changing.  Firstly I should say that both cameras should be of an identical model.  This might seem obvious, but I have seen folks in the past try to do stereo using two entirely different cameras and they soon get themselves into trouble.  Quite apart from any aesthetic considerations using the same model ensures that the optics of both cameras will be somewhat similar and they will have the same [FieldOfView field if view] and focal lengths.
+
+If possible try to acquire webcams which use a CCD chip, rather tan the CMOS type.  CMOS cameras are ok in most situations, but under low illumination conditions such as artificial lighting (especially the low intensity _energy saving_ light bulbs) performs that much better.  Another alternative is to use a camera which has its own LED illumination, although this could be problematic in borderline situations where the LEDs might switch on and off erratically.  If you can't find any CCD based cameras, or they're too expensive just stick to CMOS.
+
+In the world of digital photography megapixels rule.  However, for a stereo vision system you actually don't need a particularly high resolution.  640x480, or even a mere 320x240 pixels are quite adequate for ranging of distances up to about three metres.  When selecting cameras think _bog standard_ rather than _top of the range_.  Any extraneous features or software won't be needed.
+
+If possible try to use cameras with a wide field of view.  The standard field of view for webcams (at the time of writing) is 40 degrees horizontal and 20 degrees vertical.  There are a few with a wider view than this.  A wide field of view just means that the robot _can see more of what's ahead_ at one time than would otherwise be the case, so things like obstacle avoidance or feature tracking work better.
