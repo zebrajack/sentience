@@ -1,3 +1,3 @@
-#summary The separation between a pair of observed features
+#summary The apparent separation between a pair of observed features
 
 The disparity of a feature is the difference in its horizontal position as obsevred from left and right cameras.  In [StereoCorrespondence dense stereo correspondence] individual disparity values are used to populate a [DisparityMap disparity map] giving an indication of the depth of the observed scene.
