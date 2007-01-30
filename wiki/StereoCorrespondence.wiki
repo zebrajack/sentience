@@ -11,7 +11,7 @@ There are two main approaches which can be taken to finding corresponding points
 
 One way is to pick out [FeaturePoints feature points] of high distinctiveness, such as [http://en.wikipedia.org/wiki/Scale-invariant_feature_transform SIFT] features or [http://mi.eng.cam.ac.uk/~er258/work/fast.html FAST] corners.  These features can typically be detected and matched at high speed, making this sort of correspondence a viable solution for real time robotics applications.  Using distinctive features may also be useful for sparse landmark based [http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping SLAM].  
 
-An example of sparse stereo matching can be seen below.  The features picked out in this case are vertical edges within the image.
+An example of sparse stereo matching can be seen below.  The green spot features picked out in this case are vertical edges within the image, with larger spots indicating features which are closer to the cameras.
 
 [http://sluggish.uni.cc/sentience/sentdemo.jpg]
 
