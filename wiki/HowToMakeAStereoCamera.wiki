@@ -21,7 +21,7 @@ For this system I'm going to use the _Creative Webcam NX Ultra_.  It's not the s
 
 You'll need something to mount the cameras onto as a backplate.  For this I used a piece of strip aluminium from a local DIY store.  The metal is light, yet thick enough not to bend easily - a very important property for a mobile robot.
 
-Cut off a strip of metal so that you can mount the cameras onto it with a baseline separation of 100mm between the centres of each lens.  Why 100mm?  Well, there doesn't seem to be any general agreement on an appropriate baseline distance for mobile robot stereo vision.  It's just down to personal preference, and 100mm seems like a round number in the right sort of ballpack.  In the past I have used 70mm and 140mm spacings.  
+Cut off a strip of metal so that you can mount the cameras onto it with a [StereoBaseline baseline separation] of 100mm between the centres of each lens.  Why 100mm?  Well, there doesn't seem to be any general agreement on an appropriate baseline distance for mobile robot stereo vision.  It's just down to personal preference, and 100mm seems like a round number in the right sort of ballpack.  In the past I have used 70mm and 140mm spacings.  
 
 [http://sluggish.uni.cc/sentience/make_stereo_camera1.jpg]
 
