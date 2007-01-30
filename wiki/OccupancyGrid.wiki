@@ -9,7 +9,7 @@ Early efforts using the [http://sluggish.uni.cc/sentience/sentience.htm Sentienc
 The stages involved in creating an occupancy grid are as follows:
 
   #  Grab images from cameras
-  #  Perform dense stereo correspondence to calculate a [DepthMap depth map]
+  #  Perform dense stereo correspondence to calculate a [DisparityMap depth map]
   #  For each disparity create a ray of light using an appropriate [StereoSensorModel sensor model] and insert it into the grid, taking into account the position and orientation of the robot
   #  Continue updating the grid over time as the robot accumulates experience of its surroundings
 
