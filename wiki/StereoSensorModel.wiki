@@ -1,0 +1,15 @@
+#summary Modelling probability distributions
+
+A sensor model is a set of values, typically held within a lookup table, which governs how the probability of an uncertain measurement taken from a particular type of sensor varies in space.  Some sensors give more certain information than others.  A laser for example gives quite precise values for reflections at close range, such that these may be considered merely to be points in space (a _point cloud_).  Readings from other types of sensor, such as ultrasonic or digital imagers, contain far more uncertainly and so require a model larger than a single point.
+
+To create a sensor model suitable for stereo vision a numerical simulation can be used to exhaustively calculate the [StereoUncertainty probability of an observed feature existing] at every point in space.  This can then be used to create an approprtate lookup table for a variety of possible ranges.
+
+A typical sensor model for stereoscopic vision looks something like this.
+
+[http://sluggish.uni.cc/sentience/stereo_ray_sensor_model.jpg]
+
+The grey scales indicate the probability of the observed feature existing at that location in space.  The left side of the model is closest to the cameras, with the axis of the ray of light connecting the observed feature to the centre of the [StereoBaseLine camera baseline] being the vertical centre row.  Since the sensor model is symmetrical about the axis of the ray of light we only need to store the top half of this image as the sensor model.  Sensor model probability distributions vary depending upon the [StereoRanging calculated range] of the feature.  Accurate sensor models are essential for creation of reasonable quality [OccupancyGrid 3D occupancy grids].
+
+=== Pretty vacant ===
+
+In addition to having a sensor model for the existence (occupancy) of a feature we also need a model for the probable empty space (vacancy) between the camera and the feature.  This vacancy model is simpler, and can be used to _carve out_ empty space within an occupancy grid.  In practical navigation and mapping experiments it seems that it's the vacancy model more than any other factor which has a large influence upon the quality of the resulting 3D voxel model.
