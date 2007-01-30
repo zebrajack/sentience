@@ -1,0 +1,11 @@
+#summary Characterising the uncertainty in stereo ranges
+#labels stereoranging
+
+When two features in a pair of stereo images are matched the range to the feature may be computed.  However, this does not mean that the distance to the feature is known with certainty.  There is always some small degree of uncertainty about the position of a feature within an image, which could be as great as plus or minus half a pixel.  It may be possible to increase the accuracy of the range by using [SubPixelInterploation sub-pixel interpolation], but it's never possible to eliminate the uncertainty entirely.
+
+If we know the field of vision of the camera, which is typically 40 degrees horizontal and 20 degrees vertical for most webcams, the horizontal pixel position of the feature may be turned into an angle which is the angle of the incoming ray of light heading from the feature to the camera.  There will be some amount of uncertainty about this angle due to imperfections in image quality which can be modelled as a [http://en.wikipedia.org/wiki/Normal_distribution gaussian distribution] having some [http://en.wikipedia.org/wiki/Standard_deviation standard deviation].
+
+An overhead view of the incoming rays for a single matched feature are shown in the diagram below.  *L* and *R* are the left and right cameras.  The black lines are the angles calculated from the horizontal positions of the feature as observed by each camera, and the grey lines represent the [http://en.wikipedia.org/wiki/Standard_deviation standard deviation] about this angle.
+
+[http://sluggish.uni.cc/sentience/stereo_uncertainty_region.jpg]
+
