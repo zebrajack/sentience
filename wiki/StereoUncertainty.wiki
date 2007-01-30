@@ -9,3 +9,4 @@ An overhead view of the incoming rays for a single matched feature are shown in 
 
 [http://sluggish.uni.cc/sentience/stereo_uncertainty_region.jpg]
 
+So taking into account the uncertainty in the feature position we can say that its actual position must lie somewhere inside the intersection of the two rays represented by the red diamond shape in the diagram above.
