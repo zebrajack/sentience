@@ -9,7 +9,20 @@ It should be noted that solving the stereo correspondence problem unde the epipo
 
 There are two main approaches which can be taken to finding corresponding points in two or more images.  
 
-One way is to pick out [FeaturePoints feature points] of high distinctiveness, such as [http://en.wikipedia.org/wiki/Scale-invariant_feature_transform SIFT] features or [http://mi.eng.cam.ac.uk/~er258/work/fast.html FAST] corners.  These features can typically be detected and matched at high speed, making this sort of correspondence a viable solution for real time robotics applications.  Using distinctive features may also be useful for sparse landmark based [http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping SLAM].
+One way is to pick out [FeaturePoints feature points] of high distinctiveness, such as [http://en.wikipedia.org/wiki/Scale-invariant_feature_transform SIFT] features or [http://mi.eng.cam.ac.uk/~er258/work/fast.html FAST] corners.  These features can typically be detected and matched at high speed, making this sort of correspondence a viable solution for real time robotics applications.  Using distinctive features may also be useful for sparse landmark based [http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping SLAM].  
+
+An example of sparse stereo matching can be seen below.  The features picked out in this case are vertical edges within the image.
+
+[http://sluggish.uni.cc/sentience/sentdemo.jpg]
 
 The other way is to try to match as many pixels as possible, typically known as _dense stereo matching_.  Dense stereo is useful if the system needs to recover the detailed geometry of the scene, in order to facilitate obstacle avoidance or object recognition.  Efficient methods for dense stereo correspondence have been slow to materialise.  There are a few companies selling commercial stereo vision products which utilise dedicated hardware in order perform _brute force_ correspondence searching.  Even with hardware acceleration this is a very unintelligent way to solve the problem, and is particularly prone to matching errors.  This problem can be solved in a more practical and far less expensive way by using _multi-scale receptive field contours_, whereby areas of the image are labelled according to their [CentreSurround centre/surround] frequency and amplitude prior to being matched.  Using an efficient algorithm dense stereo matching becomes a practical proposition for robotics use, even on low end single core processors.
 
+An example of dense stereo can be seen in the images below.  Here an orange juice carton is observed and depth data derrived from correspondence matching is used to update a 3D [OccupancyGrid occupancy grid].
+
+[http://sluggish.uni.cc/sentience/occupancy2.jpg]
+
+=== The Correspondence Club Sandwich ===
+
+For practical robotics applications we really want to get the best of both worlds.  We want sparse but distinctive features to facilitate real time SLAM, but this alone isn't enough.  We also want dense range data in order to model the environment with reasonable fidelity so that objects such as chairs, tables and people become apparent and can be recognised or avoided.
+
+Since the computational overhead of sparse stereo is negligible, typically taking less than 18mS (the resolution of the standard timer on the Windows operating system) on a 1.8GHz single core processor, we may run both sparse and dense algorithms concurrently in separate threads.
