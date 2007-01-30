@@ -1,4 +1,5 @@
 #summary Modelling probability distributions
+#labels probability
 
 A sensor model is a set of values, typically held within a lookup table, which governs how the probability of an uncertain measurement taken from a particular type of sensor varies in space.  Some sensors give more certain information than others.  A laser for example gives quite precise values for reflections at close range, such that these may be considered merely to be points in space (a _point cloud_).  Readings from other types of sensor, such as ultrasonic or digital imagers, contain far more uncertainly and so require a model larger than a single point.
 
