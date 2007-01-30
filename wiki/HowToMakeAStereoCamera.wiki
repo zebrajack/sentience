@@ -35,4 +35,4 @@ Now its time to assemble the whole caboodle.  The stereo camera singularity *_is
 
 [http://sluggish.uni.cc/sentience/make_stereo_camera3.jpg]
 
-And that's all there is to it.  The next step is camera calibration, and then the system is ready to be used as a fully operational ranging device.
+And that's all there is to it.  The next step is [CameraCalibration camera calibration], and then the system is ready to be used as a fully operational ranging device.
