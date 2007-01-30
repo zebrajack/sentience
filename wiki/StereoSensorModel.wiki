@@ -13,4 +13,4 @@ The grey scales indicate the probability of the observed feature existing at tha
 
 === Pretty vacant ===
 
-In addition to having a sensor model for the existence (occupancy) of a feature we also need a model for the probable empty space (vacancy) between the camera and the feature.  This vacancy model is simpler, and can be used to _carve out_ empty space within an occupancy grid.  In practical navigation and mapping experiments it seems that it's the vacancy model more than any other factor which has a large influence upon the quality of the resulting 3D voxel model.
+In addition to having a sensor model for the existence (occupancy) of a feature we also need a model for the probable empty space (vacancy) between the camera and the feature.  This vacancy model is simpler, and can be used to _carve out_ empty space within an [OccupancyGrid occupancy grid].  In practical navigation and mapping experiments it seems that it's the vacancy model more than any other factor which has a large influence upon the quality of the resulting 3D voxel model.
