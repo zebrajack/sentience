@@ -1,0 +1,10 @@
+#summary Calculating the distance to objects by making a pair of observations at different locations
+
+Stereoscopic ranging has a long and honourable history.  Before the technology of [http://en.wikipedia.org/wiki/Radar radar] came along in the mid part of the 20th century battle ships used mirrors and clockwork mechanisms in order to accurately calculate the range to an enemy ship.  Mirrors on either side of the ship reflected light to a central location, where a human observer would turn a wheel to manually align the two images.  When the images were perfectly aligned the distance to the ship could be read from a clockwork dial.  This same ranging method was later adapted and made smaller so that it could be used on battle tanks.  Up until the mid 1960s when laser technology arrived tanks used manual stereoscopic correspondence to calculate the correct gun elevation for long range targets.
+
+For stereo vision calculating the range to an observed object or feature is fairly straightforward.
+
+  Range = ( Focal length x [StereoBaseline Camera baseline] ) / [StereoDisparity Disparity]
+
+Where the [StereoDisparity disparity] is the horizontal difference between the position of the feature in left and right images.  However, this is not the end of the story.  There can be [StereoUncertainty significant uncertainties] in stereo range values which need to be [StereoSensorModel modelled in a probabilistic fashion] in order to build accurate maps or models.
+
