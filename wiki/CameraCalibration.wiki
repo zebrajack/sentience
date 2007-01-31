@@ -7,7 +7,12 @@ Camera images normally contain some amount of spherical distortion, sometimes kn
 
 Various methods of calibration exist.  The simplest method assumes a perfectly symmetrical lens around the [CentreOfDistortion centre of distortion], and uses an equation to represent how light rays are bent radially around this by the curvature of the lens.  [http://www.doc.ic.ac.uk/~ajd/ Andrew Davison] used this for single camera [http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping SLAM], and for most practical purposes it works ok.  However, it should be noted that in practice few camera lenses are perfectly symmetrical.
 
+The typical method of calibration involves having the camera observe a test pattern, which can consist of spots, lines or squares (or indeed any easily identifiable repeating pattern).  Since the real geometry of the pattern is known the lens distortion can be calculated, then used to rectify the image back into a flat geometry.
+
+An example of a raw image from a camera with a wide angle lens and the rectified image in which straight lines are preserved is shown below.
+
 [http://sluggish.uni.cc/sentience/rectification.jpg]
+
 
 
 
