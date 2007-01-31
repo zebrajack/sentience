@@ -17,6 +17,6 @@ A few possibilities for camera based range sensing exist.
 Key advantages of camera based systems.
 
   #  Although a trinocular system might be more accurate, using only two cameras gives a minimally complex and minimal cost solution.  
-  #  Very low cost of digital imaging devices.  In the last five years digital imagers have become ubiquitous devices, used in digital cameras and mobile phones.  Low cost means that robots using stereo vision easily fall within the means of the robotics hobbyist or even consumer robotics domains.  
+  #  Very low cost of digital imaging devices.  In the last five years digital imagers have become ubiquitous devices, used in digital cameras and mobile phones.  Low cost means that robots using stereo vision easily fall within the means of the robotics hobbyist or even consumer robotics domains.
   #  Cameras are entirely solid state, whereas laser scanners have moving parts which could potentially become unreliable during the _rough and tumble_ of robotic excursions.
-  #  Colour information can be easily acquired at te same time as range data, helping to build realistic full colour 3D models of the environment.
+  #  Colour information can be easily acquired at the same time as range data, helping to build realistic full colour 3D models of the environment.
