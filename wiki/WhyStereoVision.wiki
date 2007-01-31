@@ -1,0 +1,14 @@
+#summary Why stereo vision ?
+
+Multiple methods exist for determining the range to an object.  The most popular for robotics use are _active sensing_ methods such as infrared, ultrasonic and laser ranging devices.  The trouble with all of these methods is that they only give quite low resolution information.  For infrared and ultrasonics the area of space within which objects may be detected is quite wide (several degrees at least), so that the precise position of an object may only be known in very vague terms.  
+
+A laser ranger on the other hand has a far more specific narrow beam, but at any point in time only gives a tiny _tunnel vision-like_ amount of information about the depth of the scene.  To overcome this problem in recent years _scanning laser rangefinders_ have become increasingly popular.  By scanning in one or more directions using a spinning mirror to direct a laser beam it's possible to build up [http://www.realitymapping.co.uk/ detailed information about the geometric structure of the environment].  However, this scanning process is relatively slow and relies upon precision engineered mechanical parts.  At the time of writing scanning laser rangefinders are still very expensive devices costing thousands of dollars, and remain only within the realm of high end academic, industrial or military applications.
+
+Cameras can also be used as range sensing devices.  When more than one camera are arranged in some configuration, such that the same features in the environment can be observed from multiple viewpoints, matches made between [StereoCorrespondence corresponding features] may be used to [StereoRanging calculate range values].  Potentially, _every pixel in the camera image_ can be used as a highly focussed ranging device.
+
+A few possibilities for camera based range sensing exist.
+
+  #  A single camera taking pictures as it moves through space, with features being tracked and correlated over time.
+  #  Two cameras taking photos near symultaneously, calculating ranges from [StereoCorrespondence stereo correspondences] under the [EpipolarConstraint epipolar constraint].
+  #  Three cameras - a _trinocular_ system - working in a similar manner to stereo but with greater possibilities for accuracy and dissambiguation of features.  The only dissadvantage here is the greater computing resources needed to process three images rather than two, and calculate three dimensional light ray intersections.
+  #  Use of two or three cameras together with tracking of features over time to produce a _spatio-temporal correlation_ system.  This is the ideal visual perception system, since tracking of features over time facilitates accurate long range measurements to be taken.
