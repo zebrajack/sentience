@@ -1,4 +1,4 @@
-#summary Why stereo vision ?
+#summary Why choose stereo vision ?
 
 Multiple methods exist for determining the range to an object.  The most popular for robotics use are _active sensing_ methods such as infrared, ultrasonic and laser ranging devices.  The trouble with all of these methods is that they only give quite low resolution information.  For infrared and ultrasonics the area of space within which objects may be detected is quite wide (several degrees at least), so that the precise position of an object may only be known in very vague terms.  
 
@@ -12,3 +12,5 @@ A few possibilities for camera based range sensing exist.
   #  Two cameras taking photos near symultaneously, calculating ranges from [StereoCorrespondence stereo correspondences] under the [EpipolarConstraint epipolar constraint].
   #  Three cameras - a _trinocular_ system - working in a similar manner to stereo but with greater possibilities for accuracy and dissambiguation of features.  The only dissadvantage here is the greater computing resources needed to process three images rather than two, and calculate three dimensional light ray intersections.
   #  Use of two or three cameras together with tracking of features over time to produce a _spatio-temporal correlation_ system.  This is the ideal visual perception system, since tracking of features over time facilitates accurate long range measurements to be taken.
+
+Although a trinocular system might be more accurate, using only two cameras gives a minimally complex and minimal cost solution.  A strong argument in favour of camera based ranging systems is the very low cost of digital imaging devices.  In the last five years digital imagers have become ubiquitous devices, used in digital cameras and mobile phones.  Low cost means that robots using stereo vision easily fall within the means of the robotics hobbyist or even consumer robotics domains.  Another advantage is that cameras are entirely solid state devices, whereas laser scanners have moving parts which could potentially become unreliable during the _rough and tumble_ of robotic excursions.
