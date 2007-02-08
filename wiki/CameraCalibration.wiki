@@ -5,7 +5,7 @@
 
 Camera images normally contain some amount of spherical distortion, sometimes known as the _goldfish bowl effect_.  Linear features such as chair legs or door frames may appear to be warped, especially at the periphery of the image.  The job of camera calibration is to discover the nature of this distortion so that the resulting image may subsequently be undistorted or [ImageRectification rectified].
 
-Various methods of calibration exist.  The simplest method assumes a perfectly symmetrical lens around the [CentreOfDistortion centre of distortion], and uses an equation to represent how light rays are bent radially around this by the curvature of the lens.  [http://www.doc.ic.ac.uk/~ajd/ Andrew Davison] used this for single camera [http://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping SLAM], and for most practical purposes it works ok.  However, it should be noted that in practice few camera lenses are perfectly symmetrical.
+Various methods of calibration exist.  The simplest method assumes a perfectly symmetrical lens around the [CentreOfDistortion centre of distortion], and uses a polynomial equation to represent how light rays are bent radially around this by the curvature of the lens.  
 
 The typical method of calibration involves having the camera observe a test pattern, which can consist of spots, lines or squares (or indeed any easily identifiable repeating pattern).  Since the real geometry of the pattern is known the lens distortion can be calculated, then used to rectify the image back into a flat geometry.
 
@@ -14,7 +14,6 @@ An example of a raw image from a camera with a wide angle lens and the rectified
 [http://sluggish.uni.cc/sentience/rectification.jpg]
 
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
-
 
 
 
