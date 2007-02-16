@@ -47,7 +47,7 @@ Ingredients required:
 
 Instructions:
 
-1.  Draw a grid pattern on the cardboard using the pen and some straight object as a guide.  Cardboard is a good material to use, since it is non-reflective and easy to draw on.  You can choose anything you like as the spacing between lines (provided that it's regular).  I've found that 50 millimetres (5cm) seems to be a good spacing value.
+1.  Draw a grid pattern on the cardboard using the pen and some straight object as a guide.  Cardboard is a good material to use, since it is non-reflective and easy to draw on.  You can choose anything you like as the spacing between lines (provided that it's regular).  I've found that 50 millimetres (5cm) seems to be a good spacing value.  Also, draw a small spot about 1.5cm in diameter to the north west of the centre of the pattern.
 
 2.  Lay the calibration pattern down on the floor and have the stereo camera look down towards the centre of the pattern.  Ensure that the centre of the two cameras is aligned with the centre of the pattern.  The cameras would typically be mounted on a pan and tilt mechanism on the head of a robot, but in this case I'm just using the back of a chair as a substitute for a mobile robot.
 
