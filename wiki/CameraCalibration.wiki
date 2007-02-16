@@ -40,7 +40,7 @@ _Sentience_ contains an automatic monocular or stereo camera calibration system,
 
 Ingredients required:
 
-  *  Stereo camera
+  *  [HowToMakeAStereoCamera Stereo camera]
   *  Large piece of cardboard
   *  Black marker pen
   *  Tape measure
