@@ -60,6 +60,8 @@ Instructions:
 
 [http://sluggish.uni.cc/sentience/calibration_roi.jpg]
 
+*Additional note:  The Creative Webcam NX Ultra cameras used in this example already appear to be pre-rectified either in hardware or as part of their software drivers.  This seems to be the exception rather than the norm, with most webcam images containing some amount of distortion*
+
 5.  If the pattern does not fill the entire image you can define a _region of interest_ by clicking on the top left or bottom right areas of the image.  This will instruct the program where to look for edge features.
 
 6.  From *Tools* on the menu bar select *Reset calibration data*.  This will reset all previous calculations which might have occured whilst you were physically setting up/aligning the system and begin calibrating.
