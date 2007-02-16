@@ -7,6 +7,8 @@ Various methods of calibration exist.  The simplest method assumes a perfectly s
 
 The typical method of calibration involves having the camera observe a test pattern, which can consist of spots, lines or squares (or indeed any easily identifiable repeating pattern).  Since the real geometry of the pattern is known the lens distortion can be calculated, then used to rectify the image back into a flat geometry.
 
+=== Stages of Calibration ===
+
 The images below show the stages involved in the calibration process.
 
 [http://sluggish.uni.cc/sentience/calibration_steps.jpg]
@@ -27,21 +29,25 @@ The images below show the stages involved in the calibration process.
 
 7.  *Shake and bake*  Once a good curve fit has been discovered a small amount of random noise is added and a secondary function is used to evaluate the quality of fit to the image, by comparing the rectified corner feature positions to the forward projected corners.  This allows the curve to be fine tuned to get the closest possible match.
 
+8.  *Rectification*  The centre of distorion and polynomial curve may be used to rectify images from the camera.
+
+
+The assumption that the lens distortion is radially symmetric is of course not always true, especially on low cost webcams where the quality of manufacture may not be especially high.
+
+=== Users guide ===
+
+_Sentience_ contains an automatic monocular or stereo camera calibration system, which requires a calibration pattern.  I have tried to keep this procedure as simple as possible, so that it can be carried out _in the field_ by a non-expert using only easily available materials.
+
+Ingredients required:
+
+  *  Large piece of cardboard
+  *  Black marker pen
+  *  Straight object to use as a drawing guide, such as a ruler or piece of wood
+
+Instructions:
+
+Draw a grid pattern on the cardboard using the pen and some straight object as a guide.  You can choose anything you like as the spacing between lines (provided that it's regular).  50 millimetres seems to be a good spacing value.
+
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
