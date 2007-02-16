@@ -67,7 +67,7 @@ Instructions:
 
 8.  Using the drop down list check the rectified images to see that they look reasonable.  Just for fun, an example of a *bad rectification* is shown below.
 
-[http://sluggish.uni.cc/sentience/calibration_roi.jpg]
+[http://sluggish.uni.cc/sentience/calibration_bad.jpg]
 
 
 === Further Reading ===
