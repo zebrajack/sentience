@@ -70,6 +70,68 @@ Instructions:
 
 [http://sluggish.uni.cc/sentience/calibration_bad.jpg]
 
+9.  When you are happy that all is well, select *Save As* from the *File* menu to save the calibration results.  Parameters for stereo camera calibration are stored within an XML format which may then be read by other programs within the _Sentience_ system.  A typical calibration file looks like this:
+
+{{{
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Sentience 3D Perception System-->
+<Sentience>
+  <StereoCamera>
+    <!--Name of the WDM software driver for the cameras-->
+    <DriverName>Creative WebCam NX Ultra</DriverName>
+    <!--Position and orientation of the stereo camera relative to the robots head or body-->
+    <PositionOrientation>
+      <!--Position in millimetres-->
+      <PositionMillimetres>0,0,0</PositionMillimetres>
+      <!--Orientation in degrees-->
+      <OrientationDegrees>0,0,0</OrientationDegrees>
+    </PositionOrientation>
+    <!--Focal length in millimetres-->
+    <FocalLengthMillimetres>5</FocalLengthMillimetres>
+    <!--Camera baseline distance in millimetres-->
+    <BaselineMillimetres>100</BaselineMillimetres>
+    <!--Calibration Data-->
+    <Calibration>
+      <!--Image offsets in pixels-->
+      <Offsets>0,0</Offsets>
+      <Camera>
+        <!--Horizontal field of view of the camera in degrees-->
+        <FieldOfViewDegrees>78</FieldOfViewDegrees>
+        <!--Image dimensions in pixels-->
+        <ImageDimensions>320,240</ImageDimensions>
+        <!--The centre of distortion in pixels-->
+        <CentreOfDistortion>162,114</CentreOfDistortion>
+        <!--Polynomial coefficients used to describe the camera lens distortion-->
+        <DistortionCoefficients>0,1.065078,0.0002916086</DistortionCoefficients>
+        <!--Scaling factor-->
+        <Scale>0.8375</Scale>
+        <!--Rotation of the image in degrees-->
+        <RotationDegrees>-1.133079</RotationDegrees>
+        <!--The minimum RMS error between the distortion curve and plotted points-->
+        <RMSerror>2.016015</RMSerror>
+      </Camera>
+      <Camera>
+        <!--Horizontal field of view of the camera in degrees-->
+        <FieldOfViewDegrees>78</FieldOfViewDegrees>
+        <!--Image dimensions in pixels-->
+        <ImageDimensions>320,240</ImageDimensions>
+        <!--The centre of distortion in pixels-->
+        <CentreOfDistortion>155,117</CentreOfDistortion>
+        <!--Polynomial coefficients used to describe the camera lens distortion-->
+        <DistortionCoefficients>0,1.078652,0.001355878</DistortionCoefficients>
+        <!--Scaling factor-->
+        <Scale>0.89375</Scale>
+        <!--Rotation of the image in degrees-->
+        <RotationDegrees>-0.9599218</RotationDegrees>
+        <!--The minimum RMS error between the distortion curve and plotted points-->
+        <RMSerror>3.283534</RMSerror>
+      </Camera>
+    </Calibration>
+  </StereoCamera>
+</Sentience>
+
+}}}
 
 === Further Reading ===
 
