@@ -62,6 +62,8 @@ Instructions:
 
 *Additional note:  The Creative Webcam NX Ultra cameras used in this example already appear to be pre-rectified either in hardware or as part of their software drivers.  This seems to be the exception rather than the norm, with most webcam images containing some amount of distortion*
 
+The first thing to check is that left and right cameras are connected correctly.  Looking from behind the stereo camera the left camera should be on your left.  You can check this simply by covering the lens of one of the cameras.  If the cameras are in the wrong order exit the program, unplug the cameras and plug them back in the other way around.
+
 5.  If the pattern does not fill the entire image you can define a _region of interest_ by clicking on the top left or bottom right areas of the image.  This will instruct the program where to look for edge features.  Regions of interest appear as green boxes.
 
 6.  Click on the button marked *Calibration* to begin the calibration process.
