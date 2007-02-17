@@ -56,23 +56,21 @@ Instructions:
 
 3.  Measure the distance along the ground from the stereo camera to the centre of the calibration pattern.  Also, measure the height of the cameras above the floor.  To be as accurate as possible you should be measuring distances from the lenses of the cameras.
 
-4.  Run the calibration program and enter the measurement values, pattern spacing, field of vision and stereo camera baseline distance, then from *video* on the menu bar select *start camera*.  When the cameras are running use the large white crosshairs to align the cameras with the pattern, like this:
+4.  Run the calibration program and enter the measurement values, pattern spacing, field of vision and stereo camera baseline distance, then from *video* on the menu bar select *start camera*.  The program has two modes of operation: _alignment mode_ and _calibration mode_, toggled by the button at the top left of the screen.  When video streaming initially commences you will be in alignment mode.  When the cameras are running use the large white crosshairs to align the cameras with the pattern, like this:
 
 [http://sluggish.uni.cc/sentience/calibration_roi.jpg]
 
 *Additional note:  The Creative Webcam NX Ultra cameras used in this example already appear to be pre-rectified either in hardware or as part of their software drivers.  This seems to be the exception rather than the norm, with most webcam images containing some amount of distortion*
 
-5.  If the pattern does not fill the entire image you can define a _region of interest_ by clicking on the top left or bottom right areas of the image.  This will instruct the program where to look for edge features.
+5.  If the pattern does not fill the entire image you can define a _region of interest_ by clicking on the top left or bottom right areas of the image.  This will instruct the program where to look for edge features.  Regions of interest appear as green boxes.
 
-6.  From *Tools* on the menu bar select *Reset calibration data*.  This will reset all previous calculations which might have occured whilst you were physically setting up/aligning the system and begin calibrating.
+6.  Click on the button marked *Calibration* to begin the calibration process.
 
-7.  A status message to the left of the screen will show when the automatic calibration is completed.  If the calibration seems to be taking a long time use the drop down list to select edges, corners or lines and check that these features are being detected properly.
-
-8.  Using the drop down list check the rectified images to see that they look reasonable.  Just for fun, an example of a *bad rectification* is shown below.
+7.  A status message to the left of the screen will show when the automatic calibration is completed.  If the calibration seems to be taking a long time use the drop down list to select edges, corners or lines and check that these features are being detected properly.  Using the drop down list check the rectified images to see that they look reasonable.  If the calibration has been successfully completed the view will automatically switch to show the rectified image.  Just for fun, an example of a *bad rectification* is shown below.
 
 [http://sluggish.uni.cc/sentience/calibration_bad.jpg]
 
-9.  When you are happy that all is well, select *Save As* from the *File* menu to save the calibration results.  Parameters for stereo camera calibration are stored within an XML format which may then be read by other programs within the _Sentience_ system.  A typical calibration file looks like this:
+8.  When you are happy that all is well, select *Save As* from the *File* menu to save the calibration results.  Parameters for stereo camera calibration are stored within an XML format which may then be read by other programs within the _Sentience_ system.  A typical calibration file looks like this:
 
 {{{
 
@@ -138,3 +136,5 @@ Instructions:
 === Further Reading ===
 
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
+
+Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
