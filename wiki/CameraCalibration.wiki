@@ -66,7 +66,7 @@ Instructions:
 
 6.  Click on the button marked *Calibration* to begin the calibration process.
 
-7.  A status message to the left of the screen will show when the automatic calibration is completed.  If the calibration seems to be taking a long time use the drop down list to select edges, corners or lines and check that these features are being detected properly.  Using the drop down list check the rectified images to see that they look reasonable.  If the calibration has been successfully completed the view will automatically switch to show the rectified image.  Just for fun, an example of a *bad rectification* is shown below.
+7.  A status message to the left of the screen will show when the automatic calibration is completed.  If the calibration seems to be taking a long time use the drop down list to select edges, corners or lines and check that these features are being detected properly.  Using the drop down list check the rectified images to see that they look reasonable.  A common problem is that the centre spot indicated by a white square within the corners image is not being detected, which may be due to bad lighting.  If the calibration has been successfully completed the view will automatically switch to show the rectified image.  Just for fun, an example of a *bad rectification* is shown below.
 
 [http://sluggish.uni.cc/sentience/calibration_bad.jpg]
 
