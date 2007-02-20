@@ -36,7 +36,9 @@ The assumption that the lens distortion is radially symmetric is of course not a
 
 === Users guide ===
 
-_Sentience_ contains an automatic monocular or stereo camera calibration system, which requires a calibration pattern.  I have tried to keep this procedure as simple as possible, so that it can be carried out _in the field_ by a non-expert using only easily available materials.
+[http://sluggish.uni.cc/sentience/fishfood.jpg]
+
+Sentience contains an automatic monocular or stereo camera calibration system, called FishFood.  The procedure requires a calibration pattern, but I have tried to keep the system as simple as possible, such that it could be carried out _in the field_ by a non-expert using only easily available materials.
 
 Ingredients required:
 
@@ -140,3 +142,9 @@ The first thing to check is that left and right cameras are connected correctly.
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
 
 Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
+
+
+
+
+
+
