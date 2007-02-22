@@ -88,7 +88,7 @@ The first thing to check is that left and right cameras are connected correctly.
   <StereoCamera>
     <!--Name of the WDM software driver for the cameras-->
     <DriverName>Creative WebCam NX Ultra</DriverName>
-    <!--Position and orientation of the stereo camera relative to the robots head or body-->
+    <!--Position and orientation of the camera relative to the robots head or body-->
     <PositionOrientation>
       <!--Position in millimetres-->
       <PositionMillimetres>0,0,0</PositionMillimetres>
@@ -101,23 +101,23 @@ The first thing to check is that left and right cameras are connected correctly.
     <BaselineMillimetres>100</BaselineMillimetres>
     <!--Calibration Data-->
     <Calibration>
-      <!--Image offsets in pixels-->
-      <Offsets>0,0</Offsets>
+      <!--Image offsets in pixels due to small missalignment from parallel-->
+      <Offsets>23.21169,-1</Offsets>
       <Camera>
         <!--Horizontal field of view of the camera in degrees-->
         <FieldOfViewDegrees>78</FieldOfViewDegrees>
         <!--Image dimensions in pixels-->
         <ImageDimensions>320,240</ImageDimensions>
         <!--The centre of distortion in pixels-->
-        <CentreOfDistortion>162,114</CentreOfDistortion>
+        <CentreOfDistortion>157,112</CentreOfDistortion>
         <!--Polynomial coefficients used to describe the camera lens distortion-->
-        <DistortionCoefficients>0,1.065078,0.0002916086</DistortionCoefficients>
+        <DistortionCoefficients>0,1.231268,0.0002229516</DistortionCoefficients>
         <!--Scaling factor-->
-        <Scale>0.8375</Scale>
+        <Scale>0.8125</Scale>
         <!--Rotation of the image in degrees-->
-        <RotationDegrees>-1.133079</RotationDegrees>
+        <RotationDegrees>-0.3941584</RotationDegrees>
         <!--The minimum RMS error between the distortion curve and plotted points-->
-        <RMSerror>2.016015</RMSerror>
+        <RMSerror>3.328376</RMSerror>
       </Camera>
       <Camera>
         <!--Horizontal field of view of the camera in degrees-->
@@ -125,15 +125,15 @@ The first thing to check is that left and right cameras are connected correctly.
         <!--Image dimensions in pixels-->
         <ImageDimensions>320,240</ImageDimensions>
         <!--The centre of distortion in pixels-->
-        <CentreOfDistortion>155,117</CentreOfDistortion>
+        <CentreOfDistortion>155,113</CentreOfDistortion>
         <!--Polynomial coefficients used to describe the camera lens distortion-->
-        <DistortionCoefficients>0,1.078652,0.001355878</DistortionCoefficients>
+        <DistortionCoefficients>0,1.15394,0.0006436906</DistortionCoefficients>
         <!--Scaling factor-->
-        <Scale>0.89375</Scale>
+        <Scale>0.8125</Scale>
         <!--Rotation of the image in degrees-->
-        <RotationDegrees>-0.9599218</RotationDegrees>
+        <RotationDegrees>-0.6620849</RotationDegrees>
         <!--The minimum RMS error between the distortion curve and plotted points-->
-        <RMSerror>3.283534</RMSerror>
+        <RMSerror>3.4475</RMSerror>
       </Camera>
     </Calibration>
   </StereoCamera>
@@ -146,7 +146,6 @@ The first thing to check is that left and right cameras are connected correctly.
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
 
 Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
-
 
 
 
