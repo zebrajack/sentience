@@ -27,7 +27,11 @@ The images below show the stages involved in the calibration process.
 
 [http://sluggish.uni.cc/sentience/calibration_polynomial.jpg]
 
-7.  *Shake and bake*  Once a good curve fit has been discovered a small amount of random noise is added and a secondary function is used to evaluate the quality of fit to the image, by comparing the rectified corner feature positions to the forward projected corners.  This allows the curve to be fine tuned to get the closest possible match.
+7.  *Shake and bake*  Once a good curve fit has been discovered a small amount of random noise is added and a secondary function is used to evaluate the quality of fit to the image, by comparing the rectified corner feature positions to the forward projected corners.  This annealing process allows the curve to be fine tuned to get the closest possible match.
+
+The images stereo below show the difference between the rectified corner positions and the ideal forward projected positions, with white lines indicating the error magnitude.
+
+[http://sluggish.uni.cc/sentience/calibration_errors.jpg]
 
 8.  *Rectification*  The centre of distorion and polynomial curve may be used to rectify images from the camera.
 
