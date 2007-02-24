@@ -1,0 +1,148 @@
+#summary Zen and the art of robot design
+
+In order to be able to build useful maps for navigation and object recognition the system first needs to know a few things about the robot to which the cameras are attached.  The basic dimensions of the robot, position of the _head_ where the stereo cameras are fixed and total mass are all needed so that occupancy grids can be updated correctly, and so that short term predictions of the robots position and orientation - and therefore its localisation uncertainty - may be made.
+
+Run the _Robot Designer_ program and enter the details.  From the *File* menu you may also import [CameraCalibration camera calibration] data to complete the inventory of settings needed to run Sentience.
+
+When you're finished select *Save As* from the File menu and save the robot design file.  The file will look something like this:
+
+{{{
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--Sentience 3D Perception System-->
+<Sentience>
+  <Robot>
+    <!--Name-->
+    <Name>My Robot</Name>
+    <!--Total mass in kilograms-->
+    <TotalMassKilograms>1</TotalMassKilograms>
+    <BodyDimensions>
+      <!--Shape of the body-->
+      <!--0 - square-->
+      <!--1 - round-->
+      <BodyShape>0</BodyShape>
+      <!--Width of the body in millimetres-->
+      <BodyWidthMillimetres>200</BodyWidthMillimetres>
+      <!--Length of the body in millimetres-->
+      <BodyLengthMillimetres>200</BodyLengthMillimetres>
+      <!--Height of the body in millimetres-->
+      <BodyHeightMillimetres>80</BodyHeightMillimetres>
+    </BodyDimensions>
+    <PropulsionSystem>
+      <!--Propulsion type-->
+      <PropulsionType>0</PropulsionType>
+      <!--Distance between the wheels in millimetres-->
+      <WheelBaseMillimetres>175</WheelBaseMillimetres>
+      <!--How far from the front of the robot is the wheel base in millimetres-->
+      <WheelBaseForwardMillimetres>25</WheelBaseForwardMillimetres>
+      <!--Wheel diameter in millimetres-->
+      <WheelDiameterMillimetres>70</WheelDiameterMillimetres>
+      <!--Wheel Position feedback type-->
+      <WheelPositionFeedbackType>0</WheelPositionFeedbackType>
+      <!--Motor gear ratio-->
+      <GearRatio>50</GearRatio>
+      <!--Encoder counts per revolution-->
+      <CountsPerRev>4096</CountsPerRev>
+    </PropulsionSystem>
+    <SensorPlatform>
+      <!--Number of stereo cameras-->
+      <NoOfStereoCameras>1</NoOfStereoCameras>
+      <!--The type of head-->
+      <HeadType>0</HeadType>
+      <!--Size of the head in millimetres-->
+      <HeadSizeMillimetres>50</HeadSizeMillimetres>
+      <!--Shape of the head-->
+      <HeadShape>0</HeadShape>
+      <!--Offset of the head from the leftmost side of the robot in millimetres-->
+      <HeadPositionLeftMillimetres>100</HeadPositionLeftMillimetres>
+      <!--Offset of the head from the front of the robot in millimetres-->
+      <HeadPositionForwardMillimetres>120</HeadPositionForwardMillimetres>
+      <!--Height of the head above the ground in millimetres-->
+      <HeadHeightMillimetres>1000</HeadHeightMillimetres>
+      <!--Orientation of the cameras-->
+      <CameraOrientation>0</CameraOrientation>
+      <StereoCamera>
+        <!--Name of the WDM software driver for the cameras-->
+        <DriverName>Not specified</DriverName>
+        <!--Position and orientation of the camera relative to the robots head or body-->
+        <PositionOrientation>
+          <!--Position in millimetres-->
+          <PositionMillimetres>0,0,0</PositionMillimetres>
+          <!--Orientation in degrees-->
+          <OrientationDegrees>0,0,0</OrientationDegrees>
+        </PositionOrientation>
+        <!--Focal length in millimetres-->
+        <FocalLengthMillimetres>5</FocalLengthMillimetres>
+        <!--Camera baseline distance in millimetres-->
+        <BaselineMillimetres>100</BaselineMillimetres>
+        <!--Calibration Data-->
+        <Calibration>
+          <!--Image offsets in pixels due to small missalignment from parallel-->
+          <Offsets>0,0</Offsets>
+          <Camera>
+            <!--Horizontal field of view of the camera in degrees-->
+            <FieldOfViewDegrees>50</FieldOfViewDegrees>
+            <!--Image dimensions in pixels-->
+            <ImageDimensions>320,240</ImageDimensions>
+            <!--Polynomial coefficients used to describe the camera lens distortion-->
+            <DistortionCoefficients>0,0,0</DistortionCoefficients>
+            <!--Scaling factor-->
+            <Scale>1</Scale>
+            <!--Rotation of the image in degrees-->
+            <RotationDegrees>0</RotationDegrees>
+            <!--The minimum RMS error between the distortion curve and plotted points-->
+            <RMSerror>999999</RMSerror>
+          </Camera>
+          <Camera>
+            <!--Horizontal field of view of the camera in degrees-->
+            <FieldOfViewDegrees>50</FieldOfViewDegrees>
+            <!--Image dimensions in pixels-->
+            <ImageDimensions>320,240</ImageDimensions>
+            <!--Polynomial coefficients used to describe the camera lens distortion-->
+            <DistortionCoefficients>0,0,0</DistortionCoefficients>
+            <!--Scaling factor-->
+            <Scale>1</Scale>
+            <!--Rotation of the image in degrees-->
+            <RotationDegrees>0</RotationDegrees>
+            <!--The minimum RMS error between the distortion curve and plotted points-->
+            <RMSerror>999999</RMSerror>
+          </Camera>
+        </Calibration>
+      </StereoCamera>
+    </SensorPlatform>
+    <SensorModels>
+      <!--Sensor model used to update grid maps-->
+      <SensorModelMapping>
+        <!--Number of features to use when updating the grid-->
+        <NoOfFeatures>300</NoOfFeatures>
+        <!--Observation Error Standard Deviation-->
+        <ObservationErrorStandardDeviation>0.005</ObservationErrorStandardDeviation>
+        <!--Adjustment factor for probability peak density-->
+        <PeakDensityAdjust>0</PeakDensityAdjust>
+      </SensorModelMapping>
+      <!--Sensor model used to localise within grids-->
+      <SensorModelLocalisation>
+        <!--Number of trial poses used when localising or registering-->
+        <NoOfTrialPoses>200</NoOfTrialPoses>
+        <!--Number of features to use when performing grid based localisation-->
+        <NoOfFeatures>100</NoOfFeatures>
+        <!--Observation Error Standard Deviation-->
+        <ObservationErrorStandardDeviation>0.005</ObservationErrorStandardDeviation>
+        <!--Adjustment factor for probability peak density-->
+        <PeakDensityAdjust>0</PeakDensityAdjust>
+      </SensorModelLocalisation>
+    </SensorModels>
+    <OccupancyGrid>
+      <!--The number of scales used within the local grid-->
+      <LocalGridLevels>1</LocalGridLevels>
+      <!--Cubic dimension of the local grid in cells-->
+      <LocalGridDimension>128</LocalGridDimension>
+      <!--Size of each grid cell (voxel) in millimetres-->
+      <LocalGridCellSizeMillimetres>32</LocalGridCellSizeMillimetres>
+      <!--The distance which the robot must travel before new data is inserted into the grid during mapping-->
+      <LocalGridIntervalMillimetres>100</LocalGridIntervalMillimetres>
+    </OccupancyGrid>
+  </Robot>
+</Sentience>
+
+}}}
