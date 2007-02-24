@@ -141,6 +141,11 @@ The first thing to check is that left and right cameras are connected correctly.
 
 }}}
 
+
+=== What to do next? ===
+
+[RobotDesigner Design your robot]
+
 === Further Reading ===
 
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
