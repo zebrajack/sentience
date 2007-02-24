@@ -50,9 +50,13 @@ When you're finished select *Save As* from the File menu and save the robot desi
       <!--Wheel Position feedback type-->
       <WheelPositionFeedbackType>0</WheelPositionFeedbackType>
       <!--Motor gear ratio-->
-      <GearRatio>50</GearRatio>
+      <GearRatio>54</GearRatio>
       <!--Encoder counts per revolution-->
-      <CountsPerRev>4096</CountsPerRev>
+      <CountsPerRev>32</CountsPerRev>
+      <!--Motor no load speed in RPM-->
+      <MotorNoLoadSpeedRPM>175</MotorNoLoadSpeedRPM>
+      <!--Motor torque rating in Kg/mm-->
+      <MotorTorqueKgMm>80</MotorTorqueKgMm>
     </PropulsionSystem>
     <SensorPlatform>
       <!--Number of stereo cameras-->
@@ -73,7 +77,7 @@ When you're finished select *Save As* from the File menu and save the robot desi
       <CameraOrientation>0</CameraOrientation>
       <StereoCamera>
         <!--Name of the WDM software driver for the cameras-->
-        <DriverName>Not specified</DriverName>
+        <DriverName>Creative WebCam NX Ultra</DriverName>
         <!--Position and orientation of the camera relative to the robots head or body-->
         <PositionOrientation>
           <!--Position in millimetres-->
@@ -88,34 +92,38 @@ When you're finished select *Save As* from the File menu and save the robot desi
         <!--Calibration Data-->
         <Calibration>
           <!--Image offsets in pixels due to small missalignment from parallel-->
-          <Offsets>0,0</Offsets>
+          <Offsets>23.21169,-1</Offsets>
           <Camera>
             <!--Horizontal field of view of the camera in degrees-->
             <FieldOfViewDegrees>50</FieldOfViewDegrees>
             <!--Image dimensions in pixels-->
             <ImageDimensions>320,240</ImageDimensions>
+            <!--The centre of distortion in pixels-->
+            <CentreOfDistortion>157,112</CentreOfDistortion>
             <!--Polynomial coefficients used to describe the camera lens distortion-->
             <DistortionCoefficients>0,0,0</DistortionCoefficients>
             <!--Scaling factor-->
-            <Scale>1</Scale>
+            <Scale>0.8125</Scale>
             <!--Rotation of the image in degrees-->
-            <RotationDegrees>0</RotationDegrees>
+            <RotationDegrees>-0.3941584</RotationDegrees>
             <!--The minimum RMS error between the distortion curve and plotted points-->
-            <RMSerror>999999</RMSerror>
+            <RMSerror>3.328376</RMSerror>
           </Camera>
           <Camera>
             <!--Horizontal field of view of the camera in degrees-->
             <FieldOfViewDegrees>50</FieldOfViewDegrees>
             <!--Image dimensions in pixels-->
             <ImageDimensions>320,240</ImageDimensions>
+            <!--The centre of distortion in pixels-->
+            <CentreOfDistortion>155,113</CentreOfDistortion>
             <!--Polynomial coefficients used to describe the camera lens distortion-->
             <DistortionCoefficients>0,0,0</DistortionCoefficients>
             <!--Scaling factor-->
-            <Scale>1</Scale>
+            <Scale>0.8125</Scale>
             <!--Rotation of the image in degrees-->
-            <RotationDegrees>0</RotationDegrees>
+            <RotationDegrees>-0.6620849</RotationDegrees>
             <!--The minimum RMS error between the distortion curve and plotted points-->
-            <RMSerror>999999</RMSerror>
+            <RMSerror>3.4475</RMSerror>
           </Camera>
         </Calibration>
       </StereoCamera>
@@ -150,7 +158,7 @@ When you're finished select *Save As* from the File menu and save the robot desi
       <!--Size of each grid cell (voxel) in millimetres-->
       <LocalGridCellSizeMillimetres>32</LocalGridCellSizeMillimetres>
       <!--The distance which the robot must travel before new data is inserted into the grid during mapping-->
-      <LocalGridIntervalMillimetres>100</LocalGridIntervalMillimetres>
+      <LocalGridIntervalMillimetres>200</LocalGridIntervalMillimetres>
     </OccupancyGrid>
   </Robot>
 </Sentience>
