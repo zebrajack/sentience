@@ -4,6 +4,12 @@
 
 In order to be able to build useful maps for navigation and object recognition the system first needs to know a few things about the robot to which the cameras are attached.  The basic dimensions of the robot, position of the _head_ where the stereo cameras are fixed and total mass are all needed so that occupancy grids can be updated correctly, and so that short term predictions of the robots position and orientation - and therefore its localisation uncertainty - may be made.
 
+=== Design Tips ===
+
+  *  Many small robots are fitted with cameras, but these are usually low down at knee or ankle height and the view from this altitude is very uninteresting.  For robots to be able to really do anything useful in a home or office environment the cameras really need to be mounted at human eye level, so that desks, shelves and other surfaces of interest can be seen.  One good way to do this is to mount them on a conventional camera tripod.  Tripods are often lightweight, made from aluminium and plastic, and hold the cameras rigidly even as the robot moves around.  The vertical adjustment of the tripod may also be motorised if necessary to give a variety of viewing heights.
+
+=== Get with the Program ===
+
 Run the _Robot Designer_ program and enter the details.  From the *File* menu you may also import [CameraCalibration camera calibration] data to complete the inventory of settings needed to run Sentience.
 
 When you're finished select *Save As* from the File menu and save the robot design file.  The file will look something like this:
@@ -148,3 +154,4 @@ When you're finished select *Save As* from the File menu and save the robot desi
 </Sentience>
 
 }}}
+
