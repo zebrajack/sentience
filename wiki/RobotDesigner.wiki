@@ -78,7 +78,7 @@ When you're finished select *Save As* from the File menu and save the robot desi
       <StereoCamera>
         <!--Name of the WDM software driver for the cameras-->
         <DriverName>Creative WebCam NX Ultra</DriverName>
-        <!--Position and orientation of the camera relative to the robots head or body-->
+        <!--Position and orientation of the camera relative to the robots head-->
         <PositionOrientation>
           <!--Position in millimetres-->
           <PositionMillimetres>0,0,0</PositionMillimetres>
@@ -101,7 +101,7 @@ When you're finished select *Save As* from the File menu and save the robot desi
             <!--The centre of distortion in pixels-->
             <CentreOfDistortion>157,112</CentreOfDistortion>
             <!--Polynomial coefficients used to describe the camera lens distortion-->
-            <DistortionCoefficients>0,0,0</DistortionCoefficients>
+            <DistortionCoefficients>0,1.231268,0.0002229516</DistortionCoefficients>
             <!--Scaling factor-->
             <Scale>0.8125</Scale>
             <!--Rotation of the image in degrees-->
@@ -117,7 +117,7 @@ When you're finished select *Save As* from the File menu and save the robot desi
             <!--The centre of distortion in pixels-->
             <CentreOfDistortion>155,113</CentreOfDistortion>
             <!--Polynomial coefficients used to describe the camera lens distortion-->
-            <DistortionCoefficients>0,0,0</DistortionCoefficients>
+            <DistortionCoefficients>0,1.15394,0.0006436906</DistortionCoefficients>
             <!--Scaling factor-->
             <Scale>0.8125</Scale>
             <!--Rotation of the image in degrees-->
