@@ -3,7 +3,7 @@
 
 A sensor model is a set of values, typically held within a lookup table, which governs how the probability of an uncertain measurement taken from a particular type of sensor varies in space.  Some sensors give more certain information than others.  A laser for example gives quite precise values for reflections at close range, such that these may be considered merely to be points in space (a _point cloud_).  Readings from other types of sensor, such as ultrasonic or digital imagers, contain far more uncertainly and so require a model larger than a single point.
 
-To create a sensor model suitable for stereo vision a numerical simulation can be used to exhaustively calculate the [StereoUncertainty probability of an observed feature existing] at every point in space.  This can then be used to create an approprtate lookup table for a variety of possible ranges.
+To create a sensor model suitable for stereo vision a numerical simulation can be used to exhaustively calculate the [StereoUncertainty probability of an observed feature existing] at every point in space - something known as a _probability density function_.  This can then be used to create an appropriate lookup table for a variety of possible ranges.
 
 A typical sensor model for stereoscopic vision looks something like this.
 
