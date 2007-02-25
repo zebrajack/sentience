@@ -23,16 +23,16 @@ You'll need something to mount the cameras onto as a backplate.  For this I used
 
 Cut off a strip of metal so that you can mount the cameras onto it with a [StereoBaseline baseline separation] of 100mm between the centres of each lens.  Why 100mm?  Well, there doesn't seem to be any general agreement on an appropriate baseline distance for mobile robot stereo vision.  It's just down to personal preference, and 100mm seems like a round number in the right sort of ballpack.  In the past I have used 70mm and 140mm spacings.  
 
-[http://sluggish.uni.cc/sentience/make_stereo_camera1.jpg]
+[http://sentience.googlegroups.com/web/make_stereo_camera1.jpg]
 
 The _Creative_ webcams which I'm using are conveniently held together with screws which can be easily removed (it's almost as if they designed them to be dissassembled!).  Remove the top two screws from each camera, then drill holes in the aluminium strip using an appropriately sized bit, like this:
 
-[http://sluggish.uni.cc/sentience/make_stereo_camera2.jpg]
+[http://sentience.googlegroups.com/web/make_stereo_camera2.jpg]
 
 === Final assembly ===
 
 Now its time to assemble the whole caboodle.  The stereo camera singularity *_is near_*.  Screw the cameras onto the metal backplate, and make sure that they're secure.  In my case I found that the screws weren't long enough, and instead used some small screws which came with radio control servos as a substitute.  You may also wish to drill a few holes in the centre of the metal strip to allow the system to be securely bolted onto your robot.
 
-[http://sluggish.uni.cc/sentience/make_stereo_camera3.jpg]
+[http://sentience.googlegroups.com/web/make_stereo_camera3.jpg]
 
 And that's all there is to it.  The next step is [CameraCalibration camera calibration], and then the system is ready to be used as a fully operational ranging device.
