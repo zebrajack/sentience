@@ -11,7 +11,7 @@ The typical method of calibration involves having the camera observe a test patt
 
 The images below show the stages involved in the calibration process.
 
-[http://sluggish.uni.cc/sentience/calibration_steps.jpg]
+[http://sentience.googlegroups.com/web/calibration_steps.jpg]
 
 1.  *Edge detection*  Edges are detected within the entire image, or within some _region of interest_ which contains the calibration pattern.  Edges are local points of high contrast, and a competitive _non-maximal supression_ is used to show only the strongest features.  In order to make edge detection more robust multiple images taken over a period of time are integrated together.  This helps to average out much of the noise normally present within webcam images.
 
@@ -25,13 +25,13 @@ The images below show the stages involved in the calibration process.
 
 6.  *Polynomial curve fit*  We can plot the radial positions (distance from the centre of the image) for the observed corners and the forward projected corners on a 2D graph and use classical polynomial curve fitting in order to discover the shape of the image distortion caused by the camera lens.  The fitting procedure may be carried out using an origin within some small radius of the centre of the image, and the solution with the smallest _root mean squared_ error then gives us a position for the _centre of the distortion_.
 
-[http://sluggish.uni.cc/sentience/calibration_polynomial.jpg]
+[http://sentience.googlegroups.com/web/calibration_polynomial.jpg]
 
 7.  *Shake and bake*  Once a good curve fit has been discovered a small amount of random noise is added and a secondary function is used to evaluate the quality of fit to the image, by comparing the rectified corner feature positions to the forward projected corners.  This annealing process allows the curve to be fine tuned to get the closest possible match.
 
 The stereo images below show the difference between the rectified corner positions and the ideal forward projected positions, with white lines indicating the error magnitude.
 
-[http://sluggish.uni.cc/sentience/calibration_errors.jpg]
+[http://sentience.googlegroups.com/web/calibration_errors.jpg]
 
 8.  *Rectification*  The centre of distorion and polynomial curve may be used to rectify images from the camera.
 
@@ -40,7 +40,7 @@ The assumption that the lens distortion is radially symmetric is of course not a
 
 === Users guide ===
 
-[http://sluggish.uni.cc/sentience/fishfood.jpg]
+[http://sentience.googlegroups.com/web/fishfood.jpg]
 
 Sentience contains an automatic monocular or stereo camera calibration system, called FishFood.  The procedure requires a calibration pattern, but I have tried to keep the system as simple as possible, such that it could be carried out _in the field_ by a non-expert using only easily available materials.
 
@@ -58,13 +58,13 @@ Instructions:
 
 2.  Lay the calibration pattern down on the floor and have the stereo camera look down towards the centre of the pattern.  Ensure that the centre of the two cameras is aligned with the centre of the pattern.  The cameras would typically be mounted on a pan and tilt mechanism on the head of a robot, but in this case I'm just using the back of a chair as a substitute for a mobile robot.
 
-[http://sluggish.uni.cc/sentience/calibration_pattern.jpg]
+[http://sentience.googlegroups.com/web/calibration_pattern.jpg]
 
 3.  Measure the distance along the ground from the stereo camera to the centre of the calibration pattern.  Also, measure the height of the cameras above the floor.  To be as accurate as possible you should be measuring distances from the lenses of the cameras.
 
 4.  Run the calibration program and enter the measurement values, pattern spacing, field of vision and stereo camera baseline distance, then from *video* on the menu bar select *start camera*.  The program has two modes of operation: _alignment mode_ and _calibration mode_, toggled by the button at the top left of the screen.  When video streaming initially commences you will be in alignment mode.  When the cameras are running use the large white crosshairs to align the cameras with the pattern, like this:
 
-[http://sluggish.uni.cc/sentience/calibration_roi.jpg]
+[http://sentience.googlegroups.com/web/calibration_roi.jpg]
 
 *Additional note:  The Creative Webcam NX Ultra cameras used in this example already appear to be pre-rectified either in hardware or as part of their software drivers.  This seems to be the exception rather than the norm, with most webcam images containing some amount of distortion*
 
@@ -76,7 +76,7 @@ The first thing to check is that left and right cameras are connected correctly.
 
 7.  A status message to the left of the screen will show when the automatic calibration is completed.  If the calibration seems to be taking a long time use the drop down list to select edges, corners or lines and check that these features are being detected properly.  Using the drop down list check the rectified images to see that they look reasonable.  A common problem is that the centre spot indicated by a white square within the corners image is not being detected, which may be due to bad lighting.  If the calibration has been successfully completed the view will automatically switch to show the rectified image.  Just for fun, an example of a *bad rectification* is shown below.
 
-[http://sluggish.uni.cc/sentience/calibration_bad.jpg]
+[http://sentience.googlegroups.com/web/calibration_bad.jpg]
 
 8.  When you are happy that all is well, select *Save As* from the *File* menu to save the calibration results.  Parameters for stereo camera calibration are stored within an XML format which may then be read by other programs within the _Sentience_ system.  A typical calibration file looks like this:
 
@@ -151,7 +151,6 @@ The first thing to check is that left and right cameras are connected correctly.
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
 
 Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
-
 
 
 
