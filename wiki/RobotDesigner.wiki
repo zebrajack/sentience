@@ -2,7 +2,7 @@
 
 [http://unadorned.org/images/dandruff/newrobot_20050125.gif]
 
-In order to be able to build useful maps for navigation and object recognition the system first needs to know a few things about the robot to which the cameras are attached.  The basic dimensions of the robot, position of the _head_ where the stereo cameras are fixed and total mass are all needed so that occupancy grids can be updated correctly, and so that short term predictions of the robots position and orientation - and therefore its localisation uncertainty - may be made.
+In order to be able to build useful maps for navigation and object recognition the system first needs to know a few things about the robot to which the cameras are attached.  The basic dimensions of the robot, position of the _head_ where the stereo cameras are fixed and total mass are all needed so that [OccupancyGrid occupancy grids] can be updated correctly, and so that short term predictions of the robots position and orientation - and therefore its localisation uncertainty - may be made.
 
 === Design Tips ===
 
