@@ -77,7 +77,7 @@ When you're finished select *Save As* from the File menu and save the robot desi
       <CameraOrientation>0</CameraOrientation>
       <StereoCamera>
         <!--Name of the WDM software driver for the cameras-->
-        <DriverName>Creative WebCam NX Ultra</DriverName>
+        <DriverName>Not specified</DriverName>
         <!--Position and orientation of the camera relative to the robots head-->
         <PositionOrientation>
           <!--Position in millimetres-->
@@ -92,38 +92,34 @@ When you're finished select *Save As* from the File menu and save the robot desi
         <!--Calibration Data-->
         <Calibration>
           <!--Image offsets in pixels due to small missalignment from parallel-->
-          <Offsets>23.21169,-1</Offsets>
+          <Offsets>0,0</Offsets>
           <Camera>
             <!--Horizontal field of view of the camera in degrees-->
-            <FieldOfViewDegrees>50</FieldOfViewDegrees>
+            <FieldOfViewDegrees>78</FieldOfViewDegrees>
             <!--Image dimensions in pixels-->
             <ImageDimensions>320,240</ImageDimensions>
-            <!--The centre of distortion in pixels-->
-            <CentreOfDistortion>157,112</CentreOfDistortion>
             <!--Polynomial coefficients used to describe the camera lens distortion-->
-            <DistortionCoefficients>0,1.231268,0.0002229516</DistortionCoefficients>
+            <DistortionCoefficients>0,0,0</DistortionCoefficients>
             <!--Scaling factor-->
-            <Scale>0.8125</Scale>
+            <Scale>1</Scale>
             <!--Rotation of the image in degrees-->
-            <RotationDegrees>-0.3941584</RotationDegrees>
+            <RotationDegrees>0</RotationDegrees>
             <!--The minimum RMS error between the distortion curve and plotted points-->
-            <RMSerror>3.328376</RMSerror>
+            <RMSerror>999999</RMSerror>
           </Camera>
           <Camera>
             <!--Horizontal field of view of the camera in degrees-->
-            <FieldOfViewDegrees>50</FieldOfViewDegrees>
+            <FieldOfViewDegrees>78</FieldOfViewDegrees>
             <!--Image dimensions in pixels-->
             <ImageDimensions>320,240</ImageDimensions>
-            <!--The centre of distortion in pixels-->
-            <CentreOfDistortion>155,113</CentreOfDistortion>
             <!--Polynomial coefficients used to describe the camera lens distortion-->
-            <DistortionCoefficients>0,1.15394,0.0006436906</DistortionCoefficients>
+            <DistortionCoefficients>0,0,0</DistortionCoefficients>
             <!--Scaling factor-->
-            <Scale>0.8125</Scale>
+            <Scale>1</Scale>
             <!--Rotation of the image in degrees-->
-            <RotationDegrees>-0.6620849</RotationDegrees>
+            <RotationDegrees>0</RotationDegrees>
             <!--The minimum RMS error between the distortion curve and plotted points-->
-            <RMSerror>3.4475</RMSerror>
+            <RMSerror>999999</RMSerror>
           </Camera>
         </Calibration>
       </StereoCamera>
@@ -140,8 +136,6 @@ When you're finished select *Save As* from the File menu and save the robot desi
       </SensorModelMapping>
       <!--Sensor model used to localise within grids-->
       <SensorModelLocalisation>
-        <!--Number of trial poses used when localising or registering-->
-        <NoOfTrialPoses>200</NoOfTrialPoses>
         <!--Number of features to use when performing grid based localisation-->
         <NoOfFeatures>100</NoOfFeatures>
         <!--Observation Error Standard Deviation-->
@@ -160,6 +154,16 @@ When you're finished select *Save As* from the File menu and save the robot desi
       <!--The distance which the robot must travel before new data is inserted into the grid during mapping-->
       <LocalGridIntervalMillimetres>200</LocalGridIntervalMillimetres>
     </OccupancyGrid>
+    <MotionModel>
+      <!--The number of possible poses to maintain at any point in time-->
+      <NoOfPoses>200</NoOfPoses>
+      <!--A culling threshold in the range 1-100 below which low probability poses are exterminated-->
+      <CullThreshold>25</CullThreshold>
+      <!--The number of time steps after which a pose is considered to be mature-->
+      <MaturationTimeSteps>5</MaturationTimeSteps>
+      <!--Motion noise (standard deviations)-->
+      <MotionNoise>0.0001,0.0001,0.0001,0.0001,0.0001,0.0001</MotionNoise>
+    </MotionModel>
   </Robot>
 </Sentience>
 
