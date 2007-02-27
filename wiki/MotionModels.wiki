@@ -1,5 +1,5 @@
 #summary Plotting the paths of the parambulator
-#labels motionmodel
+#labels motionmodel,localisation
 
 The world is a very uncertain place.  Both the sensor readings and the actuators of the robot are subject to errors of various kinds.  Images can be distorted by lens shape, blurred by environmental conditions and are always quantised into pixels which loses or obscures some of the small scale details.  The robots gearboxes may contain some amount of mechanical _slop_ and the friction between the wheels and the ground may vary depending upon the type of surface over which it is moving.
 
@@ -17,7 +17,6 @@ All open loop systems suffer from this kind of dissolution, whether they be robo
 
 === Closed Loop ===
 
-If we test each possible pose hypotheses against observations of the environment - in this case against an [OccupancyGrid occupancy grid map] - we can assign a score to each of these possibilities depending upon how well the robots observations from that position matched the map.  By applying a selectionist strategy where persistent low scoring poses are removed and replaced by new ones chosen to be closer to higher scoring pose hypotheses we can avoid the runaway uncertainty seen on the open loop situation.  This is _grid based localisation_.
+If we test each of the possible pose hypotheses against observations of the environment - in this case against an [OccupancyGrid occupancy grid map] - we can assign a score to each of these possibilities depending upon how well the robots observations from that position matched the map.  By applying a selectionist strategy where persistent low scoring poses are removed and replaced by new ones chosen to be closer to higher scoring pose hypotheses we can avoid the runaway uncertainty seen on the open loop situation.  This is _grid based localisation_.
 
 [http://sentience.googlegroups.com/web/motion_model_closed_loop.jpg]
-
