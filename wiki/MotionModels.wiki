@@ -20,3 +20,10 @@ All open loop systems suffer from this kind of dissolution, whether they be robo
 If we test each of the possible pose hypotheses against observations of the environment - in this case against an [OccupancyGrid occupancy grid map] - we can assign a score to each of these possibilities depending upon how well the robots observations from that position matched the map.  By applying a selectionist strategy where persistent low scoring poses are removed and replaced by new ones chosen to be closer to higher scoring pose hypotheses we can avoid the runaway uncertainty seen on the open loop situation.  This is _grid based localisation_.
 
 [http://sentience.googlegroups.com/web/motion_model_closed_loop.jpg]
+
+
+=== Further Reading ===
+
+[http://www.aicml.cs.ualberta.ca/_banff04/icml/pages/papers/284.ps Learning Probabilistic Motion Models for Mobile Robots] by Austin I. Eliazar and Ronald Parr.
+
+[http://www.probabilistic-robotics.org/ Probabilistic Robotics], Robot Motion (Chapter 5), by Sebastian Thrun, Wolfram Burgard and Dieter Fox.
