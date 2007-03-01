@@ -10,6 +10,8 @@ In order to be able to build useful maps for navigation and object recognition t
 
   *  A tilt mechanism allowing the cameras to look up towards the ceiling or down to the floor can be useful.  When the robot is resting its cameras can look around to check out the local vacinity and build up a more detailed occupancy grid model.  There are many low cost RC servo motor controllers available suitable for connection to a PC.
 
+  *  Battery life is always a major consideration when building any kind of mobile robot.  Many research robots today needlessly lugg around heaps of metal, wasting battery power and reducing running times.  Think like an F1 racing car designer.  Ruthlessly hunt down and exterminate any dead weight in the system.  Where possible, use lightweight materials such as plastic, fibreglass or wood.  Just because the structure is light doesn't mean that it can't also be strong.  Anyone who has ever built R/C aircraft will know what I mean.
+
 === Get with the Program ===
 
 Run the _Robot Designer_ program and enter the details.  From the *File* menu you may also import [CameraCalibration camera calibration] data to complete the inventory of settings needed to run Sentience.
