@@ -5,9 +5,13 @@ A sensor model is a set of values, typically held within a lookup table, which g
 
 To create a sensor model suitable for stereo vision a numerical simulation can be used to exhaustively calculate the [StereoUncertainty probability of an observed feature existing] at every point in space - something known as a _probability density function_.  This can then be used to create an appropriate lookup table for a variety of possible ranges.
 
-A typical sensor model for stereoscopic vision looks something like this.
+A typical sensor model for stereoscopic vision looks something like the following.  This is for quite a large stereo disparity value.
 
 [http://sentience.googlegroups.com/web/stereo_ray_sensor_model2.jpg]
+
+For a smaller disparity value indicating a feature further away from the camera the "tail" of the sensor model is more dispersed, heading off to infinity.
+
+[http://sentience.googlegroups.com/web/stereo_ray_sensor_model3.jpg]
 
 The grey scales indicate the probability of the observed feature existing at that location in space.  The left side of the model is closest to the cameras, with the axis of the ray of light connecting the observed feature to the centre of the [StereoBaseline camera baseline] being the vertical centre row.  Since the sensor model is symmetrical about the axis of the ray of light we only need to store the top half of this image as the sensor model.  Sensor model probability distributions vary depending upon the [StereoRanging calculated range] of the feature.  Accurate sensor models are essential for creation of reasonable quality [OccupancyGrid 3D occupancy grids].
 
