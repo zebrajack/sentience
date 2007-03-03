@@ -11,7 +11,7 @@ A typical sensor model for stereoscopic vision looks something like the followin
 
 For a smaller disparity value indicating a feature further away from the camera the "tail" of the sensor model is more dispersed, heading off to infinity.
 
-[http://sentience.googlegroups.com/web/stereo_ray_sensor_model3.jpg]
+[http://sentience.googlegroups.com/web/stereo_ray_sensor_model4.jpg]
 
 The grey scales indicate the probability of the observed feature existing at that location in space.  The left side of the model is closest to the cameras, with the axis of the ray of light connecting the observed feature to the centre of the [StereoBaseline camera baseline] being the vertical centre row.  Since the sensor model is symmetrical about the axis of the ray of light we only need to store the top half of this image as the sensor model.  Sensor model probability distributions vary depending upon the [StereoRanging calculated range] of the feature.  Accurate sensor models are essential for creation of reasonable quality [OccupancyGrid 3D occupancy grids].
 
