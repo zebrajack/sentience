@@ -23,6 +23,12 @@ Probability density functions for 3, 5, 7 and 9 pixels of visual disparity are s
 
 In addition to having a sensor model for the existence (occupancy) of a feature we also need a model for the probable empty space (vacancy) between the camera and the feature.  This vacancy model is simpler, and can be used to _carve out_ empty space within an [OccupancyGrid occupancy grid].  In practical navigation and mapping experiments it seems that it's the vacancy model more than any other factor which has a large influence upon the quality of the resulting 3D voxel model.
 
+=== The Complete Model ===
+
+An example of a full inverse sensor model for stereo vision can be seen in the image below.  Here the grey area corresponds to probably occupied space, whereas the blue areas correspond to probably vacant space.
+
+[http://sentience.googlegroups.com/web/stereo_vision_sensor_model.jpg]
+
 === Further Reading ===
 
 [http://www.probabilistic-robotics.org/ Probabilistic Robotics], _Occupancy Grid Mapping (Chapter 9)_, Sebastian Thrun, Wolfram Burgard and Dieter Fox.
