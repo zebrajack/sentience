@@ -1,6 +1,9 @@
 #summary Modelling space probabilistically
 
-An _occupancy grid_ is a typically a two or three dimensional grid divided up into small square or cubic units known as _cells_.  Each cell within the grid stores a value which represents the probability of it being occupied (a positive value) or empty (a negative value).  Cells may also contain additional information such as the average observed colour.
+
+=== Introduction ===
+
+An _occupancy grid_ is a typically a two or three dimensional grid divided up into small square or cubic units known as _cells_ or _voxels_.  Each cell within the grid stores a value which represents the probability of it being occupied (a positive value) or empty (a negative value).  Cells may also contain additional information such as the average observed colour.
 
 3D occupancy grids are the most effective method for representing physical space at a reasonably high resolution.  Even though the sensor readings used to update the grid may be noisy and contain inaccuracies, over time because of the probabilistic nature of the way grid cells are updated the truth accumulates and inconsistencies cancel out.
 
@@ -22,3 +25,13 @@ The hallway image sequence below, which is actually a sequence of stereo images 
 The blue area in the image above represents unoccupied vacant space at floor level, and the side walls and doorways can be seen.
 
 [http://farm1.static.flickr.com/134/319594099_71623e87ed_o.gif]
+
+=== Occupancy Grid Storage ===
+
+There's no escaping the fact that occupancy grids can consume a fair amount of space both in terms of memory and disk storage.  However, we can use some tricks to ensure that use of storage space is as efficient as possible.  
+
+I assume that most robots in the not too distant future will be equipped with solid state storage, such as flash disks, but for the present hard disk usage is still common and relatively inexpensive.  Hard disks work well in mobile devices (for example iPods), but the inevitable _rough and tumble_ of robotic excursions means that they will receive unexpected physical shocks which can cause the read/write head of the drive to "crash" into the surface of the spinning disk, which may either destroy the device or result in serious data loss.  Physical measures can be taken to protect a hard disk from high deceleration forces, but from my own personal experiences even packing it in foam or mounting it on flexible rubber buffers is not always enough.
+
+It's therefore essential that any robotics software running on contemporary storage devices tries to minimise the amount of time that the hard disk is exposed to the potential risk of a head crash.  This means writing the software in such a way as to reduce disk access to the bare minimum.  An additional beneficial side effect is that smaller storage devices may be used (hence making the system more amenable to using solid state storage) and much large occupancy grids can be stored efficiently.
+
+We can compress a 3D occupancy grid in two ways.  Firstly, by using an efficient coding format which only stores information about cells which have occupancy or vacancy evidence associated with them, and secondly by using already available off-the-shelf data compression algorithms.
