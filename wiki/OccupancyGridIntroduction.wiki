@@ -1,7 +1,5 @@
 #summary An introduction to spatial representation using occupancy grids
 
-=== Introduction ===
-
 An _occupancy grid_ is a typically a two or three dimensional grid divided up into small square or cubic units known as _cells_ or _voxels_.  Each cell within the grid stores a value which represents the probability of it being occupied (a positive value) or empty (a negative value).  Cells may also contain additional information such as the average observed colour.
 
 3D occupancy grids are the most effective method for representing physical space at a reasonably high resolution.  Even though the sensor readings used to update the grid may be noisy and contain inaccuracies, over time because of the probabilistic nature of the way grid cells are updated the truth accumulates and inconsistencies cancel out.
@@ -24,4 +22,3 @@ The hallway image sequence below, which is actually a sequence of stereo images 
 The blue area in the image above represents unoccupied vacant space at floor level, and the side walls and doorways can be seen.
 
 [http://farm1.static.flickr.com/134/319594099_71623e87ed_o.gif]
-
