@@ -1,5 +1,8 @@
 #summary Occupancy grid related reading material
 
+These are what I think are the more instructive articles on occupancy grid mapping.  In the classic method described by Hans Moravec it should be noted that the exact position and orientation of the robot is always known.  Only in the more recent SLAM articles do you have a situation where the robots position uncertainty is taken into account.
+
+
 _Old skool stuff from the 1980s._
 
   *  [http://www.frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1985/al2.html High Resolution Maps from Wide Angle Sonar], Hans P. Moravec & Alberto Elfes
