@@ -1,0 +1,36 @@
+#summary Occupancy grid related reading material
+
+_Old skool stuff from the 1980s._
+
+  *  [http://www.frc.ri.cmu.edu/~hpm/project.archive/robot.papers/1985/al2.html High Resolution Maps from Wide Angle Sonar], Hans P. Moravec & Alberto Elfes
+
+
+_Some sensor modelling, but for sonar rather than vision sensors._
+
+  *  [http://www.frc.ri.cmu.edu/~hpm/talks/Sonar.figs/1991.sensor.model.html Learning Sensor Models for Evidence Grids], Hans Moravec & Mike Blackwell
+
+
+_The classic 1996 paper.  This was one of the first articles which I read in connection with stereo vision.  Even over a decade later few researchers seem to have done much better than this using vision sensors._
+
+  *  [http://www.ri.cmu.edu/pub_files/pub1/moravec_hans_1996_4/moravec_hans_1996_4.pdf Robot Spatial Perception by Stereoscopic Vision and 3D Evidence Grids], Hans Moravec
+
+
+_Describes optimisation of sensor models by minimisation of colour variance within the grid.  Colour variance can be used as one way of measuring occupancy grid quality._
+
+  *  [http://www.frc.ri.cmu.edu/~hpm/project.archive/robot.papers/2000/ARPA.MARS.reports.00/Report.0006/Report.0006.html Robust Navigation by Probabilistic Volumetric Sensing], Hans Moravec
+
+
+_A description of the basic distributed particle SLAM method._
+
+  *  [http://www.cs.duke.edu/~eliazar/papers/DP-SLAM.pdf DP-SLAM: Fast, Robust Simultaneous Localization and Mapping Without Predetermined Landmarks], Austin Eliazar & Ronald Parr
+
+
+_A more recent paper on DP-SLAM, including some tweaks on the original algorithm._
+
+  *  [http://www.cs.duke.edu/%7Eparr/nips05.pdf Hierarchical Linear/Constant Time SLAM Using Particle Filters for Dense Maps], Austin Eliazar & Ronald Parr
+
+
+
+
+
+
