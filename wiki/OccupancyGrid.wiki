@@ -2,4 +2,5 @@
 
   *  [OccupancyGridIntroduction Introduction]
   *  [OccupancyGridStorage Storage]
+  *  [OccupancyGridDistillation Distillation]
   *  [OccupancyGridReferences References]
