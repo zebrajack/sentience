@@ -6,5 +6,6 @@ For stereo vision calculating the range to an observed object or feature is fair
 
   Range = ( Focal length x [StereoBaseline Camera baseline] ) / [StereoDisparity Disparity]
 
-Where the [StereoDisparity disparity] is the horizontal difference between the position of the feature in left and right images.  However, this is not the end of the story.  There can be [StereoUncertainty significant uncertainties] in stereo range values which need to be [StereoSensorModel modelled in a probabilistic fashion] in order to build accurate maps or models.
+Where the [StereoDisparity disparity] is the horizontal difference between the position of the feature in left and right images (pixel difference converted to radians), and focal length and baseline distance are in millimetres.  
 
+However, this is not the end of the story.  Since there is uncertainty associated with the disparity measurement (which can be up to plus or minus half a pixel) the actual range lies within a [StereoUncertainty spatial probability distribution], which can be represented using a [StereoSensorModel sensor model].
