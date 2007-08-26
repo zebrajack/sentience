@@ -1,0 +1,8 @@
+#summary Stereo vision related reading material
+
+
+  *  [http://www-cv.mech.eng.osaka-u.ac.jp/~jun/pdffiles/ijcai93.pdf An Uncertainty Model of Stereo Vision and Its Application to Vision-Motion Planning of Robot], J. Miura and Y. Shirai
+
+  *  [http://www.doc.ic.ac.uk/~ajd/Publications/davison_murray_pami2002.pdf Simultaneous Localisation and Map-Building Using Active Vision], Andrew J. Davison and David W. Murray
+
+
