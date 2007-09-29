@@ -8,3 +8,11 @@ However as chance would have it there are methods for containing this type of co
 The DP-SLAM method is basically a form of tree search applied to spatial observations.  At any point in time uncertainty in sensing and actuation mean that the same sequence of images could correspond to multiple possible paths through the environment.  Effectively the robot is traversing a multiverse, and it's only by accumulating sequences of observations and using them to create an occupancy grid that the most likely paths can be discovered.  A quasi-selectionist strategy is applied where hypothetical paths with lower spatial and colour consistency are pruned from the search tree, leaving the more consistent ones to continue growing.  Eventually all hypothetical paths collapse to a single possibility, and at this point hypothetical occupancies are _distilled_ to the grid.
 
 In tests so far the DP-SLAM method works remarkably well, even in the presence of considerable pose uncertainties.  It looks like this is going to provide both a robust and scalable method for spatial perception.  Multiple hypothetical paths (branches of the tree) can be run in parallel within separate threads, so as more CPU cores become available the system can scale gracefully to achive maximum occupancy grid consistency.
+
+Formation of an occupancy grid using the distributed particle SLAM method can be seen in the animation below.
+
+[http://sentience.googlegroups.com/web/corridor_sequence1.gif]
+
+The evolution of a set of hypothetical paths looks like this:
+
+[http://sentience.googlegroups.com/web/dpslam_tree2.gif]
