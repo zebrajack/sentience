@@ -1,6 +1,7 @@
 #summary Modelling space probabilistically
 
   *  [OccupancyGridIntroduction Introduction]
+  *  [OccupancyGridCreation Creation]
   *  [OccupancyGridStorage Storage]
   *  [OccupancyGridDistillation Distillation]
   *  [OccupancyGridReferences References]
