@@ -25,3 +25,8 @@ At some point integration testing needs to be carried out on a mobile robot plat
 *Monte carlo localisation*
 
 Creating new grid maps is one thing, but for full autonomy the robot also needs to be able to identify that it is located somewhere within a previously created map - solving the _kidnapped robot problem_.  An MCL algorithm needs to be implemented, running in its own thread.  Fortunately this should be quite straightforward because almost all of the necessary code can be reused from the existing SLAM mapping.
+
+
+*Occupancy grid visualisation*
+
+Some minor coding needs to be done to ensure that colours are properly represented when exporting the grid in a format which [http://home.fnal.gov/~gnedin/IFRIT/ IFrIT] can read.
