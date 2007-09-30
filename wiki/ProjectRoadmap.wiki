@@ -17,9 +17,9 @@
 
 At some point integration testing needs to be carried out on a mobile robot platform.  The essentials here are that the robot has an onboard PC (or laptop) and reasonably accurate wheel encoder feedback for dead reckoning.  Either the position or velocity based motion model needs to accept input from the robot's odometry.
 
-  *  Characterisation of odometry errors on typical surfaces (carpets, wooden floors, etc).  Run the robot multiple times on both straight line and turning paths and record the position estimated by dead reckoning and the robot's actual position.  The motion model parameters governing the rate of increase in position uncertainty can then be estimated based upon these results.
+  *  Characterisation of odometry errors on typical surfaces (carpets, wooden floors, etc).  Run the robot multiple times on both straight line and turning paths over a couple of metres and record the position estimated by dead reckoning and the robot's actual final position.  The motion model parameters governing the rate of increase in position uncertainty can then be estimated based upon these results.
 
-  *  Optimisation of mapping performance.  Various parameters affect the mapping performance, such as the number of particles representing position uncertainty.  More particles can increase the robot's level of certainty about its position but also slows the update time.  A optimal compromise needs to be found between speed of computation and the accuracy of pose estimation at any given time step.
+  *  Optimisation of mapping performance.  Various parameters affect the mapping performance, such as the number of particles representing position uncertainty.  More particles can increase the robot's level of certainty about its position but also slows the update time.  An optimal compromise needs to be found between speed of computation and the accuracy of pose estimation at any given time step.
 
 
 *Monte carlo localisation*
