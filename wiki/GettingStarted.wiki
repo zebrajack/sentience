@@ -1,0 +1,58 @@
+#summary How to compile and run the code
+
+Firstly it should be noted that this is not yet a complete system, since it is so far untested on an actual mobile robot.  However, it is possible to compile and run some programs.
+
+== System Requirements ==
+
+The system has been written with the intention that it should run on any reasonably modern computer hardware - even fairly minimal processors.  Until recently most development has been done on a system having a 1.8GHz single core processor and 512MB RAM, which should probably be regarded as a minimum specification.  
+
+Obviously the better the hardware specification the more smoothly everything will run, and multi-threading code is being used to ensure that it should be scalable as more computational power becomes available in the coming years.
+
+On a Microsoft Windows system you'll need to have [http://msdn2.microsoft.com/en-us/express/aa700756.aspx Visual C# 2005] (or later) installed.  On GNU/Linux systems you'll need to install [http://www.mono-project.com/Main_Page Mono] and the [http://www.monodevelop.com/Main_Page MonoDevelop] IDE.
+
+For visualisation of 3D occupancy grids you'll also need to install [http://home.fnal.gov/~gnedin/IFRIT/ IFrIT], which runs on both Windows and GNU/Linux systems.
+
+You'll also need a subversion client of some description in order to be able to check out the code.  I'm presently using [http://rapidsvn.tigris.org/ RapidSVN].
+
+
+== Checkout ==
+
+Create a directory called _/home/<myusername>/develop/sentience_ (or _c:\\develop\sentience_ on Microsoft Windows systems), then use your preferred subversion client to check out the source code to that directory.
+
+The location of the project to be checked out is
+
+    http://sentience.googlecode.com/svn/trunk/
+
+
+
+== Test Routines ==
+
+Program location:  [http://sentience.googlecode.com/svn/trunk/applications/testFunctions/ sentience/applications/testFunctions]
+
+The test routines are primarily intended for development and debugging purposes.  They allow the user to visualise certain key functions within the Sentience system, such as path planning, motion modeling and probabilistic sensor models.  For the casual user who is perhaps mildly interested in the algorithms but doesn't want to get involved with the messy practicalities of building robots or stereo cameras this is a good place to begin.
+
+Some suggested experiments:
+
+  *  Try altering the [http://sentience.googlecode.com/svn/trunk/sentcore/motionModel.cs noise variables], and observe what effects this has upon the motion model.
+
+  *  Change the [http://sentience.googlecode.com/svn/trunk/sentcore/stereoModel.cs stereo model] parameters, such as the standard deviation (sigma) or the vergence angle, to see what effects these have upon the probability distributions.
+
+_Note that because the sensor models are calculated in detail at high resolution it can take some time for these to be completed.  For actual usage on a mobile robot much lower resolution versions computed and inserted into a lookup table._
+
+
+== Example Stereo Image Sequences ==
+
+Location:  [http://sentience.googlecode.com/svn/trunk/testdata/ sentience/testdata]
+
+Some example image sequences can be used to help test and develop the system.  These were gathered laboriously by hand from measured known positions.
+
+Create a subdirectory called _seq1_ within the testdata directory, then unzip the contents of _sequence1.zip_ into this directory.  Each sequence contains images from the left and right cameras, together with a stereo camera calibration file, robot design file and simulation file which contains the known positions from which the images were taken.
+
+
+== Stereo Vision Workbench ==
+
+Program Location:  [http://sentience.googlecode.com/svn/trunk/applications/stereocorrespondence/ sentience/applications/stereocorrespondence]
+
+The stereocorrespondence program can be used to help develop and test new stereo algorithms and view the results together with benchmark timings.
+
+You can view the depth maps corresponding to stereo image sequences by using the stereocorrespondence program.  Make sure that you have some image sequence data unzipped, then run the program and click _next_ or _previous_ to step through the sequence.  On the menu you can select the level of detail you wish the depth maps to be calculated at.  The lowest detail depth maps can be run at 20Hz and would be suitable for real time obstacle avoidance.
