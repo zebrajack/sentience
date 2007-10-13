@@ -56,3 +56,20 @@ Program Location:  [http://sentience.googlecode.com/svn/trunk/applications/stere
 The stereocorrespondence program can be used to help develop and test new stereo algorithms and view the results together with benchmark timings.
 
 You can view the depth maps corresponding to stereo image sequences by using the stereocorrespondence program.  Make sure that you have some image sequence data unzipped, then run the program and click _next_ or _previous_ to step through the sequence.  On the menu you can select the level of detail you wish the depth maps to be calculated at.  The lowest detail depth maps can be run at 20Hz and would be suitable for real time obstacle avoidance.
+
+
+== Simulation ==
+
+Program Location:  [http://sentience.googlecode.com/svn/trunk/applications/mapping/ sentience/applications/mapping]
+
+In order to be able to test the performance of the mapping and localisation without having to use an actual robot a simulation environment has been developed.  This is not terribly elaborate, but it does allow viewing of the map as it is created in a 2D overhead view, together with the evolution of the tree-based search strategy.  Benchmark timings are also displayed which give some indication as to whether the overall system would be suitable for real time operations.
+
+Ensure that some stereo image sequences have been unzipped, then from the menu bar choose _File/Open_ and select the _simulation_ xml file.  On the next tab you may then run the simulation and observe the map which is created.  Note that the system keeps track of multiple mapping hypotheses which become increasingly refined over time.
+
+Some suggested experiments:
+
+  *  Try altering the noise parameters within the MotionModel section of the simulation xml file and observe what effect this has upon the mapping performance.
+
+  *  Change the number of poses evaluated within the MotionModel section of the simulation xml file to see how this effects both the quality of mapping and the benchmark timings.
+
+  *  Alter the CullingThreshold within the MotionModel section of the simulation xml file, then view the evolution of the tree search.  Higher values (closer to 100) will mean that lower scoring hypothetical paths are more quickly pruned from the tree.
