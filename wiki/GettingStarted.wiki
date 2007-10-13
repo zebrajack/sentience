@@ -68,8 +68,8 @@ Ensure that some stereo image sequences have been unzipped, then from the menu b
 
 Some suggested experiments:
 
-  *  Try altering the noise parameters within the MotionModel section of the simulation xml file and observe what effect this has upon the mapping performance.
+  *  Try altering the noise parameters within the MotionModel section of the robotdesign xml file and observe what effect this has upon the mapping performance.
 
-  *  Change the number of poses evaluated within the MotionModel section of the simulation xml file to see how this effects both the quality of mapping and the benchmark timings.
+  *  Change the number of poses evaluated within the MotionModel section of the robotdesign xml file to see how this effects both the quality of mapping and the benchmark timings.
 
-  *  Alter the CullingThreshold within the MotionModel section of the simulation xml file, then view the evolution of the tree search.  Higher values (closer to 100) will mean that lower scoring hypothetical paths are more quickly pruned from the tree.
+  *  Alter the CullingThreshold within the MotionModel section of the robotdesign xml file, then view the evolution of the tree search.  Higher values (closer to 100) will mean that lower scoring hypothetical paths are more quickly pruned from the tree.
