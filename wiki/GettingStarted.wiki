@@ -73,3 +73,5 @@ Some suggested experiments:
   *  Change the number of poses evaluated within the MotionModel section of the robotdesign xml file to see how this effects both the quality of mapping and the benchmark timings.
 
   *  Alter the CullingThreshold within the MotionModel section of the robotdesign xml file, then view the evolution of the tree search.  Higher values (closer to 100) will mean that lower scoring hypothetical paths are more quickly pruned from the tree.
+
+_Note that you'll need to re-load the simulation file in order for changes to the robotdesign file to take effect._
