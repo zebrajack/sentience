@@ -61,3 +61,5 @@ So after all these checks have been carried out we're only left with a few candi
 === Updating the disparity map ===
 
 Once stereo correspondence matches have been found for each row we can use this information to update the disparity map.  When updating the map we add an entry not only for the pixel for which the disparity value was found but also for a few neighbouring pixels, according to a gaussian probability distribution.  This takes into account the fact that the system could have made a single pixel position mistake, and helps to increase the reliability and accuracy of the disparity values, avoiding the usual situation where "snow" appears due to singular bad matches.  It also gives us sub-pixel accuracy based upon multiple neighbouring disparity matches, thereby helping to satisfy the usual continuous disparity change constraint.
+
+Disparity values may subsequently be randomly sampled from the disparity map and turned into [http://code.google.com/p/sentience/wiki/StereoSensorModel probability density functions] which may be inserted into a 3D occupancy grid.  For speed these density values are stored within pre-calculated lookup tables.
