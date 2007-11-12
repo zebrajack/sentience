@@ -1,7 +1,7 @@
 #summary Matching two images together
 #labels correspondence,densestereo
 
-Stereo correspondence is the problem of discovering the closest possible match between two images captured symultaneously from cameras in different spatial locations.  Typically the cameras are alligned in such a way that each [ScanLine scan line] of the [ImageRectification rectified] images corresponds to the same line in the opposite image - something known as the [EpipolarConstraint epipolar constraint].
+Stereo correspondence is the problem of discovering the closest possible match between two images captured simultaneously from cameras in different spatial locations.  Typically the cameras are alligned in such a way that each [ScanLine scan line] of the [ImageRectification rectified] images corresponds to the same line in the opposite image - something known as the [EpipolarConstraint epipolar constraint].
 
 It should be noted that solving the stereo correspondence problem unde the epipolar constraint is a special class of a more general problem domain.  Near identical methods may be used to solve the problem of matching two images taken from the same camera but separated by some small difference in time as the robot moves through space (structure from motion).  It may also be used to _stitch_ or _register_ images together to form larger panoramas, maps, or synchronise deformable models.  The ideal stereo correspondence algorithm therefore would be a specialised subclass of this very general matching solution.
 
@@ -31,7 +31,7 @@ The steps involved in producing a dense disparity map are as follows:
 
 1.  Convert the original images into mono (one byte per pixel).  At present colour information is not used.  Although colour certainly provides an additional basis for matching it does slow down the algorithm somewhat.
 
-2.  Rectify the images using the camera calibration settings.  This removes distortions due to the shape of the lens, which may be especially severe for wide angle lenses.
+2.  [http://code.google.com/p/sentience/wiki/ImageRectification Rectify] the images using the camera calibration settings.  This removes distortions due to the shape of the lens, which may be especially severe for wide angle lenses.
 
 3.  Calculate the centre/surround and left/right responses for each image using two or three scales.  
 
