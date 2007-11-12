@@ -21,9 +21,11 @@ An example of dense stereo can be seen in the images below.  Here an orange juic
 
 [http://sluggish.uni.cc/sentience/occupancy2.jpg]
 
-=== Dense Stereo Algorithm ===
+=== Dense Stereo Correspondence ===
 
 Source code: [http://sentience.googlecode.com/svn/trunk/sentcore/sentience_stereo_contours.cs sentience_stereo_contours.cs]
+
+This method, developed after trying numerous alternative algorithms, seems to give good results in all kinds of conditions, is robust to the kind of noise which you typically find in webcam images and can be executed with sufficient speed for use on a moving robot.
 
 The steps involved in producing a dense disparity map are as follows:
 
@@ -56,4 +58,6 @@ Is the gradient above or below zero?
 So after all these checks have been carried out we're only left with a few candidate matches, out of which we can pick the closest match based upon difference in magnitude and gradient.
 
 
-This method, developed after trying numerous alternative algorithms, seems to give good results in all kinds of conditions, is robust to the kind of noise which you typically find in webcam images and can be executed with sufficient speed for use on a moving robot.
+=== Updating the disparity map ===
+
+Once stereo correspondence matches have been found for each row we can use this information to update the disparity map.  When updating the map we add an entry not only for the pixel for which the disparity value was found but also for a few neighbouring pixels, according to a gaussian probability distribution.  This takes into account the fact that the system could have made a single pixel position mistake, and helps to increase the reliability and accuracy of the disparity values, avoiding the usual situation where "snow" appears due to singular bad matches.  It also gives us sub-pixel accuracy based upon multiple neighbouring disparity matches, thereby helping to satisfy the usual continuous disparity change constraint.
