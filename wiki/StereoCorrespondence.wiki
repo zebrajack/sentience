@@ -21,8 +21,39 @@ An example of dense stereo can be seen in the images below.  Here an orange juic
 
 [http://sluggish.uni.cc/sentience/occupancy2.jpg]
 
-=== The Correspondence Club Sandwich ===
+=== Dense Stereo Algorithm ===
 
-For practical robotics applications we really want to get the best of both worlds.  We want sparse but distinctive features to facilitate real time SLAM, but this alone isn't enough.  We also want dense range data in order to model the environment with reasonable fidelity so that objects such as chairs, tables and people become apparent and can be recognised or avoided.
+Source code: [http://sentience.googlecode.com/svn/trunk/sentcore/sentience_stereo_contours.cs sentience_stereo_contours.cs]
 
-Since the computational overhead of sparse stereo is negligible, typically taking less than 18mS (the resolution of the standard timer on the Windows operating system) on a 1.8GHz single core processor, we may run both sparse and dense algorithms concurrently in separate threads.
+The steps involved in producing a dense disparity map are as follows:
+
+1.  Convert the original images into mono (one byte per pixel).  At present colour information is not used.  Although colour certainly provides an additional basis for matching it does slow down the algorithm somewhat.
+
+2.  Rectify the images using the camera calibration settings.  This removes distortions due to the shape of the lens, which may be especially severe for wide angle lenses.
+
+3.  Calculate the centre/surround and left/right responses for each image using two or three scales.  The functions carrying out these operations can be found within the detectBlobs method in [http://sentience.googlecode.com/svn/trunk/sentcore/classimage.cs classimage].  Notice that these are both measures of _relative pixel intensity_, so we do not need to carry out any sort of intensity/colour normalisation upon the left and right images prior to matching.  For each pixel we keep track of the pattern (either centre/surround or left/right) and scale which gave us the largest response.  What we're trying to do here is maximise the amount of information which is useful for finding correspondences.  In principle multiple patterns could be tried, but in practice I've found that these two give the best results, with additional patterns not adding much to the quality of the disparity map.
+
+4.  So for left and right images we now have a set of pattern response magnitudes together with information about the maximally responding pattern and scale.  We can then add further labels to each pixel depending upon whether the change in magnitude (gradient) for each row is ascending or descending, and also include changes in gradient.  What we're trying to do is give each pixel an ID or fingerprint which is as unique as possible, so that when matching the rows in left and right images only a few candidate matches need to be tried, rather than the usual _brute force search_ carried out by dedicated hardware systems.
+
+5.  For additional discriminatory power (and hence matching speed) we can also binarise each row and column and add a flag to each pixel indicating whether it is above or below the average intensity for that row/column.  This is a simple but effective strategy which allows large areas of the search space to be quickly disguarded.
+
+6.  For each row in the left and right images we then compare the various indicators calculated for each pixel:
+
+*Maximally responding pattern type*  
+Either centre/surround or left/right
+
+*Maximally responding scale*         
+The scale which gives us the highest pattern response magnitude
+
+*Pattern response magnitude*         
+Are the response magnitudes in left and right images similar?  
+Is the magnitude above or below zero?
+
+*Pattern response gradient*          
+Are the response gradients in left and right images similar?  
+Is the gradient above or below zero?
+
+So after all these checks have been carried out we're only left with a few candidate matches, out of which we can pick the closest match based upon difference in magnitude and gradient.
+
+
+This method, developed after trying numerous alternative algorithms, seems to give good results in all kinds of conditions, is robust to the kind of noise which you typically find in webcam images and can be executed with sufficient speed for use on a moving robot.
