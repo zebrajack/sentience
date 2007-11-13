@@ -3,7 +3,7 @@
 
 Stereo correspondence is the problem of discovering the closest possible match between two images captured simultaneously from cameras in different spatial locations.  Typically the cameras are alligned in such a way that each [ScanLine scan line] of the [ImageRectification rectified] images corresponds to the same line in the opposite image - something known as the [EpipolarConstraint epipolar constraint].
 
-It should be noted that solving the stereo correspondence problem unde the epipolar constraint is a special class of a more general problem domain.  Near identical methods may be used to solve the problem of matching two images taken from the same camera but separated by some small difference in time as the robot moves through space (structure from motion).  It may also be used to _stitch_ or _register_ images together to form larger panoramas, maps, or synchronise deformable models.  The ideal stereo correspondence algorithm therefore would be a specialised subclass of this very general matching solution.
+It should be noted that solving the stereo correspondence problem under the epipolar constraint is a special class of a more general problem domain.  Near identical methods may be used to solve the problem of matching two images taken from the same camera but separated by some small difference in time as the robot moves through space (structure from motion).  It may also be used to _stitch_ or _register_ images together to form larger panoramas, maps, or synchronise deformable models.  The ideal stereo correspondence algorithm therefore would be a specialised subclass of this very general matching solution.
 
 === Sparse or Dense? ===
 
@@ -15,15 +15,17 @@ An example of sparse stereo matching can be seen below.  The green spot features
 
 [http://sluggish.uni.cc/sentience/sentdemo.jpg]
 
+=== Dense Stereo Correspondence ===
+
+Source code: [http://sentience.googlecode.com/svn/trunk/sentcore/sentience_stereo_contours.cs sentience_stereo_contours.cs]
+
 The other way is to try to match as many pixels as possible, typically known as _dense stereo matching_.  Dense stereo is useful if the system needs to recover the detailed geometry of the scene, in order to facilitate obstacle avoidance or object recognition.  Efficient methods for dense stereo correspondence have been slow to materialise.  There are a few companies selling commercial stereo vision products which utilise dedicated hardware in order perform _brute force_ correspondence searching.  Even with hardware acceleration this is a very unintelligent way to solve the problem, and is particularly prone to matching errors.  This problem can be solved in a more practical and far less expensive way by using _multi-scale receptive field contours_, whereby areas of the image are labelled according to their [CentreSurround centre/surround] frequency and amplitude prior to being matched.  Using an efficient algorithm dense stereo matching becomes a practical proposition for robotics use, even on low end single core processors.
 
 An example of dense stereo can be seen in the images below.  Here an orange juice carton is observed and depth data derrived from correspondence matching is used to update a 3D [OccupancyGrid occupancy grid].
 
 [http://sluggish.uni.cc/sentience/occupancy2.jpg]
 
-=== Dense Stereo Correspondence ===
-
-Source code: [http://sentience.googlecode.com/svn/trunk/sentcore/sentience_stereo_contours.cs sentience_stereo_contours.cs]
+=== Dense Stereo Algorithm ===
 
 This method, developed after trying numerous alternative algorithms, seems to give good results in all kinds of conditions, is robust to the kind of noise which you typically find in webcam images and can be executed with sufficient speed for use on a moving robot.
 
