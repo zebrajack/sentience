@@ -47,9 +47,11 @@ _The use of centre/surround receptive fields in this case is loosely inspired fr
 
 4.  So for left and right images we now have a set of pattern response magnitudes together with information about the maximally responding pattern and scale.  We can then add further labels to each pixel depending upon whether the change in magnitude (gradient) for each row is ascending or descending, and also include changes in gradient.  What we're trying to do is give each pixel an ID or fingerprint which is as unique as possible, so that when matching the rows in left and right images only a few candidate matches need to be tried, rather than the usual _brute force search_ carried out by dedicated hardware systems.
 
-5.  For additional discriminatory power (and hence matching speed) we can also binarise each row and column and add a flag to each pixel indicating whether it is above or below the average intensity for that row/column.  This is a simple but effective strategy which allows large areas of the search space to be quickly disguarded.
+5.  For additional discriminatory power (and hence matching speed) we can also binarise each row and column and add a flag to each pixel indicating whether it is above or below the average intensity for that row/column.  This is a simple but effective strategy which allows large areas of the search space to be quickly disguarded.  
 
-6.  For each row in the left and right images we then compare the various indicators calculated for each pixel:
+6.  Another trick is to find the single maximally responding vertical edge within each column and compare these between the two images, which also helps to exclude matches which may look similar on an individual row (for example the "picket fence" effect) but have substantially dissimilar vertical contexts.
+
+7.  For each row in the left and right images we then compare the various indicators calculated for each pixel:
 
 *Maximally responding pattern type*  
 Either centre/surround or left/right
@@ -64,6 +66,9 @@ Is the magnitude above or below zero?
 *Pattern response gradient*          
 Are the response gradients in left and right images similar?  
 Is the gradient above or below zero?
+
+*Vertical context*
+Is there some similarity in the properties of similar looking image columns?
 
 So after all these checks have been carried out we're only left with a few candidate matches, out of which we can pick the closest match based upon difference in magnitude and gradient.
 
