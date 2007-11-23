@@ -68,7 +68,7 @@ Are the response gradients in left and right images similar?
 Is the gradient above or below zero?
 
 *Vertical context*
-Is there some similarity in the properties of similar looking image columns?
+Is there some similarity in the properties of image columns?
 
 So after all these checks have been carried out we're only left with a few candidate matches, out of which we can pick the closest match based upon difference in magnitude and gradient.
 
