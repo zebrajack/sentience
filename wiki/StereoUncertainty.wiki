@@ -13,7 +13,7 @@ So taking into account the uncertainty in the feature position we can say that i
 
 === Probability distribution ===
 
-Inside the diamond shaped area what does the probability distribution look like ?  For convenience it's often assumed to be an ellipse with uniform gaussian distribution, as is the case in [http://www.doc.ic.ac.uk/~ajd/ Andrew Davisons] MonoSLAM, but this isn't really the case for stereo.  To get a better idea of how the uncertainty varies we can run a numerical simulation which updates a high resolution grid.  The result looks like this.
+Inside the diamond shaped area what does the probability distribution look like ?  For convenience it's often assumed to be an ellipse with uniform gaussian distribution but this isn't really the case for stereo.  To get a better idea of how the uncertainty varies we can run a numerical simulation which updates a high resolution grid.  The result looks like this.
 
 [http://sentience.googlegroups.com/web/stereo_uncertainties.jpg]
 
