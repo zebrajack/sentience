@@ -1,7 +1,6 @@
 #summary Stereo vision related reading material
 
-  *  [http://www.staff.ncl.ac.uk/j.c.a.read/publications/ReadCumming07.pdf Sensors for impossible stimuli may solve the stereo
-correspondence problem], Jenny C A Read and Bruce G Cumming
+  *  [http://www.staff.ncl.ac.uk/j.c.a.read/publications/ReadCumming07.pdf Sensors for impossible stimuli may solve the stereo correspondence problem], Jenny C A Read and Bruce G Cumming
 
   *  [http://www-cv.mech.eng.osaka-u.ac.jp/~jun/pdffiles/ijcai93.pdf An Uncertainty Model of Stereo Vision and Its Application to Vision-Motion Planning of Robot], J. Miura and Y. Shirai
 
