@@ -85,7 +85,7 @@ Notice that everything now looks much straighter. This isn't all there is to the
 
 The final result for both left and right camera images looks like this:
 
-[http://farm4.static.flickr.com/3030/2641981504_94a57e8b04.jpg]
+[http://farm4.static.flickr.com/3030/2641981504_fd93c7d74b_o.jpg]
 
 
 
@@ -202,4 +202,3 @@ The first thing to check is that left and right cameras are connected correctly.
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
 
 Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
-
