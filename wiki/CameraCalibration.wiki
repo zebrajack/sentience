@@ -9,34 +9,85 @@ The typical method of calibration involves having the camera observe a test patt
 
 === Stages of Calibration ===
 
-The images below show the stages involved in the calibration process.
+*Step 1: Find the edges*
 
-[http://sentience.googlegroups.com/web/calibration_steps.jpg]
+To begin with we calculate a histogram of pixel intensity values within a circular region in the centre of the image. From this histogram we can compute average values for the dark and light pixels corresponding to dots on the calibration pattern and their background. These mean dark and mean light values then become the low and high thresholds of a canny edge filter. The result looks like this:
 
-1.  *Edge detection*  Edges are detected within the entire image, or within some _region of interest_ which contains the calibration pattern.  Edges are local points of high contrast, and a competitive _non-maximal supression_ is used to show only the strongest features.  In order to make edge detection more robust multiple images taken over a period of time are integrated together.  This helps to average out much of the noise normally present within webcam images.
+[http://farm4.static.flickr.com/3255/2560591201_10a825746e.jpg]
 
-2.  *Line detection*  Once edges have been detected horizontally and vertically oriented lines can be fitted to them.  Some extra local fitting is done to ensure that the lines closely match those within the original image.
+*Step 2: Locate the dots*
 
-3.  *Corner detection*  When lines have been found the intersections between lines may be used to discover corner features.
+Once edges have been found the dots themselves are quite easy to find. This is done by finding connected line segments with a small grouping radius of a few pixels. Most dots on the pattern are a dark colour, with a red dot marking a known reference position relative to the robot's cameras. The exact centre point of each dot is calculated using a local centre of gravity of the edge pixel positions.
 
-4.  *Centre spot detection*  We also need to know the centre position of the calibration pattern, because this is at a known distance from the camera.  The centre of the pattern is indicated by a small spot, which is offset north west, north east, south west or south east from the centre of pattern.  The centre spot is easily located by searching for the maximal _off-centre_ response within the image which has not been previously identified as a corner feature.  The corner feature which corresponds to the centre of the pattern is marked with a small white square.
+[http://farm3.static.flickr.com/2419/2560591347_e09404657a.jpg]
 
-5.  *Forward feature projection*  Knowning the position of the centre of the calibration pattern, its distance from the camera, the height of the camera above the ground, field of vision and the spacing of the pattern we can then calculate where corner features _ought to appear_ within the image if it were perfectly rectified.  This is a kind of top-down expectation projected into image coordinates.
+*Step 3: Find the centre square*
 
-6.  *Polynomial curve fit*  We can plot the radial positions (distance from the centre of the image) for the observed corners and the forward projected corners on a 2D graph and use classical polynomial curve fitting in order to discover the shape of the image distortion caused by the camera lens.  The fitting procedure may be carried out using an origin within some small radius of the centre of the image, and the solution with the smallest _root mean squared_ error then gives us a position for the _centre of the distortion_.
+By doing a little local search around the red dot we can discover the four adjacent dots and form a square, like this:
 
-[http://sentience.googlegroups.com/web/calibration_polynomial.jpg]
+[http://farm4.static.flickr.com/3162/2560591401_153f1e3f84.jpg]
 
-7.  *Shake and bake*  Once a good curve fit has been discovered a small amount of random noise is added and a secondary function is used to evaluate the quality of fit to the image, by comparing the rectified corner feature positions to the forward projected corners.  This annealing process allows the curve to be fine tuned to get the closest possible match.
+*Step 4: Join the dots*
 
-The stereo images below show the difference between the rectified corner positions and the ideal forward projected positions, with white lines indicating the error magnitude.
+Probably the neatest part of the calibration algorithm is the way it joins the dots to form a grid. This is done by a recursive search, starting from the centre square and growing outwards. At each dot pre-existing local links are examined and the system makes predictions about where it expects other adjacent dots to be. You can see the prediction search areas marked as yellow circles. If the algorithm finds a dot within the predicted region it links to it, and continues until it can't find any more dots to connect with. Whilst linking the red centre dot is ignored.
 
-[http://sentience.googlegroups.com/web/calibration_errors.jpg]
+Notice here that not all the dots on the pattern were detected and so the grid isn't complete, but this actually doesn't matter too much.
 
-8.  *Rectification*  The centre of distorion and polynomial curve may be used to rectify images from the camera.
+[http://farm4.static.flickr.com/3160/2560591483_4804e99a77.jpg]
+
+*Step 5: The Matrix*
+
+Once a grid has been fitted coordinates may be assigned. Since we know the centre position from the red dot grid points can be assigned relative to that position, like so:
+
+[http://farm4.static.flickr.com/3175/2561413818_1035241393.jpg]
+
+With coordinates assigned we can then dump the dot positions into a two dimensional array for later lookup.
+
+*Step 6: Lines*
+
+Purely for checking purposes a set of lines are also discovered, aligned with the axes of the pattern. The lines will be used as a method of visually checking that the rectification looks reasonable. Here each line is given a different colour for clarity. These make the warping effect of the camera lens more apparent.
+
+[http://farm4.static.flickr.com/3132/2560591639_2ec0cf677c.jpg]
+
+*Step 7: Ideals Vs reality*
+
+Based upon the known position of the centre red dot we can reproject a set of points into the image which are the ideal positions of each dot if the image were to be perfectly rectified.
+
+[http://farm4.static.flickr.com/3265/2578103963_a567e63b13.jpg]
+
+*Step 8: Curves in space*
+
+For every dot we can compute its radial distance from the centre of lens distortion. In an ideal world the centre of lens distortion would be the centre of the image, but this is not actually always the case. We can find the radial distances both for the ideal (reprojected) dot and the actually detected dot, plot these points on a graph then fit a curve to them using linear regression. The curve fitting needs to be quite precise to get a good result, so an annealing-like search over multiple possible centres of lens distortion is performed to find the minimum curve fitting RMS error. A certain amount of random noise is added to the dot positions which is then progressively cooled down over time.
+
+The resulting curve is a model of how the lens distorts light entering the camera.
+
+[http://farm4.static.flickr.com/3250/2618716971_a062c8bd3d.jpg]
+
+An alternative way of viewing this curve is as a lens distortion model.  Concentric circles show ten degree intervals, and the shading gives some impression of the lens shape.
+
+[http://farm4.static.flickr.com/3040/2618716909_a2d7afc93c.jpg]
+
+*Step 9: Lookup table*
+
+We can use the lens distortion curve and centre of distortion position to directly calculate rectified positions, but in practice this is slow and involves doing a lot of tedious floating point calculations such as square roots. Instead we can use the curve to create a lookup table which maps pixels in the original image into pixels in a rectified image. Rectifying the image then becomes very easy and fast, which is useful for a busy robot on the move.
+
+You can see the rectified lines here, which gives a good indication of whether the algorithm was successful or not.
+
+[http://farm4.static.flickr.com/3138/2578103893_116c18bd3f.jpg]
+
+and the rectified image now looks like this:
+
+[http://farm4.static.flickr.com/3030/2578104011_2bf86f508a.jpg]
+
+Notice that everything now looks much straighter. This isn't all there is to the calibration procedure, but it covers the essentials. We can also correct for slight rotation of the camera and include that within the calculation of the lookup table.
 
 
-The assumption that the lens distortion is radially symmetric is of course not always true, especially on low cost webcams where the quality of manufacture may not be especially high.
+
+The final result for both left and right camera images looks like this:
+
+[http://farm4.static.flickr.com/3030/2641981504_94a57e8b04.jpg]
+
+
 
 === Users guide ===
 
@@ -151,6 +202,4 @@ The first thing to check is that left and right cameras are connected correctly.
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
 
 Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
-
-
 
