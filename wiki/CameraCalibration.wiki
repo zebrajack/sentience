@@ -1,7 +1,7 @@
 #summary Calibrating methods for stereo cameras
 #labels calibration,cameralens
 
-*_"It is perhaps somewhat unfortunate that the subject [of camera calibration] must continue to be a drain on research efforts during the development of new systems."_* - Bob Fisher
+*_"It is perhaps somewhat unfortunate that the subject <of camera calibration> must continue to be a drain on research efforts during the development of new systems."_* - Bob Fisher
 
 Camera images normally contain some amount of spherical distortion, sometimes known as the _goldfish bowl effect_.  Linear features such as chair legs or door frames may appear to be warped, especially at the periphery of the image.  The job of camera calibration is to discover the nature of this distortion so that the resulting image may subsequently be undistorted or [ImageRectification rectified].
 
