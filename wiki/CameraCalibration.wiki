@@ -9,6 +9,8 @@ Various methods of calibration exist.  The simplest method assumes a perfectly s
 
 The typical method of calibration involves having the camera observe a test pattern, which can consist of spots, lines or squares (or indeed any easily identifiable repeating pattern).  Since the real geometry of the pattern is known the lens distortion can be calculated, then used to rectify the image back into a flat geometry.
 
+Various calibration utilities existed at the time when the Sentience software was being written, but usually they were either closed source, depended upon proprietary software components such as Matlab, or required some amount of manual intervention when detecting the calibration pattern.  So a new stereo vision calibration tool needed to be developed.
+
 === Stages of Calibration ===
 
 *Step 1: Find the edges*
