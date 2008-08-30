@@ -36,6 +36,10 @@ You should now be able to see a pair of images where straight lines appear strai
 
 By default you will see the simple (sparse) stereo algorithm running, with green dots appearing in the left image indicating the amount of stereo disparity for detected features.  Bigger dots are closer to the camera.  The relationship between disparity and distance is given [http://code.google.com/p/sentience/source/browse/trunk/docs/stereo_vision_geometry.odg in this document].  If the results look unsatisfactory for any reason try going through the calibration procedure again.  It cannot be overstated that good camera calibration is essential for any reasonable results on stereo correspondence.
 
+= Notes =
+
+The dense stereo algorithm is loosely based upon a paper by Jenny Read and Bruce Cumming, [http://www.staff.ncl.ac.uk/j.c.a.read/publications/ReadCumming07.pdf Sensors for impossible stimuli may solve the stereo correspondence problem].
+
 
 = Release 0.1 =
 
