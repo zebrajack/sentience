@@ -1,0 +1,50 @@
+#summary A wireless stereo camera
+#labels SurveyorSVS,SurveyorCorporation,stereocamera,stereovision,stereocorrespondence,computervision
+
+[http://photos-a.ak.facebook.com/photos-ak-sf2p/v337/62/98/502968981/n502968981_1201968_5573.jpg]
+
+= Introduction =
+
+This is a stereo vision system for mobile robots sold by [http://www.surveyor.com/SRV.html Surveyor Corporation].  Code and algorithms from the main [http://code.google.com/p/sentience Sentience project] have been used to develop some software for use with this device, giving the ability to range objects within view.
+
+The software is written in C# and is intended to be compiled either using Visual Studio 2005 on a Microsoft Windows system, or using MonoDevelop on GNU/Linux systems.  It has been tested on Windows Vista and Ubuntu Hardy, and is licenced under GPL version 3.
+
+= Configuration =
+
+Main solution files are:
+
+ * surveyorstereo.mds (GNU/Linux version)
+ * surveyorstereo.sln (Windows version)
+
+First you need to ensure that the IP address and port numbers for the stereo camera are configured correctly.  These are contained within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/MainWindow.cs MainWindow.cs] (GNU/Linux version which uses a Gtk GUI) or [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/frmStereo.cs frmStereo.cs] (Windows version using Windows.Forms).  You should then be able to compile and run the software and received images from both cameras.
+
+= Calibration =
+
+Both cameras need to be calibrated before the device can be used for stereo ranging.  Calibration removes the lens distortion effects, ensuring that straight lines in the world appear as straight lines in the images so that the [http://en.wikipedia.org/wiki/Epipolar_geometry epipolar constraint] applies, and also corrects for any small misalignments from a perfectly parallel geometry.  This is an easy procedure which only takes a few minutes, and only typically needs to be performed once unless the positions of the cameras have changed.  
+
+It's a good idea to ensure that both cameras are rigidly mounted in parallel so that they cannot move relative to each other, even despite the knocks and bumps which a mobile robot is bound to encounter.  One way to do this is to bolt a piece of wood or metal to the top mounting holes, as in the above picture.
+
+Run the software, then either click on the "calibrate left camera" checkbox or select it from the menu bar (depending upon whether the Windows or GNU/Linux version is being used).  You should see a pattern of dots appear next to the left camera image, like this:
+
+[http://www.surveyor.com/images/calibration_test.jpg]
+
+Point the left camera at the dot pattern on the screen (it is assumed that the screen being used is flat, not curved like an old CRT monitor) so that the pattern fills the field of view of the camera.  You may need to experiment with the distance between the screen and the camera, but once the system acquires a suitable image it will be displayed in the left image area.  After a few updates you will notice that the dot pattern appears to go from being somewhat warped around the periphery to being straight, with regular spacing between dots.  Once this happens you can click on "calibrate right camera" or select it from the menu and perform a similar procedure for the right camera.
+
+You should now be able to see a pair of images where straight lines appear straight.  To complete the calibration process you now need to point the stereo camera at something a significant distance away - preferably more than five metres distant.  A good way to do this is to point the stereo camera out of a window at a distant house or trees.  Click on "calibrate alignment" or select it from the menu and the calibration process will now be complete.
+
+By default you will see the simple (sparse) stereo algorithm running, with green dots appearing in the left image indicating the amount of stereo disparity for detected features.  Bigger dots are closer to the camera.  The relationship between disparity and distance is given [http://code.google.com/p/sentience/source/browse/trunk/docs/stereo_vision_geometry.odg in this document].  If the results look unsatisfactory for any reason try going through the calibration procedure again.  It cannot be overstated that good camera calibration is essential for any reasonable results on stereo correspondence.
+
+
+= Release 0.1 =
+
+[http://sentience.googlecode.com/files/surveyor_svs_v0_1_0.zip Source code]
+
+The initial release contains algorithms for sparse edge/corner based stereo correspondence and a dense disparity map.  The dense algorithm has not been optimized, so there is presumably scope for improvement in its performance.
+
+Known issues:
+
+ * When selecting to calibrate left or right cameras on the Linux version sometimes you need to click more than once on the check box.
+
+ * Calibration does not include relative rotation (roll angle) of one camera to another.  It is assumed that the relative rotation is zero degrees.
+
+ * There is no way of transmitting the stereo feature data to other applications.  Broadcasting the data via TCP or UDP is anticipated for a later version.
