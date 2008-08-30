@@ -16,7 +16,7 @@ Main solution files are:
  * surveyorstereo.mds (GNU/Linux version)
  * surveyorstereo.sln (Windows version)
 
-First you need to ensure that the IP address and port numbers for the stereo camera are configured correctly.  These are contained within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/MainWindow.cs MainWindow.cs] (GNU/Linux version which uses a Gtk GUI) or [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/frmStereo.cs frmStereo.cs] (Windows version using Windows.Forms).  You should then be able to compile and run the software and received images from both cameras.
+First you need to ensure that the IP address and port numbers for the stereo camera are configured correctly.  These are contained within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/MainWindow.cs MainWindow.cs] (GNU/Linux version which uses a Gtk GUI) or [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/frmStereo.cs frmStereo.cs] (Windows version using Windows.Forms).  You should then be able to compile and run the software and receive images from both cameras.
 
 = Calibration =
 
