@@ -7,7 +7,7 @@
 
 This is a stereo vision system for mobile robots sold by [http://www.surveyor.com/SRV.html Surveyor Corporation].  Code and algorithms from the main [http://code.google.com/p/sentience Sentience project] have been used to develop some software for use with this device, giving the ability to range objects within view.
 
-The software is written in C# and is intended to be compiled either using Visual Studio 2005 on a Microsoft Windows system, or using MonoDevelop on GNU/Linux systems.  It has been tested on Windows Vista and Ubuntu Hardy, and is licenced under GPL version 3.
+The software is written in C# and is intended to be compiled either using Visual Studio 2005 on a Microsoft Windows system, or using [http://www.monodevelop.com MonoDevelop] on GNU/Linux systems.  It has been tested on Windows Vista and Ubuntu Hardy, and is licenced under GPL version 3.
 
 = Configuration =
 
@@ -20,7 +20,7 @@ First you need to ensure that the IP address and port numbers for the stereo cam
 
 = Calibration =
 
-Both cameras need to be calibrated before the device can be used for stereo ranging.  Calibration removes the lens distortion effects, ensuring that straight lines in the world appear as straight lines in the images so that the [http://en.wikipedia.org/wiki/Epipolar_geometry epipolar constraint] applies, and also corrects for any small misalignments from a perfectly parallel geometry.  This is an easy procedure which only takes a few minutes, and only typically needs to be performed once unless the positions of the cameras have changed.  
+Both cameras need to be calibrated before the device can be used for stereo ranging.  Calibration removes the lens distortion effects, ensuring that straight lines in the world appear as straight lines in the images so that the [http://en.wikipedia.org/wiki/Epipolar_geometry epipolar constraint] applies, and also corrects for any small misalignments from a perfectly parallel geometry.  This is an easy procedure which only takes a few minutes, and only typically needs to be performed once unless the positions of the cameras have changed.
 
 It's a good idea to ensure that both cameras are rigidly mounted in parallel so that they cannot move relative to each other, even despite the knocks and bumps which a mobile robot is bound to encounter.  One way to do this is to bolt a piece of wood or metal to the top mounting holes, as in the above picture.
 
@@ -29,6 +29,8 @@ Run the software, then either click on the "calibrate left camera" checkbox or s
 [http://www.surveyor.com/images/calibration_test.jpg]
 
 Point the left camera at the dot pattern on the screen (it is assumed that the screen being used is flat, not curved like an old CRT monitor) so that the pattern fills the field of view of the camera.  You may need to experiment with the distance between the screen and the camera, but once the system acquires a suitable image it will be displayed in the left image area.  After a few updates you will notice that the dot pattern appears to go from being somewhat warped around the periphery to being straight, with regular spacing between dots.  Once this happens you can click on "calibrate right camera" or select it from the menu and perform a similar procedure for the right camera.
+
+[http://lh5.ggpht.com/fuzzgun/SLmBwBTDJLI/AAAAAAAAAFg/Evl22kdbjZw/SVS_calibration3.jpg]
 
 You should now be able to see a pair of images where straight lines appear straight.  To complete the calibration process you now need to point the stereo camera at something a significant distance away - preferably more than five metres distant.  A good way to do this is to point the stereo camera out of a window at a distant house or trees.  Click on "calibrate alignment" or select it from the menu and the calibration process will now be complete.
 
