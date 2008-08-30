@@ -40,6 +40,11 @@ By default you will see the simple (sparse) stereo algorithm running, with green
 
 The dense stereo algorithm is loosely based upon a paper by Jenny Read and Bruce Cumming, [http://www.staff.ncl.ac.uk/j.c.a.read/publications/ReadCumming07.pdf Sensors for impossible stimuli may solve the stereo correspondence problem].
 
+Results of stereo correspondence are always noisy in practice, and occasional false matches are an occupational hazard.  However, provided that the signal outweighs the noise good results can be achieved, especially when using probabilistic methods such as occupancy grids.
+
+= Ideas for future work =
+
+It is possible that stereo correspondence could be combined with fast monocular tracking similar to that used by [http://www.doc.ic.ac.uk/~ajd/ Andrew Davison].  Features could be initialized in a very computationally economical manner, perhaps randomly selecting a single image row upon which to find new features, then tracked monocularly at high speed.
 
 = Release 0.1 =
 
