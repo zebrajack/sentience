@@ -18,6 +18,12 @@ Main solution files are:
 
 First you need to ensure that the IP address and port numbers for the stereo camera are configured correctly.  These are contained within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/MainWindow.cs MainWindow.cs] (GNU/Linux version which uses a Gtk GUI) or [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/surveyorstereo/frmStereo.cs frmStereo.cs] (Windows version using Windows.Forms).  You should then be able to compile and run the software and receive images from both cameras.
 
+On a new installation of Ubuntu you may need to install gmcs (the .NET 2.0 runtime) in order to compile the software, like this:
+
+{{{
+sudo apt-get install mono-gmcs
+}}}
+
 = Calibration =
 
 Both cameras need to be calibrated before the device can be used for stereo ranging.  Calibration removes the lens distortion effects, ensuring that straight lines in the world appear as straight lines in the images so that the [http://en.wikipedia.org/wiki/Epipolar_geometry epipolar constraint] applies, and also corrects for any small misalignments from a perfectly parallel geometry.  This is an easy procedure which only takes a few minutes, and only typically needs to be performed once unless the positions of the cameras have changed.
