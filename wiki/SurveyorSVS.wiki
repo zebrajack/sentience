@@ -34,13 +34,70 @@ Run the software, then either click on the "calibrate left camera" checkbox or s
 
 [http://www.surveyor.com/images/calibration_test.jpg]
 
-Point the left camera at the dot pattern on the screen (it is assumed that the screen being used is flat, not curved like an old CRT monitor) so that the pattern fills the field of view of the camera.  You may need to experiment with the distance between the screen and the camera, but once the system acquires a suitable image it will be displayed in the left image area.  After a few updates you will notice that the dot pattern appears to go from being somewhat warped around the periphery to being straight, with regular spacing between dots.  Once this happens you can click on "calibrate right camera" or select it from the menu and perform a similar procedure for the right camera.
+Point the left camera at the dot pattern on the screen (it is assumed that the screen being used is flat, not curved like an old CRT monitor) so that the pattern fills the field of view of the camera.  You may need to experiment with the distance between the screen and the camera, but once the system acquires a suitable image it will be displayed in the left image area.  After a few updates you will notice that the dot pattern appears to go from being somewhat warped around the periphery to being straight, with regular spacing between dots.  There will also be a beep sound, indicating that the RMS curve fitting error has fallen below an acceptable threshold.  Once this happens you can click on "calibrate right camera" or select it from the menu and perform a similar procedure for the right camera.
 
 [http://lh5.ggpht.com/fuzzgun/SLmBwBTDJLI/AAAAAAAAAFg/Evl22kdbjZw/SVS_calibration3.jpg]
 
-You should now be able to see a pair of images where straight lines appear straight.  To complete the calibration process you now need to point the stereo camera at something a significant distance away - preferably more than five metres distant.  The idea here is that rays of light coming from these distant objects can be considered for practical purposes to be effectively parallel.  A good way to do this is to point the stereo camera out of a window at a distant house or trees.  Click on "calibrate alignment" or select it from the menu and the calibration process will now be complete.
+You should now be able to see a pair of images where straight lines appear straight.  To complete the calibration process you now need to point the stereo camera at something a significant distance away - preferably more than five metres distant.  The idea here is that rays of light coming from these distant objects can be considered for practical purposes to be effectively parallel.  A good way to do this is to point the stereo camera out of a window at a distant house or trees.  Click on "calibrate alignment" or select it from the menu and the calibration process will now be complete.  
+
+You may wish to save the calibration XML file to some suitable location for later use, which can be done either from the file menu or by clicking on a button.  In the GNU/Linux (Gtk) version the calibration file is saved onto the desktop.
 
 By default you will see the simple (sparse) stereo algorithm running, with green dots appearing in the left image indicating the amount of stereo disparity for detected features.  Bigger dots are closer to the camera.  The relationship between disparity and distance is given [http://code.google.com/p/sentience/source/browse/trunk/docs/stereo_vision_geometry.odg in this document].  If the results look unsatisfactory for any reason try going through the calibration procedure again.  It cannot be overstated that good camera calibration is essential for any reasonable results on stereo correspondence.  Poorly focussed cameras can also cause problems, so ensure that the images look reasonably sharp and if not then manually adjust the focus as needed.
+
+= Calibration using a physical pattern =
+
+It is also possible to save the calibration pattern as a bitmap.  In the GNU/Linux version this is saved to the desktop by clicking a button, and in other versions a dialog from the file menu allows you to save the image to any location.  The image may then be printed out and glued to a cardboard or other rigid backing.  This provides an alternative to calibrating directly from the screen, should that be more convenient.  The audible beep produced as each camera is calibrated means that you don't necessarily need to be looking at a monitor or laptop in order to know that the process has completed.
+
+= Stereo vision server =
+
+[http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoserver Server source code]
+
+A graphical user interface is obviously necessary for calibration and testing of the stereo correspondence algorithms.  However, once calibration has been completed it is possible to run the system "headless" as a command line program.  This program computes stereo disparities and broadcasts this data to other connected applications using the TCP protocol.  The syntax is as follows:
+
+{{{
+stereoserver -server <IP address of the stereo camera>
+             -leftport <port number of the left camera, usually 10001>
+             -rightport <port number of the right camera, usually 10002>
+             -broadcastport <port number on which to broadcast stereo feature data>
+             -algorithm <"simple" or "dense">
+             -calibration <calibration filename>
+             -width <width of the image coming from the stereo camera in pixels>
+             -height <height of the image coming from the stereo camera in pixels>
+}}}
+
+What is the format of the stereo feature data being broadcast?  For the simple edge/corner based stereo algorithm the data format is 12 bytes per feature.
+
+{{{
+public struct BroadcastStereoFeature
+{
+    public float x;         // 4 bytes
+    public float y;         // 4 bytes
+    public float disparity; // 4 bytes
+}
+}}}
+
+For the dense algorithm three bytes indicating the colour of the feature is also transmitted, with 16 bytes per feature.
+
+{{{
+public struct BroadcastStereoFeatureColour
+{
+    public float x;         // 4 bytes
+    public float y;         // 4 bytes
+    public float disparity; // 4 bytes
+    public byte r, g, b;    // 3 bytes
+    public byte pack;       // 1 byte
+}
+}}}
+
+The first byte in the transmission contains either a zero value if the subsequent data is in the first format or a one if the subsequent data is in the second format with additional colour information.
+
+An example command line client program which connects to the stereo vision server and receives features [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoclient can be found here].  The syntax for its use is as follows.
+
+{{{
+stereoclient -server <IP address of the computer on which the stereo vision server is running>
+             -port <broadcast port number on which the stereo vision server is communicating>
+}}}
+
 
 = Notes =
 
