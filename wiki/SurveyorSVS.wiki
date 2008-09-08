@@ -91,6 +91,8 @@ public struct BroadcastStereoFeatureColour
 
 The first byte in the transmission contains either a zero value if the subsequent data is in the first format or a one if the subsequent data is in the second format with additional colour information.
 
+To keep bandwidth usage reasonable a maximum of 200 stereo features are broadcast at any point in time.  If more than 200 features were detected a random sample is returned.  This also allows computational economies to be made in the dense stereo algorithm, which only needs to sample a few randomly selected image rows in order to acquire enough data.  For those familiar with [http://en.wikipedia.org/wiki/LIDAR LIDAR] systems you can think of this as being like a _crazy laser scanner_, where the tilt angle used for each scan line is picked randomly.
+
 An example command line client program which connects to the stereo vision server and receives features [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoclient can be found here].  The syntax for its use is as follows.
 
 {{{
