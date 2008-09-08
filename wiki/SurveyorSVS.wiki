@@ -52,6 +52,8 @@ It is also possible to save the calibration pattern as a bitmap.  In the GNU/Lin
 
 [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoserver Server source code]
 
+[http://lh4.ggpht.com/fuzzgun/SMWnVVwxO-I/AAAAAAAAAGA/gPS6EYcwsro/stereo_server.jpg]
+
 A graphical user interface is obviously necessary for calibration and testing of the stereo correspondence algorithms.  However, once calibration has been completed it is possible to run the system "headless" as a command line program.  This program computes stereo disparities and broadcasts this data to other connected applications using the TCP protocol.  The syntax is as follows:
 
 {{{
