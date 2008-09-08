@@ -102,7 +102,7 @@ stereoclient -server <IP address of the computer on which the stereo vision serv
              -port <broadcast port number on which the stereo vision server is communicating>
 }}}
 
-An easy way to write a program which does something with the stereo disparity data would be to create a new class which inherits from [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/stereoclient/StereoVisionClient.cs StereoVisionClient.cs] and overrides the _FeaturesArrived_ method.
+An easy way to write a program which does something with the stereo disparity data would be to create a new class which inherits from [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/stereoclient/StereoVisionClient.cs StereoVisionClient.cs] and overrides the FeaturesArrived method.
 
 
 = Notes =
