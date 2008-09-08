@@ -48,6 +48,8 @@ By default you will see the simple (sparse) stereo algorithm running, with green
 
 It is also possible to save the calibration pattern as a bitmap.  In the GNU/Linux version this is saved to the desktop by clicking a button, and in other versions a dialog from the file menu allows you to save the image to any location.  The image may then be printed out and glued to a cardboard or other rigid backing.  This provides an alternative to calibrating directly from the screen, should that be more convenient.  The audible beep produced as each camera is calibrated means that you don't necessarily need to be looking at a monitor or laptop in order to know that the process has completed.
 
+The calibration image can also be [http://lh3.ggpht.com/fuzzgun/SMWqwVVowLI/AAAAAAAAAGI/UCxY7K4NScw/s720/calibration_pattern.jpg downloaded here].
+
 = Stereo vision server =
 
 [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoserver Server source code]
