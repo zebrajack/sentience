@@ -50,6 +50,8 @@ It is also possible to save the calibration pattern as a bitmap.  In the GNU/Lin
 
 The calibration image can also be [http://lh3.ggpht.com/fuzzgun/SMWqwVVowLI/AAAAAAAAAGI/UCxY7K4NScw/s720/calibration_pattern.jpg downloaded here].
 
+[http://lh4.ggpht.com/fuzzgun/SMquSVlcgUI/AAAAAAAAAGo/0uqQi3Jb-bw/s512/calibration_pattern_card.JPG]
+
 = Stereo vision server =
 
 [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoserver Server source code]
