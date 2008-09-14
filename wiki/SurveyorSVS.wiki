@@ -69,6 +69,8 @@ stereoserver -server <IP address of the stereo camera>
              -calibration <calibration filename>
              -width <width of the image coming from the stereo camera in pixels>
              -height <height of the image coming from the stereo camera in pixels>
+             -record <save raw and rectified images to the given path>
+             -fps <ideal number of frames per second>
 }}}
 
 What is the format of the stereo feature data being broadcast?  For the simple edge/corner based stereo algorithm the data format is 12 bytes per feature.
@@ -118,6 +120,20 @@ Results of stereo correspondence are always noisy in practice, and occasional fa
 = Ideas for future work =
 
 It is possible that stereo correspondence could be combined with fast monocular tracking similar to that used by [http://www.doc.ic.ac.uk/~ajd/ Andrew Davison].  Features could be initialized in a very computationally economical manner, perhaps randomly selecting a single image row upon which to find new features, then tracked monocularly at high speed.
+
+= Release 0.2 =
+
+[http://sentience.googlecode.com/files/surveyor_svs_v0_2_0.zip Source code]
+
+Stereo correspondence and calibration algorithms are mostly unchanged.  This version mainly contains usability improvements, which include:
+
+ * A command line stereo vision server as an alternative to the GUI based system.  This may be useful on robots running GNU/Linux which are not using X.  The server program only acquires images from the SVS and computes stereo matches if one or more client applications are connected.
+
+ * An example client command line program which connects to the server and receives stereo feature data.
+
+ * An audible beep when calibration of an individual camera is complete.
+
+ * Ability to save the calibration pattern so that it may be printed out.
 
 = Release 0.1 =
 
