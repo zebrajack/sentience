@@ -20,3 +20,23 @@ fswebcam -S 2 -d /dev/video0,/dev/video1 -r 320x240 --no-banner -save test.jpg
 }}}
 
 This will save two images called test0.jpg and test1.jpg.  You can even capture from more than two camera devices if you wish, with the main limit being USB bandwidth.
+
+
+= Stereo vision / calibration GUI =
+
+[http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/webcamstereo Source code]
+
+Main project file: webcamstereo.mds
+
+This is a Gtk based graphical user interface written in C# which can be used to test stereo vision algorithms and perform camera calibration, which was a spinoff development from the Surveyor stereo vision system.  You can find more detailed instructions on calibration [http://code.google.com/p/sentience/wiki/SurveyorSVS here].
+
+The GUI may be cusomized by altering the settings within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/webcamstereo/MainWindow.cs MainWindow.cs].
+
+This program uses the modified version of fswebcam (see above) to grab images from camera devices.  To prevent thrashing the hard disk with a lot of saving and loading of images you may wish to create a RAM disk, like so:
+
+{{{
+mkdir /home/myusername/ramdisk
+sudo mount -t tmpfs none /home/myusername/ramdisk -o size=10m
+}}}
+
+A ten megabyte RAM disk should be more than adequate to store the temporary image files.  You should then put the path which you created for the RAM disk into the temporary_files_path variable within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/webcamstereo/MainWindow.cs MainWindow.cs].
