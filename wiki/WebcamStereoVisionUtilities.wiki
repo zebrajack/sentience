@@ -26,6 +26,8 @@ This will save two images called test0.jpg and test1.jpg.  You can even capture 
 
 [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/webcamstereo Source code]
 
+[http://lh3.ggpht.com/fuzzgun/SM16onu3ALI/AAAAAAAAAHU/w_4htI7jSZk/webcamstereo.jpg]
+
 Main project file: webcamstereo.mds
 
 This is a Gtk based graphical user interface written in C# which can be used to test stereo vision algorithms and perform camera calibration, which was a spinoff development from the Surveyor stereo vision system.  You can find more detailed instructions on calibration [http://code.google.com/p/sentience/wiki/SurveyorSVS here].
@@ -45,6 +47,8 @@ A ten megabyte RAM disk should be more than adequate to store the temporary imag
 = Stereo vision server =
 
 [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoserver Server source code]
+
+[http://lh4.ggpht.com/fuzzgun/SMWnVVwxO-I/AAAAAAAAAGA/gPS6EYcwsro/stereo_server.jpg]
 
 The stereo vision server developed for use with the [http://code.google.com/p/sentience/w/edit/SurveyorSVS Surveyor stereo camera] can also be used with webcams, using the following syntax.  As previously a RAM disk may be used to store temporary files.
 
