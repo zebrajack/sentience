@@ -39,4 +39,31 @@ mkdir /home/myusername/ramdisk
 sudo mount -t tmpfs none /home/myusername/ramdisk -o size=10m
 }}}
 
-A ten megabyte RAM disk should be more than adequate to store the temporary image files.  You should then put the path which you created for the RAM disk into the temporary_files_path variable within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/webcamstereo/MainWindow.cs MainWindow.cs].
+A ten megabyte RAM disk should be more than adequate to store the temporary image files.  You should then put the path which you created for the RAM disk into the _temporary_files_path_ variable within [http://code.google.com/p/sentience/source/browse/trunk/applications/surveyor/webcamstereo/MainWindow.cs MainWindow.cs].
+
+
+= Stereo vision server =
+
+[http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoserver Server source code]
+
+The stereo vision server developed for use with the [http://code.google.com/p/sentience/w/edit/SurveyorSVS Surveyor stereo camera] can also be used with webcams, using the following syntax.  As previously a RAM disk may be used to store temporary files.
+
+{{{
+stereoserver -leftdevice <left camera device, eg. /dev/video0>
+             -rightdevice <right camera device, eg. /dev/video1>
+             -broadcastport <port number on which to broadcast stereo feature data>
+             -algorithm <"simple" or "dense">
+             -calibration <calibration filename>
+             -width <width of the image coming from the stereo camera in pixels>
+             -height <height of the image coming from the stereo camera in pixels>
+             -record <save raw and rectified images to the given path>
+             -fps <ideal number of frames per second>
+             -ramdisk <ram disk path where temporary files will be stored>
+}}}
+
+The [http://code.google.com/p/sentience/source/browse/#svn/trunk/applications/surveyor/stereoclient client software] also works identically, since it doesn't care what source the images came from.
+
+{{{
+stereoclient -server <IP address of the computer on which the stereo vision server is running>
+             -port <broadcast port number on which the stereo vision server is communicating>
+}}}
