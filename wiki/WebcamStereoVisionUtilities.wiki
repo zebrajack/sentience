@@ -16,9 +16,7 @@ sudo make install
 Download the [http://code.google.com/p/sentience/source/browse/trunk/applications/fswebcam-20080912.tar.gz modified version of fswebcam] and go through the same install procedure.  You will now be able to use the utility with multiple devices, like this:
 
 {{{
-fswebcam -d /dev/video0,/dev/video1 -save test.jpg
+fswebcam -S 2 -d /dev/video0,/dev/video1 -r 320x240 --no-banner -save test.jpg
 }}}
 
 This will save two images called test0.jpg and test1.jpg.  You can even capture from more than two camera devices if you wish, with the main limit being USB bandwidth.
-
-
