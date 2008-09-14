@@ -127,6 +127,8 @@ It is possible that stereo correspondence could be combined with fast monocular 
 
 Stereo correspondence and calibration algorithms are mostly unchanged.  This version mainly contains usability improvements, which include:
 
+ * Slightly altered class heirachy.
+
  * A command line stereo vision server as an alternative to the GUI based system.  This may be useful on robots running GNU/Linux which are not using X.  The server program only acquires images from the SVS and computes stereo matches if one or more client applications are connected.
 
  * An example client command line program which connects to the server and receives stereo feature data.
