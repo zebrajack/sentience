@@ -1,32 +1,26 @@
 #summary Things remaining to do
 #labels roadmap
 
-*Preparations for multicore*
+*More multicore features*
 
-  *  The multi-threaded mapping needs further work to ensure that maps whose consistency scores fall too far behind the best performing map are replaced, in a similar manner to a genetic algorithm.  The key factor here is to find efficient online methods for doing this, which do not impede real time performance.
+  *  Try parallelizing stereo correspondence (in the dense algorithm each row is processed separately, so in principle this is an easy algorithm to parallelize).
 
+*Grid mapping as a service*
 
-*Gathering more data*
+  *  Something similar to the bridgeware framework should be used to make 3D grid mapping into a service based on TCP/XML.  Potentially multiple grids could be processed separately on different computers, or in "the cloud".
 
-  *  More stereo image and ground truth data sets would be helpful.  This would help to improve confidence that the system is going to work within a wide variety of situations.  If a mobile robot testing platform becomes available these data sets can be gathered in a far less labour intensive way.
+*Gather data*
 
+Most of the infrastructure - including a physical robot - is in place and gathering of real data sets including stereo images, wheel odometry and ultrasonics data is now a realistic prospect.  Creation of data sets in domestic scenarios should begin in early 2009.
 
-*Integration testing*
+*Investigate possible simulation environments*
 
-At some point integration testing needs to be carried out on a mobile robot platform.  The essentials here are that the robot has an onboard PC (or laptop) and reasonably accurate wheel encoder feedback for dead reckoning.  Either the position or velocity based motion model needs to accept input from the robot's odometry.
+A good way to visualize the movement of the robot and also the 3D occupancy data still remains to be found.  There are off the shelf robot simulators, but these all seem to assume that objects in the environment are known with complete certainty - which is obviously unrealistic.  It may end up that I just have to write a dedicated program for this, although I'd prefer to use something off-the-shelf if possible.
 
-  *  Not strictly essential but a _nice to have_ would be some bridgeware presenting a standardised API to the vision/mapping system.  This would allow pieces of hardware such as encoders or motion controller to be swapped out for different products at a later time without having to re-write a lot of the higher level software, hence moving towards the goal of improved transferability/reusability of code.
+*Dream sequences, or simulation by playing back recorded sensor data*
 
-  *  Characterisation of odometry errors on typical surfaces (carpets, wooden floors, etc).  Run the robot multiple times on both straight line and turning paths over a couple of metres and record the position estimated by dead reckoning and the robot's actual final position.  The motion model parameters governing the rate of increase in position uncertainty can then be estimated based upon these results.
+Investigate the possibility of "playing back" recorded sensor data and images as a means of simulation and unit testing the higher level systems.
 
-  *  Optimisation of mapping performance.  Various parameters affect the mapping performance, such as the number of particles representing position uncertainty.  More particles can increase the robot's level of certainty about its position but also slows the update time.  An optimal compromise needs to be found between speed of computation and the accuracy of pose estimation at any given time step.
+*SLAM*
 
-
-*Monte carlo localisation*
-
-Creating new grid maps is one thing, but for full autonomy the robot also needs to be able to identify that it is located somewhere within a previously created map - solving the _kidnapped robot problem_.  An MCL algorithm needs to be implemented, running in its own thread.  Fortunately this should be quite straightforward because almost all of the necessary code can be reused from the existing SLAM mapping.
-
-
-*Occupancy grid visualisation*
-
-Some minor coding needs to be done to ensure that colours are properly represented when exporting the grid in a format which [http://home.fnal.gov/~gnedin/IFRIT/ IFrIT] can read.
+Further refinement of the DP-SLAM algorithm, and possible testing of alternative SLAM methods.
