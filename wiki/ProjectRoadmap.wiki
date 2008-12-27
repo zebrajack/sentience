@@ -3,7 +3,9 @@
 
 *More multicore features*
 
-  *  Try parallelizing stereo correspondence (in the dense algorithm each row is processed separately, so in principle this is an easy algorithm to parallelize).
+  *  Try parallelizing stereo correspondence.  In the dense algorithm each row is processed separately, so in principle this is an easy algorithm to parallelize.  It may turn out that on small numbers of CPU cores or small images there is no performance advantage (i.e. the threading overhead outweighs the concurrency benefit).
+
+  * Use Parallel.For wherever appropriate.
 
 *Grid mapping as a service*
 
@@ -11,16 +13,20 @@
 
 *Gather data*
 
-Most of the infrastructure - including a physical robot - is in place and gathering of real data sets including stereo images, wheel odometry and ultrasonics data is now a realistic prospect.  Creation of data sets in domestic scenarios should begin in early 2009.
+  *  Most of the infrastructure - including a physical robot - is in place and gathering of real data sets including stereo images, wheel odometry and ultrasonics data is now a realistic prospect.  Creation of data sets in domestic scenarios should begin in early 2009.
 
 *Investigate possible simulation environments*
 
-A good way to visualize the movement of the robot and also the 3D occupancy data still remains to be found.  There are off the shelf robot simulators, but these all seem to assume that objects in the environment are known with complete certainty - which is obviously unrealistic.  Some simulators seem to include the possibility for 2D volumetric mapping, but not 3D.  It may end up that I just have to write a dedicated program for this, although I'd prefer to use something off-the-shelf if possible.
+  *  A good way to visualize the movement of the robot and also the 3D occupancy data still remains to be found.  There are off the shelf robot simulators, but these all seem to assume that objects in the environment are known with complete certainty - which is obviously unrealistic.  Some simulators seem to include the possibility for 2D volumetric mapping, but not 3D.  It may end up that I just have to write a dedicated program for this, although I'd prefer to use something off-the-shelf if possible.
 
 *Dream sequences, or simulation by playing back recorded sensor data*
 
-Investigate the possibility of "playing back" recorded sensor data and images as a means of simulation and unit testing the higher level systems.
+  *  Investigate the possibility of "playing back" recorded sensor data and images as a means of simulation and unit testing the higher level systems.
 
 *SLAM*
 
-Further refinement of the DP-SLAM algorithm, and possible testing of alternative SLAM methods.
+  *  Further refinement of the DP-SLAM algorithm, and possible testing of alternative SLAM methods.
+
+*Next generation cameras*
+
+  *  Investigate new webcams which may replace the existing units, which are no longer manufactured.
