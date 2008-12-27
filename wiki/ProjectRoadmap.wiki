@@ -34,3 +34,7 @@
 *Next generation cameras*
 
   *  Investigate new webcams which may replace the existing units, which are no longer manufactured.
+
+*Evangelism*
+
+  * If a suitably impressive demo can be put together it might be an idea to try to more aggressively promote the Sentience project - make videos, actively seek partners, possible commercial spin-offs, etc.  This is still a somewhat distant prospect, although once testing data sets are available progress on the grid mapping and SLAM could be fairly rapid, since there is already a large body of legacy code related to this.
