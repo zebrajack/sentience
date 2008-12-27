@@ -7,6 +7,10 @@
 
   * Use Parallel.For wherever appropriate.
 
+*Other optimizations*
+
+  * Try replacing some of the data structures used for grid mapping with ones which can be SIMD accelerated using Mono version 2.2 or later.  There may be the potential for significant performance gains here.
+
 *Grid mapping as a service*
 
   *  Something similar to the bridgeware framework should be used to make 3D grid mapping into a service based on TCP/XML.  Potentially multiple grids could be processed separately on different computers, or in "the cloud".  Odometry and stereo disparity data will be supplied to each mapping service, along with some XML based description of the robot and sensor positions.
