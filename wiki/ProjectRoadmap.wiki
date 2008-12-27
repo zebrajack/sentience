@@ -15,7 +15,7 @@ Most of the infrastructure - including a physical robot - is in place and gather
 
 *Investigate possible simulation environments*
 
-A good way to visualize the movement of the robot and also the 3D occupancy data still remains to be found.  There are off the shelf robot simulators, but these all seem to assume that objects in the environment are known with complete certainty - which is obviously unrealistic.  It may end up that I just have to write a dedicated program for this, although I'd prefer to use something off-the-shelf if possible.
+A good way to visualize the movement of the robot and also the 3D occupancy data still remains to be found.  There are off the shelf robot simulators, but these all seem to assume that objects in the environment are known with complete certainty - which is obviously unrealistic.  Some simulators seem to include the possibility for 2D volumetric mapping, but not 3D.  It may end up that I just have to write a dedicated program for this, although I'd prefer to use something off-the-shelf if possible.
 
 *Dream sequences, or simulation by playing back recorded sensor data*
 
