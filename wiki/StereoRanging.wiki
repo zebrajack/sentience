@@ -6,6 +6,32 @@ For stereo vision calculating the range to an observed object or feature is fair
 
   Range = ( Focal length x [StereoBaseline Camera baseline] ) / [StereoDisparity Disparity]
 
-Where the [StereoDisparity disparity] is the horizontal difference between the position of the feature in left and right images (pixel difference converted to radians), and focal length and baseline distance are in millimetres.  
+Where the [StereoDisparity disparity] is the horizontal difference in pixels between the position of the feature in left and right images, the focal length is also expressed in pixels and the baseline distance is in millimetres.
+
+[http://sentience.googlegroups.com/web/stereo_vision_geometry1.jpg]
+
+To convert disparity in pixels to a distance value some example code is given as follows:
+
+{{{
+        /// <summary>
+        /// returns the distance for the given stereo disparity
+        /// </summary>
+        /// <param name="disparity_pixels">disparity in pixels</param>
+        /// <param name="focal_length_mm">focal length in millimetres</param>
+        /// <param name="sensor_pixels_per_mm">number of pixels per millimetre on the sensor chip</param>
+        /// <param name="baseline_mm">distance between cameras in millimetres</param>
+        /// <returns>range in millimetres</returns>        
+        public static float DisparityToDistance(float disparity_pixels,
+                                                float focal_length_mm,
+                                                float sensor_pixels_per_mm,
+                                                float baseline_mm)
+        {
+            float focal_length_pixels = focal_length_mm * sensor_pixels_per_mm;
+            float distance_mm = baseline_mm * focal_length_pixels / disparity_pixels;
+            return(distance_mm);
+        }
+}}}
 
 However, this is not the end of the story.  Since there is uncertainty associated with the disparity measurement (which can be up to plus or minus half a pixel) the actual range lies within a [StereoUncertainty spatial probability distribution], which can be represented using a [StereoSensorModel sensor model].
+
+[http://sentience.googlegroups.com/web/stereo_vision_geometry2.jpg]
