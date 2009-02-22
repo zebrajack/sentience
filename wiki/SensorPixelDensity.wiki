@@ -1,4 +1,4 @@
-#summary How do I calculate pixel density?
+#summary How do I calculate pixel density, or focal length in pixels?
 
 A common problem when calculating ranges from stereo vision is how do I know, or how can I find out the pixel density (pixels per mm) of the sensor chip or the focal length in pixels.  Especially for webcams these figures arw usually unknown, and inquiring with the camera manufacturer is usually a waste of time (they either don't know, or won't tell you).
 
