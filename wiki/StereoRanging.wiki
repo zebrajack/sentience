@@ -32,6 +32,8 @@ To convert disparity in pixels to a distance value some example code is given as
         }
 }}}
 
+See [SensorPixelDensity here] for possible ways of finding out the sensor pixel density.
+
 However, this is not the end of the story.  Since there is uncertainty associated with the disparity measurement (which can be up to plus or minus half a pixel) the actual range lies within a [StereoUncertainty spatial probability distribution], which can be represented using a [StereoSensorModel sensor model].
 
 [http://sentience.googlegroups.com/web/stereo_vision_geometry2.jpg]
