@@ -2,7 +2,7 @@
 
 A common problem when calculating ranges from stereo vision is how do I know, or how can I find out the pixel density (pixels per mm) of the sensor chip or the focal length in pixels.  Especially for webcams these figures arw usually unknown, and inquiring with the camera manufacturer is usually a waste of time (they either don't know, or won't tell you).
 
-Below is a table of typical sensor sizes for CCD chips.  Most webcams are based upon CMOS, but I assume that the sensors come in the same sizes.  If you know the maximum resolution of the camera in pixels, and assume one of the smallest sensor sizes (smaller sensors are cheaper, but noisier), then you can figure out possible values for the number of pixels per millimetre.  By observing objects at known distances you can then make a good estimate of what the sensor pixel density is.
+Below is a table of typical sensor sizes for CCD chips.  Most webcams are based upon CMOS, but I assume that the sensors come in the same physical sizes.  If you know the maximum resolution of the camera in pixels, and assume one of the smallest sensor sizes (smaller sensors are cheaper, but noisier), then you can figure out possible values for the number of pixels per millimetre.  By observing objects at known distances you can then make a good estimate of what the sensor pixel density is.
 
 {{{
 focal_length_pixels = distance_mm * disparity_pixels / baseline_mm;
