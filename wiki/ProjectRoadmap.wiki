@@ -1,7 +1,7 @@
 #summary Things remaining to do
 #labels roadmap
 
- *  Unit tests grid based localization
+ *  Unit tests for grid based localization (in simulation)
 
  *  Devise a mechanism whereby the mapping service can ask the odometry server for data, such as "what was my best pose estimate at time t".
 
