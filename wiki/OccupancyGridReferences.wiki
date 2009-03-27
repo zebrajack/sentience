@@ -32,8 +32,6 @@ _A more recent paper on DP-SLAM, including some tweaks on the original algorithm
 
   *  [http://www.cs.duke.edu/%7Eparr/nips05.pdf Hierarchical Linear/Constant Time SLAM Using Particle Filters for Dense Maps], Austin Eliazar & Ronald Parr
 
+_Inspiration from biology_
 
-
-
-
-
+  *  [http://www.jneurosci.org/cgi/content/abstract/27/12/3211 Scale-Invariant Memory Representations Emerge from Moiré Interference between Grid Fields That Produce Theta Oscillations: A Computational Model], Hugh T. Blair, Adam C. Welday, and Kechen Zhang
