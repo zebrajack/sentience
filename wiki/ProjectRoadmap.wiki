@@ -13,6 +13,6 @@
 
  *  Localizing runs in a real environment, using MCL, or similar.
 
- *  Devise a front end to make using the robot easier.  This might be GWT based (used through a browser) or could be basd on GTK/Winforms.  A web based system would be preferable, although has limitations in terms of the kinds of visualizations possible.
+ *  Devise a front end to make using the robot easier.  This might be GWT based (used through a browser) or could be based on GTK/Winforms.  A web based system would be preferable, although has limitations in terms of the kinds of visualizations possible.
 
  *  Create a web site for GROK2, and upload testing data so that the results may be independently analyzed/reproduced (trying to make robotics a real science!).
