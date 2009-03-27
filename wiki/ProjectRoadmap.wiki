@@ -1,40 +1,18 @@
 #summary Things remaining to do
 #labels roadmap
 
-*More multicore features*
+ *  Unit tests grid based localization
 
-  *  Try parallelizing stereo correspondence.  In the dense algorithm each row is processed separately, so in principle this is an easy algorithm to parallelize.  It may turn out that on small numbers of CPU cores or small images there is no performance advantage (i.e. the threading overhead outweighs the concurrency benefit).
+ *  Devise a mechanism whereby the mapping service can ask the odometry server for data, such as "what was my best pose estimate at time t".
 
-  * Use Parallel.For wherever appropriate.
+ *  Odometry fusion.  Odometry offsets need to be applied relative to the current or estimated pose.
 
-*Other optimizations*
+ *  Simulation unit tests for odometry fusion - prove that pose error remains stable.
 
-  * Try replacing some of the data structures used for grid mapping with ones which can be SIMD accelerated using Mono version 2.2 or later.  There may be the potential for significant performance gains here.
+ *  Data gathering runs in a real environment (not simulation).  Collect wheel and visual odometry data, which may be used for simulation tests.
 
-*Grid mapping as a service*
+ *  Localizing runs in a real environment, using MCL, or similar.
 
-  *  Something similar to the bridgeware framework should be used to make 3D grid mapping into a service based on TCP/XML.  Potentially multiple grids could be processed separately on different computers, or in "the cloud".  Odometry and stereo disparity data will be supplied to each mapping service, along with some XML based description of the robot and sensor positions.
+ *  Devise a front end to make using the robot easier.  This might be GWT based (used through a browser) or could be basd on GTK/Winforms.  A web based system would be preferable, although has limitations in terms of the kinds of visualizations possible.
 
-*Gather data*
-
-  *  Most of the infrastructure - including a physical robot - is in place and gathering of real data sets including stereo images, wheel odometry and ultrasonics data is now a realistic prospect.  Creation of data sets in domestic scenarios should begin in early 2009.
-
-*Investigate possible simulation environments*
-
-  *  A good way to visualize the movement of the robot and also the 3D occupancy data still remains to be found.  There are off the shelf robot simulators, but these all seem to assume that objects in the environment are known with complete certainty - which is obviously unrealistic.  Some simulators seem to include the possibility for 2D volumetric mapping, but not 3D.  It may end up that I just have to write a dedicated program for this, although I'd prefer to use something off-the-shelf if possible.
-
-*Dream sequences, or simulation by playing back recorded sensor data*
-
-  *  Investigate the possibility of "playing back" recorded sensor data and images as a means of simulation and unit testing the higher level systems.
-
-*SLAM*
-
-  *  Further refinement of the DP-SLAM algorithm, and possible testing of alternative SLAM methods.
-
-*Next generation cameras*
-
-  *  Investigate new webcams which may replace the existing units, which are no longer manufactured.
-
-*Evangelism*
-
-  * If a suitably impressive demo can be put together it might be an idea to try to more aggressively promote the Sentience project - make videos, actively seek partners, possible commercial spin-offs, etc.  This is still a somewhat distant prospect, although once testing data sets are available progress on the grid mapping and SLAM could be fairly rapid, since there is already a large body of legacy code related to this.
+ *  Create a web site for GROK2, and upload testing data so that the results may be independently analyzed/reproduced (trying to make robotics a real science!).
