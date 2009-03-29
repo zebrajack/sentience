@@ -3,6 +3,8 @@
 
  *  Add methods to allow insertion of simulated structures into occupancy grids, such as walls and doorways.  Grids created in this way can then be used for unit testing.
 
+ *  Add routines for probing the grid to recover ranges or an array of probabilities.
+
  *  Unit tests for grid based localization (in simulation)
 
  *  Devise a mechanism whereby the mapping service can ask the odometry server for data, such as "what was my best pose estimate at time t".
