@@ -11,7 +11,7 @@ The software is written in C# and is intended to be compiled either using Visual
 
 = Setup =
 
-General SVS setup information can be [http://www.surveyor.com/stereo/SVS_setup.html found here].
+General SVS setup information can be [http://www.surveyor.com/stereo/SVS_setup.html found here].  Also a step by step guide to uploading new firmware versions [SurveyorSVSFirmware is here].
 
 = Configuration =
 
