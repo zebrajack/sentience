@@ -89,4 +89,39 @@ Adding DXE 'srv1.bin' ...
 Done!
 }}}
 
-*8.  Run the load1 and load2 scripts* to download the firmware.  
+*8.  Run the load1 and load2 scripts* to upload the firmware.
+
+The output should look something like this:
+
+{{{
+sh load1
+type X [enter], then control-C, to start XMODEM file transfer of srv1.ldr:
+X
+CC^C
+connecting to [169.254.0.10] <10001>
+
+Sending srv1.ldr, 639 blocks: Give your local XMODEM receive command now.
+
+Transfer complete
+
+make certain that file transfer successfully completed, then
+type zZ [enter] to write srv1-c.ldr to the flash boot sector:
+zZ
+##zZ boot image write count:    131072
+}}}
+
+The script does not terminate after uploading is completed, so use CTRL-C to quit.
+
+*9.*  Once the firmware on both blackfins has been uploaded, *power cycle the SVS*.
+
+*10.  Check the new firmware date* by running:
+
+{{{
+nc 169.254.0.10 10001
+}}}
+
+then pressing V followed by the enter key.
+
+{{{
+##Version - SRV-1 Blackfin - 18:48:34 - Jun 11 2009 (stereo master)
+}}}
