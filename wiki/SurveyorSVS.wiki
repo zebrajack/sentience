@@ -9,6 +9,10 @@ This is a stereo vision system for mobile robots sold by [http://www.surveyor.co
 
 The software is written in C# and is intended to be compiled either using Visual Studio 2005 on a Microsoft Windows system, or using [http://www.monodevelop.com MonoDevelop] on GNU/Linux systems.  It has been tested on Windows Vista and Ubuntu Hardy, and is licenced under GPL version 3.
 
+= Setup =
+
+General SVS setup information can be [http://www.surveyor.com/stereo/SVS_setup.html found here].
+
 = Configuration =
 
 Main solution files are:
