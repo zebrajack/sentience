@@ -36,4 +36,20 @@ _v4l2stereo_ can be used in various ways, but to check that the Minoru is workin
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --features
 }}}
 
-This assumes that the left camera is video device number 1 and the right camera is video device number 0, and should display two images showing the edge features which are the basis for stereo matching.
+This assumes that the left camera is video device number 1 and the right camera is video device number 0, and should display two images showing the edge features which are the basis for stereo matching, like this:
+
+[http://groups.google.com/group/sentience/web/edge_features.jpg]
+
+So, once you have established that the cameras are working the first thing to do is calibrate them using the --calibrate option.  This performs simple offset calibration, and not full camera calibration (which can be done using other programs).  This type of calibration simply corrects for any small deviation of the two cameras from a perfectly parallel alignment.  First quit _v4l2stereo_ if it's still running using CRTL-C, then point the Minoru at some distant objects - preferably more than three metres away (i.e. beyond the effective stereo range) - then use the following command.
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --calibrate
+}}}
+
+This will take a couple of images from the cameras, calculate the offsets then display them.  Take a note of the values which are returned.  You may wish to go through this procedure several times in order to ensure that the values returned are reasonably consistent.  Once you're satisfied that you have good offsets you can test stereo correspondence as follows:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --matches
+}}}
+
+where x and y are the offset values obtained from calibration.
