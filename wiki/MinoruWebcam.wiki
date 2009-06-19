@@ -59,3 +59,7 @@ where _x_ and _y_ are the offset values obtained from calibration.  An example r
 The diameter of the green dots represents the amount of visual disparity observed between the left and right camera images.  There are always a certain number of bad stereo matches, but hopefully there should be more signal than noise.  You can also examine the disparities by using the _--histogram_ option, which will display a number of disparity histograms (left hemifield, right hemifield and overall).  The disparity peaks observed within the left and right hemifields could be used as a simple way of having a robot visually avoid obstacles, and the correspondence algorithm is easily fast enough for real time performance on any reasonably modern PC hardware.
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
+
+= Other things to try =
+
+One limitation of the Minoru is that the field of view is quite narrow - only about 40 degrees - giving it a tunnel vision which is fairly standard for webcams.  For robotics use a wider field of view would be preferable, and it may be possible to replace the lenses (M12 fittings which screw in).  _v4l2stereo_ includes options which allow you to rectify the images if the camera calibration parameters are known.
