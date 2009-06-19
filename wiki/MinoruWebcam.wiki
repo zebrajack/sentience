@@ -52,4 +52,8 @@ This will take a couple of images from the cameras, calculate the offsets then d
 v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --matches
 }}}
 
-where x and y are the offset values obtained from calibration.
+where x and y are the offset values obtained from calibration.  An example result looks like this.
+
+[http://groups.google.com/group/sentience/web/minoru_matches1.jpg]
+
+The diameter of the green dots represents the amount of visual disparity observed between the left and right camera images.  There are always a certain number of bad stereo matches, but hopefully there should be more signal than noise.  You can also examine the disparities by using the --histogram option, which will display a number of disparity histograms (left hemifield, right hemifield and overall).  The disparity peaks observed within the left and right hemifields could be used as a simple way of having a robot visually avoid obstacles, and the correspondence algorithm is easily fast enough for real time performance on any reasonably modern PC hardware.
