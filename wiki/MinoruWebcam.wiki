@@ -26,4 +26,4 @@ The Minoru is UVC compilant, and therefore very easy to use on a GNU/Linux opera
 ls /dev/video*
 }}}
 
-should display two extra video devices.  If you are using a kernel with a version earlier than 2.6.30, obtain the latest UVC driver [here http://linuxtv.org/hg/~pinchartl/uvcvideo] and install it (possibly you might need to reboot for the new driver to take effect).
+should display two extra video devices.  If you are using a kernel with a version earlier than 2.6.30, obtain the latest UVC driver from [http://linuxtv.org/hg/~pinchartl/uvcvideo here] then install it (possibly you might need to reboot for the new driver to take effect).
