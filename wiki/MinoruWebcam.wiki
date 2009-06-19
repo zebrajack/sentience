@@ -1,0 +1,34 @@
+#summary The first commercial stereoscopic webcam
+#labels webcam,minoru,stereocamera
+
+[http://groups.google.com/group/sentience/web/Minoru.jpg]
+
+= Introduction =
+
+The Minoru is the first commercially available stereo webcam.  It's primarily intended for entertainment - broadcasting stereo anaglyphs as a novel alternative to the usual webcam based video conferencing or blogging.  However, it also makes a good inexpensive range sensor for robotics use.
+
+= Disassembly =
+
+The Minoru comes in a casing which is attractive, but not very easy to mount onto a flat surface.  The outer casing can be removed as follows:
+
+  # Remove the camera stand using a hacksaw just beneath the main body of the camera.
+
+  # The silver band around the centre of the camera can then be removed in two sections.
+
+  # Using a knife or precision screwdriver carefully separate the two halves of the casing.  This can be quite tricky.
+
+  # Remove the white plastic lens covers and any surrounding foam.
+
+  # You may wish to remove the rubber backing, or keep it in place to insulate the electronics from the surface upon which you're mounting the camera.
+
+  # Finally you should have extracted the camera board, which looks like the picture above.
+
+= Software = 
+
+The Minoru is UVC compilant, and therefore very easy to use on a GNU/Linux operating system.  Plugging in the camera, then opening a command shell and typing:
+
+{{{
+ls /dev/video*
+}}}
+
+should display two extra video devices.  If you are using a kernel with a version earlier than 2.6.30, obtain the latest UVC driver [here http://linuxtv.org/hg/~pinchartl/uvcvideo] and install it (possibly you might need to reboot for the new driver to take effect).
