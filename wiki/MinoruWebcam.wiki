@@ -40,7 +40,7 @@ This assumes that the left camera is video device number 1 and the right camera 
 
 [http://groups.google.com/group/sentience/web/edge_features.jpg]
 
-So, once you have established that the cameras are working the first thing to do is calibrate them using the _--calibrate_ option.  This performs simple offset calibration, and not full camera calibration (which can be done using other programs).  This type of calibration simply corrects for any small deviation of the two cameras from a perfectly parallel alignment.  First quit _v4l2stereo_ if it's still running using CRTL-C, then point the Minoru at some distant objects - preferably more than three metres away (i.e. beyond the effective stereo range) - then use the following command.
+So, once you have established that the cameras are working the first thing to do is calibrate them using the _--calibrate_ option.  This performs simple offset calibration, and not full camera calibration (which can be done using other programs).  This type of calibration simply corrects for any small deviation of the two cameras from a perfectly parallel alignment.  First quit _v4l2stereo_ if it's still running by hitting the Escape key, then point the Minoru at some distant objects - preferably more than three metres away (i.e. beyond the effective stereo range) - then use the following command.
 
 {{{
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --calibrate
