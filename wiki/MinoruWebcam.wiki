@@ -1,5 +1,5 @@
 #summary The first commercial stereoscopic webcam
-#labels webcam,minoru,stereocamera
+#labels webcam,minoru,stereocamera,stereovision,stereoscopic,stereocorrespondence
 
 [http://groups.google.com/group/sentience/web/Minoru.jpg]
 
@@ -77,3 +77,7 @@ Aperture: F2.0
 }}}
 
 The most important figure here is the _back focal length_, which is the distance between the back of the lens and the CCD or CMOS sensor.  If this is longer than about 7mm then the lens will usually not fit into the short lens mountings on the Minoru, which are only about 10mm in height above the circuit board.  In this case the field of view is actually less than the full 180 degrees, because the sensor size is smaller than the quoted format sizes.
+
+With wide angle lenses fitted, the Minoru looks like this:
+
+[http://groups.google.com/group/sentience/web/minoru_wide_angle2.jpg]
