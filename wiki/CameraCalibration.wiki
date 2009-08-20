@@ -205,4 +205,8 @@ The first thing to check is that left and right cameras are connected correctly.
 
 For more information on camera calibration methods a nice summary of the history of this subject can be found in [http://sluggish.uni.cc/sentience/CameraCalibrationMethods.pdf The Development of Camera Calibration Methods and Models] by T.A. Clarke and J.G. Fryer.
 
-Also see [http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
+Also see 
+
+[http://www.dis.uniroma1.it/~iocchi/stereo/calib.html Calibration of Stereo Cameras for Mobile Robots] by [http://www.dis.uniroma1.it/~iocchi/ Luca Iocchi].
+
+[http://sentience.googlegroups.com/web/singh_sanjiv_1999_1.pdf Autonomous Cross-Country Navigation Using Stereo Vision], Sanjiv Singh and Bruce Digney
