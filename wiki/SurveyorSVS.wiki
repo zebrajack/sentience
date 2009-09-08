@@ -125,6 +125,16 @@ Results of stereo correspondence are always noisy in practice, and occasional fa
 
 It is possible that stereo correspondence could be combined with fast monocular tracking similar to that used by [http://www.doc.ic.ac.uk/~ajd/ Andrew Davison].  Features could be initialized in a very computationally economical manner, perhaps randomly selecting a single image row upon which to find new features, then tracked monocularly at high speed.
 
+= Release 0.3 =
+
+In the interests of following the mantra _release early and often_ this is a somewhat experimental and possibly unstable release.  There have been significant improvements in the threading used to grab images from both cameras, which make the GUI a lot less flaky.  Buttons have also been added to allow manual teleoperation of the SRV robot, although the screen resolution buttons don't work.  There's also a logging feature which allows images and teleoperation commands to be stored to disk for later analysis or simulation.
+
+For the first time binaries have also been released to allow easy installation.  There are deb and rpm packages for installation on various Linux distros.  The deb package should install necessary dependencies, but if you're installing the rpm you'll need to ensure that the mono-core and gtk-sharp packages are installed.
+
+In this version I expect that there will be broken functionality on Windows based operating systems, because I've payed little attention to the Windows version.  This will be improved in the next release.
+
+Report all bugs using the Issues tab above.
+
 = Release 0.2 =
 
 [http://sentience.googlecode.com/files/surveyor_svs_v0_2_0.zip Source code]
