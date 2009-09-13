@@ -24,7 +24,7 @@ The program can then be run either by calling
     stereotweaks.exe
 }}}
 
-or optionally you can specift the left and right image filenames
+or optionally you can specify the left and right image filenames
 
 {{{
     stereotweaks.exe -left leftimage.jpg -right rightimage.jpg
