@@ -1,0 +1,19 @@
+#summary A graphical user interface for the Surveyor SVS
+
+= Installation =
+
+To install the GUI:
+
+{{{
+    dpkg -i surveyorstereo-x.x.deb
+}}}
+
+or alternatively there is a rpm package and also a zipped archive of files which can be run on Windows systems.  If installing from rpm you will need to ensure that the Mono C# core and gtk-sharp packages are installed.
+
+To run the GUI:
+
+{{{
+    surveyorstereo.sh
+}}}
+
+or on Windows systems run _surveyorstereo.exe_.
