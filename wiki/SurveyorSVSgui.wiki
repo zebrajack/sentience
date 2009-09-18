@@ -28,7 +28,7 @@ It should look something like this:
 
 Here you can edit the IP address and port numbers, the re-save the script.
 
-To GUI can then be run simply by typing:
+The GUI can then be run simply by typing:
 
 {{{
     surveyorstereo
