@@ -36,6 +36,10 @@ The GUI can then be run simply by typing:
 
 or on Windows systems run _surveyorstereo.exe_.
 
+= Source code =
+
+If you're compiling the GUI from source on Linux systems, or if you're running MonoDevelop on Windows, use the _mds_ solution files, which are in MonoDevelop 1.0 format.  Using the older format helps to keep the _Gtk_ and _Windows.Forms_ versions GUI versions separate.  Possibly in future support for _Windows.Forms_ may be dropped.
+
 = Camera Calibration =
 
   # Click on _calibrate left camera_.  A calibration pattern will then appear shown within the right image.  Pont the left camera at the pattern, with the red dot towards the centre of the image.  The screen should be more or less perpendicular to the axis of the cameras view, with the pattern filling the image.
