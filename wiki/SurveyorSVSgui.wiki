@@ -7,15 +7,31 @@
 To install the GUI:
 
 {{{
-    dpkg -i surveyorstereo-x.x.deb
+    sudo dpkg -i surveyorstereo-x.x.deb
 }}}
 
 or alternatively there is a rpm package and also a zipped archive of files which can be run on Windows systems.  If installing from rpm you will need to ensure that the Mono C# core and gtk-sharp packages are installed.
 
-To run the GUI:
+By default the IP address for the SVS is 169.254.0.10 and the ports for the cameras are 10001 and 10002.  At the time of writing these are the factory defaults.  If the SVS is configured in some other way you'll need to edit the startup script.
 
 {{{
-    surveyorstereo.sh
+    sudo gedit /usr/bin/surveyorstereo.sh
+}}}
+
+It should look something like this:
+
+{{{
+    mkdir ~/svs
+    cd ~/svs
+    mono /usr/bin/sentience/surveyorstereo/surveyorstereo.exe -i 169.254.0.10 -leftport 10001 -rightport 10002
+}}}
+
+Here you can edit the IP address and port numbers, the re-save the script.
+
+To GUI can then be run simply by typing:
+
+{{{
+    surveyorstereo
 }}}
 
 or on Windows systems run _surveyorstereo.exe_.
