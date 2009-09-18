@@ -26,7 +26,7 @@ It should look something like this:
     mono /usr/bin/sentience/surveyorstereo/surveyorstereo.exe -i 169.254.0.10 -leftport 10001 -rightport 10002
 }}}
 
-Here you can edit the IP address and port numbers, the re-save the script.
+Here you can edit the IP address and port numbers, the re-save the script.  Note that the script sends you to a subdirectory called _svs_ within your home directory.  This is useful because it means that if images are logged they're always placed in a consistent location.
 
 The GUI can then be run simply by typing:
 
