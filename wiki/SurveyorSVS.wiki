@@ -30,6 +30,8 @@ sudo apt-get install mono-gmcs
 
 = Calibration =
 
+A video of the calibration procedure [http://www.youtube.com/watch?v=Y9Ogsul8_TY is shown here].
+
 Both cameras need to be calibrated before the device can be used for stereo ranging.  Calibration removes the lens distortion effects, ensuring that straight lines in the world appear as straight lines in the images so that the [http://en.wikipedia.org/wiki/Epipolar_geometry epipolar constraint] applies, and also corrects for any small misalignments from a perfectly parallel geometry.  This is an easy procedure which only takes a few minutes, and only typically needs to be performed once unless the positions of the cameras have changed.
 
 It's a good idea to ensure that both cameras are rigidly mounted in parallel so that they cannot move relative to each other, even despite the knocks and bumps which a mobile robot is bound to encounter.  One way to do this is to bolt a piece of wood or metal to the top mounting holes, as in the above picture.
