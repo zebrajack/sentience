@@ -42,6 +42,8 @@ If you're compiling the GUI from source on Linux systems, or if you're running M
 
 = Camera Calibration =
 
+A video of the calibration procedure [http://www.youtube.com/watch?v=Y9Ogsul8_TY is shown here].
+
   # Click on _calibrate left camera_.  A calibration pattern will then appear shown within the right image.  Pont the left camera at the pattern, with the red dot towards the centre of the image.  The screen should be more or less perpendicular to the axis of the cameras view, with the pattern filling the image.
   # After a while you will see that the image has been flattened, and ideally the spacing between dots should be constant across the image.  You may need to experiment with moving the camera bacwards or forwards to get the ideal distance.
   # Uncheck _calibrate left camera_, then click on _calibrate right camera_.  Perform the same operation for the right camera, then uncheck _calibrate right camera_.
