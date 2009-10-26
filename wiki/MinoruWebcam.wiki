@@ -28,7 +28,7 @@ ls /dev/video*
 
 This should display two extra video devices.  If you are using a kernel with a version earlier than 2.6.30, obtain the latest UVC driver from [http://linuxtv.org/hg/~pinchartl/uvcvideo here] then install it (possibly you might need to reboot for the new driver to take effect).
 
-You can test out the webcam using a program called *v4l2stereo*, which is part of a project called [http://code.google.com/p/libv4l2cam/ libv4l2cam] which is related to the Sentience project, and is also under the General Public License.  A [http://code.google.com/p/libv4l2cam/source/browse/trunk/v4l2stereo/v4l2stereo.deb deb package] is available for easy installation on Debian based distros, although you will need to ensure that opencv is installed first.  Some opencv packages can be found [https://launchpad.net/~gijzelaar/+archive/opencv here] or alternatively follow [http://dircweb.king.ac.uk/reason/opencv_cvs.php these instructions].
+You can test out the webcam using a program called *v4l2stereo*, which is part of a project called [http://code.google.com/p/libv4l2cam/ libv4l2cam] which is related to the Sentience project, and is also under the General Public License.  A [http://code.google.com/p/libv4l2cam/source/browse/trunk/v4l2stereo/v4l2stereo.deb deb package] is available for easy installation on Debian based distros.
 
 _v4l2stereo_ can be used in various ways, but to check that the Minoru is working you can use the following command.
 
@@ -61,6 +61,14 @@ The diameter of the green dots represents the amount of visual disparity observe
 [http://groups.google.com/group/sentience/web/disparity_histograms.jpg]
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
+
+= Development =
+
+If you wish to do development on the v4l2stereo code you will need to ensure that opencv is installed, as follows:
+
+{{{
+    sudo apt-get install libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg62-dev libtiff4-dev libcv-dev libcv1 libcvaux1 libcvaux-dev libhighgui1 libhighgui-dev
+}}}
 
 = Other things to try =
 
