@@ -3,7 +3,13 @@
 
 _stereosensormodel_ is a command line utility which may be used to generate probabilistic sensor models suitable for use with stereo cameras.  The result is an xml file which contains a list of figures corresponding to the [StereoSensorModel probably occupied] part of the sensor model for each possible disparity value, rising in increments of 0.5 pixels.  Each number corresponds to one occupancy grid cell, so this makes updating the grid as easy as possible.  The values are obtained by running a [StereoUncertainty simulation] of interacting stereo rays.
 
-To install the utility:
+First ensure that the core libraries are installed:
+
+{{{
+    sudo dpkg -i sentience-core-x.x.deb
+}}}
+
+Then install the utility:
 
 {{{
     sudo dpkg -i stereosensormodel-x.x.deb
