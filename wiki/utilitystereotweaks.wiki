@@ -5,7 +5,13 @@ The automatic stereo camera calibration isn't always completely reliable, so I f
 
 The utility can be used to manually tweak the X and Y offset values, and also adjust scale and rotation of one image relative to the other.  You can then animate the images to check that the disparity seems reasonable and that lens distortion has been removed.
 
-To install the utility:
+First ensure that the core libraries are installed:
+
+{{{
+    sudo dpkg -i sentience-core-x.x.deb
+}}}
+
+Then install the utility:
 
 {{{
     sudo dpkg -i stereotweaks-x.x.deb
