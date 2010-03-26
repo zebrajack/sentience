@@ -64,11 +64,60 @@ The effective stereo range of the Minoru, using 320x240 images, is between 35cm 
 
 = Development =
 
-If you wish to do development on the v4l2stereo code you will need to ensure that opencv is installed, as follows:
+*Required OpenCV packages*
+
+If you wish to do development on the v4l2stereo code you will need to ensure that opencv packages are installed.  On Ubuntu 10.04 or later this is easily achieved as follows:
 
 {{{
-    sudo apt-get install libgtk2.0-dev libavcodec-dev libavformat-dev libjpeg62-dev libtiff4-dev libcv-dev libcv1 libcvaux1 libcvaux-dev libhighgui1 libhighgui-dev
+    sudo apt-get install libcv4 libhighgui4 libcvaux4 libcv-dev libcvaux-dev libhighgui-dev libgstreamer-plugins-base0.10-dev libgst-dev
 }}}
+
+*Configuring for use with Eclipse*
+
+To use with the Eclipse C++ IDE:
+
+ *  Create a new C++ project
+
+ *  Import the source from the _Import/File System option_
+
+ *  Within the project properties select _C++ Build/Settings_
+
+ *  Under _GCC C++ Compiler/Directories/Include paths (-l)_ enter
+
+{{{
+/usr/include/opencv
+/usr/include/gstreamer-0.10
+}}}
+
+ *  Under _GCC C++ Compiler/Miscellaneous_ enter
+
+{{{
+-c -fmessage-length=0 -lcam -lcv -lcxcore -lcvaux -lhighgui `pkg-config --cflags --libs gstreamer-0.10` -L/usr/lib -lcv -lcxcore -lcvaux -lhighgui `pkg-config --cflags --libs glib-2.0` `pkg-config --cflags --libs gstreamer-plugins-base-0.10` -lgstapp-0.10
+}}}
+
+ *  Under _GCC C++ Linker/Libraries/Libraries (-l)_ enter
+
+{{{
+cv
+cxcore
+gstapp-0.10
+highgui
+}}}
+
+ *  Under _GCC C++ Linker/Libraries/Library search path (-L)_ enter
+
+{{{
+/usr/lib
+/usr/lib/gstreamer-0.10
+}}}
+
+ *  Under _GCC C++ Linker/Miscellaneous/Linker flags_ enter
+
+{{{
+/usr/lib/libcxcore.so /usr/lib/libcvaux.so /usr/lib/libcv.so /usr/lib/libhighgui.so
+}}}
+
+After applying those settings you should now be able to compile the project within Eclipse.
 
 = Other things to try =
 
