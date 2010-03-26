@@ -62,6 +62,8 @@ The diameter of the green dots represents the amount of visual disparity observe
 
 A dense disparity map can also be obtained.  This uses a fairly traditional patch matching method (sum of absolute differences) so always contains a certain amount of noise and bad matches.
 
+[http://lh6.ggpht.com/_cGREIsCvj4M/S60BaFw0YLI/AAAAAAAAAj4/0_6AtIqgaNE/disparitymap.png]
+
 {{{
 v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap
 }}}
