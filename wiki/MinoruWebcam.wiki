@@ -28,7 +28,7 @@ ls /dev/video*
 
 This should display two extra video devices.  If you are using a kernel with a version earlier than 2.6.30, obtain the latest UVC driver from [http://linuxtv.org/hg/~pinchartl/uvcvideo here] then install it (possibly you might need to reboot for the new driver to take effect).
 
-You can test out the webcam using a program called *v4l2stereo*, which is part of a project called [http://code.google.com/p/libv4l2cam/ libv4l2cam] which is related to the Sentience project, and is also under the General Public License.  A [http://code.google.com/p/libv4l2cam/source/browse/trunk/v4l2stereo/v4l2stereo.deb deb package] is available for easy installation on Debian based distros.  Before installing the deb package ensure that the [http://code.google.com/p/libv4l2cam/ OpenCV 2.0 package] is installed.
+You can test out the webcam using a program called *v4l2stereo*, which is part of a project called [http://code.google.com/p/libv4l2cam/ libv4l2cam] which is related to the Sentience project, and is also under the General Public License.  A [http://code.google.com/p/libv4l2cam/source/browse/trunk/v4l2stereo/v4l2stereo.deb deb package] is available for easy installation on Debian based distros.  Versions 1.043 and above use the OpenCV version 2 packages which are part of Ubuntu 10.04 (or later).
 
 _v4l2stereo_ can be used in various ways, but to check that the Minoru is working you can use the following command.
 
