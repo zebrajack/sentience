@@ -60,6 +60,12 @@ The diameter of the green dots represents the amount of visual disparity observe
 
 [http://groups.google.com/group/sentience/web/disparity_histograms.jpg]
 
+A dense disparity map can also be obtained.  This uses a fairly traditional patch matching method (sum of absolute differences) so always contains a certain amount of noise and bad matches.
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap
+}}}
+
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
 
 = Development =
