@@ -1,7 +1,7 @@
 #summary The first commercial stereoscopic webcam
 #labels webcam,minoru,stereocamera,stereovision,stereoscopic,stereocorrespondence
 
-[http://groups.google.com/group/sentience/web/Minoru.jpg]
+[http://lh6.ggpht.com/_cGREIsCvj4M/S6zMBC7BevI/AAAAAAAAAjU/YZNB1Uu1Zzo/Minoru.jpg]
 
 = Introduction =
 
@@ -38,7 +38,7 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --features
 
 This assumes that the left camera is video device number 1 and the right camera is video device number 0, and should display two images showing the edge features which are the basis for stereo matching, like this:
 
-[http://groups.google.com/group/sentience/web/edge_features.jpg]
+[http://lh4.ggpht.com/_cGREIsCvj4M/S6zMA5dcFBI/AAAAAAAAAjQ/_yodyK0qInw/edge_features.jpg]
 
 So, once you have established that the cameras are working the first thing to do is calibrate them using the _--calibrate_ option.  This performs simple offset calibration, and not full camera calibration (which can be done using other programs).  This type of calibration simply corrects for any small deviation of the two cameras from a perfectly parallel alignment.  First quit _v4l2stereo_ if it's still running by hitting the Escape key, then point the Minoru at some distant objects - preferably more than three metres away (i.e. beyond the effective stereo range) - then use the following command.
 
@@ -54,11 +54,11 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --matches
 
 where _x_ and _y_ are the offset values obtained from calibration.  An example result looks like this.
 
-[http://groups.google.com/group/sentience/web/minoru_matches1.jpg]
+[http://lh5.ggpht.com/_cGREIsCvj4M/S6zMBSC7qgI/AAAAAAAAAjY/QijIyiH-SX8/minoru_matches1.jpg]
 
 The diameter of the green dots represents the amount of visual disparity observed between the left and right camera images.  There are always a certain number of bad stereo matches, but hopefully there should be more signal than noise.  You can also examine the disparities by using the _--histogram_ option, which will display a number of disparity histograms (left hemifield, right hemifield and entire field of view).  The disparity peaks observed within the left and right hemifields could be used as a simple way of having a robot visually avoid obstacles, and the correspondence algorithm is easily fast enough for real time performance on any reasonably modern PC hardware.
 
-[http://groups.google.com/group/sentience/web/disparity_histograms.jpg]
+[http://lh4.ggpht.com/_cGREIsCvj4M/S6zMA3vI2BI/AAAAAAAAAjM/Nerv3uJg8xg/disparity_histograms.jpg]
 
 A dense disparity map can also be obtained.  This uses a fairly traditional patch matching method (sum of absolute differences) so always contains a certain amount of noise and bad matches.
 
