@@ -74,7 +74,23 @@ It's also possible to alter the sub-sampling step size in pixels to get higher o
 v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --disparitystep 4
 }}}
 
-Even with small sampling step sizes, accuracy may not be greatly improved.
+Even with small sampling step sizes, accuracy may not be greatly improved.  Typical disparity step sizes are in the range between 2 and 10.
+
+Another option available with dense stereo is to adjust the cross checking threshold.  If this value is smaller then pixels will be required to match more closely between left and right images.  For example:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --crosscheck 30
+}}}
+
+Typical cross checking values are in the range 20 to 70.
+
+The radius used to smooth the disparity map can also be changed, like this:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --smoothing 4
+}}}
+
+Smoothing values are typically in the range 2 to 8.  You can experiment with different dense stereo settings to get the best performance for your viewing conditions.
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
 
