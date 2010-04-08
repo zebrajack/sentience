@@ -227,7 +227,7 @@ To check that the images are being published:
 rostopic list
 }}}
 
-should show /stereo/left/image_raw and /stereo/right/image_raw, and also compressed versions of these.
+should show /stereo/left/image_raw and /stereo/right/image_raw, and also compressed versions of these if image_transport has been enabled.
 
 To enable compressed image transport, for efficient transport of images over networks:
 
@@ -237,9 +237,9 @@ rosparam set /compressed_listener/image_transport compressed
 
 then restart the broadcast and subscriber.
 
-A disparity map of the type sensor_msgs::Image (one byte per pixel) is also published.  This was used instead of stereo_msgs::DisparityImage because it provides the ability to transport disparity maps efficiently over networks using image_transport.  The disparity value is remapped into a 0-255 range.
+A disparity map of the type [http://www.ros.org/doc/api/sensor_msgs/html/msg/Image.html sensor_msgs::Image] (one byte per pixel) is also published.  This was used instead of [http://www.ros.org/wiki/stereo_msgs stereo_msgs::DisparityImage] because it provides the ability to transport disparity maps efficiently over networks using image_transport.  The disparity value is remapped into a 0-255 range.
 
-_stereocam_subscriber.cpp_ is only intended to be illustrative of how to connect to the stereo camera using ROS and receive a disparity map.  You can use this as a guideline to how to integrate with your own system.
+_stereocam_subscribe.cpp_ is only intended to be illustrative of how to connect to the stereo camera using ROS and receive a disparity map.  You can use this as a guideline to how to integrate with your own system.
 
 = Other things to try =
 
