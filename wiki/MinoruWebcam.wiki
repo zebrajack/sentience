@@ -175,6 +175,72 @@ highgui
 
 After applying those settings you should now be able to compile the project within Eclipse.
 
+= Integration with ROS =
+
+The [http://code.google.com/p/libv4l2cam/ source package] also contains an example of integrating v4l2stereo with [http://www.ros.org ROS] - the robot operating system produced by [http://www.willowgarage.com/ Willow Garage].  This would make it possible to replace more expensive stereo cameras with something like a Minoru.  The only real advantage that the more expensive stereo cameras have is synchronized frame capture, which is advantageous when the robot is in motion.
+
+*Making the package*
+
+Add the following line to the end of ~/.bashrc
+
+{{{
+source ~/develop/libv4l2cam/ros/setup.sh
+}}}
+
+pointing to the directory where the stereocam ROS package is located.  Check that the paths within setup.sh are appropriate for your ROS installation.
+
+Reload
+
+{{{
+. ~/.bashrc
+}}}
+
+Then make the package as follows:
+
+{{{
+rosmake --rosdep-install stereocam
+}}}
+
+*Running the ROS publisher (broadcasting service)*
+
+Start ROS:
+
+{{{
+roscore
+}}}
+
+Then in a separate shell begin broadcasting:
+
+{{{
+rosrun stereocam stereocam_broadcast
+}}}
+
+And in another shell you can subscribe to the broadcast:
+
+{{{
+rosrun stereocam stereocam_subscribe
+}}}
+
+To check that the images are being published:
+
+{{{
+rostopic list
+}}}
+
+should show /stereo/left/image_raw and /stereo/right/image_raw, and also compressed versions of these.
+
+To enable compressed image transport, for efficient transport of images over networks:
+
+{{{
+rosparam set /compressed_listener/image_transport compressed
+}}}
+
+then restart the broadcast and subscriber.
+
+A disparity map of the type sensor_msgs::Image (one byte per pixel) is also published.  This was used instead of stereo_msgs::DisparityImage because it provides the ability to transport disparity maps efficiently over networks using image_transport.  The disparity value is remapped into a 0-255 range.
+
+_stereocam_subscriber.cpp_ is only intended to be illustrative of how to connect to the stereo camera using ROS and receive a disparity map.  You can use this as a guideline to how to integrate with your own system.
+
 = Other things to try =
 
 One limitation of the Minoru is that the field of view is quite narrow - only about 40 degrees - giving it a tunnel vision which is fairly standard for webcams.  For robotics use a wider field of view would be preferable, and it may be possible to replace the lenses (M12 fittings which screw in).  _v4l2stereo_ includes options which allow you to rectify the images if the camera calibration parameters are known.
