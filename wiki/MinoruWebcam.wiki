@@ -215,7 +215,7 @@ Then in a separate shell begin broadcasting:
 rosrun stereocam stereocam_broadcast _index:=0
 }}}
 
-Where _index is an index number assigned to the stereo camera, since it's possible that multiple stereo cameras could be attached.  In another shell you can subscribe to the broadcast:
+Where _index_ is an index number assigned to the stereo camera, since it's possible that multiple stereo cameras could be attached.  In another shell you can subscribe to the broadcast:
 
 {{{
 rosrun stereocam stereocam_subscribe
