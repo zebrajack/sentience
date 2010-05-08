@@ -212,10 +212,10 @@ roscore
 Then in a separate shell begin broadcasting:
 
 {{{
-rosrun stereocam stereocam_broadcast
+rosrun stereocam stereocam_broadcast _index:=0
 }}}
 
-And in another shell you can subscribe to the broadcast:
+Where _index is an index number assigned to the stereo camera, since it's possible that multiple stereo cameras could be attached.  In another shell you can subscribe to the broadcast:
 
 {{{
 rosrun stereocam stereocam_subscribe
@@ -227,7 +227,7 @@ To check that the images are being published:
 rostopic list
 }}}
 
-should show /stereo/left/image_raw and /stereo/right/image_raw, and also compressed versions of these if image_transport has been enabled.
+should show /stereo/left/image_raw0 and /stereo/right/image_raw0, and also compressed versions of these if image_transport has been enabled.
 
 To enable compressed image transport, for efficient transport of images over networks:
 
