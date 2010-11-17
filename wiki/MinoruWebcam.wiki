@@ -28,7 +28,7 @@ ls /dev/video*
 
 This should display two extra video devices.  If you are using a kernel with a version earlier than 2.6.30, obtain the latest UVC driver from [http://linuxtv.org/hg/~pinchartl/uvcvideo here] then install it (possibly you might need to reboot for the new driver to take effect).
 
-You can test out the webcam using a program called *v4l2stereo*, which is part of a project called [http://code.google.com/p/libv4l2cam/ libv4l2cam] which is related to the Sentience project, and is also under the General Public License.  A [http://code.google.com/p/libv4l2cam/source/browse/trunk/v4l2stereo/v4l2stereo.deb deb package] is available for easy installation on Debian based distros.  Versions 1.043 and above use the OpenCV version 2 packages which are part of Ubuntu 10.04 (or later).
+You can test out the webcam using a program called *v4l2stereo*, which is part of a project called [http://code.google.com/p/libv4l2cam/ libv4l2cam] which is related to the Sentience project, and is also under the General Public License.  A [http://code.google.com/p/libv4l2cam/ deb package] is available for easy installation on Debian based distros.  Versions 1.043 and above use the OpenCV version 2 packages which are part of Ubuntu 10.04 (or later).  You will need to install [http://code.google.com/p/libv4l2cam/downloads/detail?name=libcvm57.deb libcvm57] (or later) before installing the v4l2stereo package.
 
 _v4l2stereo_ can be used in various ways, but to check that the Minoru is working you can use the following command.
 
@@ -40,19 +40,24 @@ This assumes that the left camera is video device number 1 and the right camera 
 
 [http://lh4.ggpht.com/_cGREIsCvj4M/S6zMA5dcFBI/AAAAAAAAAjQ/_yodyK0qInw/edge_features.jpg]
 
-So, once you have established that the cameras are working the first thing to do is calibrate them using the _--calibrate_ option.  This performs simple offset calibration, and not full camera calibration (which can be done using other programs).  This type of calibration simply corrects for any small deviation of the two cameras from a perfectly parallel alignment.  First quit _v4l2stereo_ if it's still running by hitting the Escape key, then point the Minoru at some distant objects - preferably more than three metres away (i.e. beyond the effective stereo range) - then use the following command.
+So, once you have established that the cameras are working the first thing to do is calibrate them using the _--calibrate_ option.  This uses the OpenCV stereo camera calibration routines in order to obtain the optical parameters.  First, print out a [http://code.google.com/p/libv4l2cam/downloads/detail?name=chess9x6_25mm.pdf calibration pattern], which consists of a checkerboard pattern, and mount it on a rigid backing such as cardboard or wood.  Then type:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --calibrate
+v4l2stereo --dev0 /dev/video1 --dev1 /dev/video0 --calibrate "6 9 24"
 }}}
 
-This will take a couple of images from the cameras, calculate the offsets then display them.  Take a note of the values which are returned.  You may wish to go through this procedure several times in order to ensure that the values returned are reasonably consistent.  Once you're satisfied that you have good offsets you can test stereo correspondence as follows:
+The first number of the calibrate option is the number of squares across, the second is the number of squares down, and the third is the size of each square in millimetres.  The order of the dimensions should correspond to how the calibration pattern is presented to the cameras.  The video below shows the procedure.
+
+<wiki:video url="http://www.youtube.com/watch?v=3LkNlTNHZzE"/>
+
+
+Once camera calibration is complete you can test stereo correspondence as follows:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --matches
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --matches
 }}}
 
-where _x_ and _y_ are the offset values obtained from calibration.  An example result looks like this.
+An example result looks like this.
 
 [http://lh5.ggpht.com/_cGREIsCvj4M/S6zMBSC7qgI/AAAAAAAAAjY/QijIyiH-SX8/minoru_matches1.jpg]
 
@@ -65,37 +70,13 @@ A dense disparity map can also be obtained.  This uses a fairly traditional patc
 [http://lh6.ggpht.com/_cGREIsCvj4M/S60BaFw0YLI/AAAAAAAAAj4/0_6AtIqgaNE/disparitymap.png]
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymapelas
 }}}
-
-It's also possible to alter the sub-sampling step size in pixels to get higher or lower resolution depth maps.  The smaller the sampling step size, the slower the algorithm runs, so in practice there is a tradeoff between speed and accuracy.  For example:
-
-{{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --disparitystep 4
-}}}
-
-Even with small sampling step sizes, accuracy may not be greatly improved.  Typical disparity step sizes are in the range between 2 and 10.
-
-Another option available with dense stereo is to adjust the cross checking threshold.  If this value is smaller then pixels will be required to match more closely between left and right images.  For example:
-
-{{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --crosscheck 30
-}}}
-
-Typical cross checking values are in the range 20 to 70.
-
-The radius used to smooth the disparity map can also be changed, like this:
-
-{{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --smoothing 4
-}}}
-
-Smoothing values are typically in the range 2 to 8.  You can experiment with different dense stereo settings to get the best performance for your viewing conditions.
 
 A threshold can also be applied, so that only nearby objects are visible.  This can be useful for detecting people at close range.
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --disparitystep 4 --disparitythreshold 15
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymapelas --disparitythreshold 15
 }}}
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
@@ -107,7 +88,7 @@ It's possible to stream video over a network using [http://gstreamer.freedesktop
 On the server:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 -x 8 -y -4 --disparitymap --stream --headless
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymapelas --stream --headless
 }}}
 
 then on the client:
@@ -125,7 +106,7 @@ To do a local test you can use _localhost_ as the IP address.
 If you wish to do development on the v4l2stereo code you will need to ensure that opencv packages are installed.  On Ubuntu 10.04 or later this is easily achieved as follows:
 
 {{{
-    sudo apt-get install libcv4 libhighgui4 libcvaux4 libcv-dev libcvaux-dev libhighgui-dev libgstreamer-plugins-base0.10-dev libgst-dev
+    sudo apt-get install libcv2.1 libhighgui2.1 libcvaux2.1 libcv-dev libcvaux-dev libhighgui-dev libgstreamer-plugins-base0.10-dev libgst-dev
 }}}
 
 *Configuring for use with Eclipse*
