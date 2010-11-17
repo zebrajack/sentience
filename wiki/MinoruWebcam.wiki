@@ -51,7 +51,13 @@ The first number of the calibrate option is the number of squares across, the se
 <wiki:video url="http://www.youtube.com/watch?v=o9aUhDe_vPQ"/>
 
 
-Once camera calibration is complete you can test stereo correspondence as follows:
+Once camera calibration is complete the parameters are automatically saved to a file called _calibration.txt_.  Normally when running _v4l2stereo_ the program will search for this file in the current directory, but optionally you can also specify it as follows:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --calibrationfile calibration.txt
+}}}
+
+You can then test the system like this:
 
 {{{
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --matches
