@@ -48,7 +48,7 @@ v4l2stereo --dev0 /dev/video1 --dev1 /dev/video0 --calibrate "6 9 24"
 
 The first number of the calibrate option is the number of squares across, the second is the number of squares down, and the third is the size of each square in millimetres.  The order of the dimensions should correspond to how the calibration pattern is presented to the cameras.  The video below shows the procedure.
 
-<wiki:video url="http://www.youtube.com/watch?v=3LkNlTNHZzE"/>
+<wiki:video url="http://www.youtube.com/watch?v=o9aUhDe_vPQ"/>
 
 
 Once camera calibration is complete you can test stereo correspondence as follows:
