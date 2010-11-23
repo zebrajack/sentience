@@ -1,5 +1,5 @@
 #summary The first commercial stereoscopic webcam
-#labels webcam,minoru,stereocamera,stereovision,stereoscopic,stereocorrespondence
+#labels webcam,minoru,stereocamera,stereovision,stereoscopic,stereocorrespondence,elas
 
 [http://lh6.ggpht.com/_cGREIsCvj4M/S6zMBC7BevI/AAAAAAAAAjU/YZNB1Uu1Zzo/Minoru.jpg]
 
@@ -57,35 +57,40 @@ Once camera calibration is complete the parameters are automatically saved to a 
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --calibrationfile calibration.txt
 }}}
 
-You can then test the system like this:
+To test the image rectification:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --matches
+v4l2stereo -0 /dev/video1 -1 /dev/video0
 }}}
 
-An example result looks like this.
+If the rectification is good you should notice that when the left and right images are placed side by side the rows of both images correspond.  If there is any vertical displacement it is possible to manually alter this, either by editing the _vshift_ parameter within _calibration.txt_ or by using the _--offsety_ option.
 
-[http://lh5.ggpht.com/_cGREIsCvj4M/S6zMBSC7qgI/AAAAAAAAAjY/QijIyiH-SX8/minoru_matches1.jpg]
-
-The diameter of the green dots represents the amount of visual disparity observed between the left and right camera images.  There are always a certain number of bad stereo matches, but hopefully there should be more signal than noise.  You can also examine the disparities by using the _--histogram_ option, which will display a number of disparity histograms (left hemifield, right hemifield and entire field of view).  The disparity peaks observed within the left and right hemifields could be used as a simple way of having a robot visually avoid obstacles, and the correspondence algorithm is easily fast enough for real time performance on any reasonably modern PC hardware.
-
-[http://lh4.ggpht.com/_cGREIsCvj4M/S6zMA3vI2BI/AAAAAAAAAjM/Nerv3uJg8xg/disparity_histograms.jpg]
-
-A dense disparity map can also be obtained.  This uses a fairly traditional patch matching method (sum of absolute differences) so always contains a certain amount of noise and bad matches.
-
-[http://lh6.ggpht.com/_cGREIsCvj4M/S60BaFw0YLI/AAAAAAAAAj4/0_6AtIqgaNE/disparitymap.png]
+You can then test stereo correspondence like this:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymapelas
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap
+}}}
+
+This currently uses the [http://www.rainsoft.de/software/libelas.html ELAS] algorithm for dense stereo.  [http://en.wikipedia.org/wiki/Histogram_equalization Histogram equalization] is also useful to help improve stereo correspondence results.
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal
 }}}
 
 A threshold can also be applied, so that only nearby objects are visible.  This can be useful for detecting people at close range.
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymapelas --disparitythreshold 15
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal --disparitythreshold 15
 }}}
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
+
+A greater effective range of approximately 3-4 metres can be obtained by using a higher resolution.  However, this requires a slower frame rate, and differences in frame capture times due to unsynchronized capture become a far greater issue.  Also you will need to recalibrate using the higher resolution.  Note that camera calibration at 640x480 resolution can be somewhat haphazard, and may take several attempts before a good rectification result is obtained.
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 -w 640 -h 480 --fps 15 --disparitymap --equal
+}}}
+
 
 = Network streaming and headless operation =
 
@@ -94,7 +99,7 @@ It's possible to stream video over a network using [http://gstreamer.freedesktop
 On the server:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymapelas --stream --headless
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal --stream --headless
 }}}
 
 then on the client:
