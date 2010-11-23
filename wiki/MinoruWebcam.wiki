@@ -85,6 +85,12 @@ A threshold can also be applied, so that only nearby objects are visible.  This 
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal --disparitythreshold 15
 }}}
 
+Using the disparity threshold it's also possible to substitute a background image.
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --background mybackground.jpg --equal --disparitythreshold 7
+}}}
+
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
 
 A greater effective range of approximately 3-4 metres can be obtained by using a higher resolution.  However, this requires a slower frame rate, and differences in frame capture times due to unsynchronized capture become a far greater issue.  Also you will need to recalibrate using the higher resolution.  Note that camera calibration at 640x480 resolution can be somewhat haphazard, and may take several attempts before a good rectification result is obtained.
