@@ -77,7 +77,7 @@ This currently uses the [http://www.rainsoft.de/software/libelas.html ELAS] algo
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal
 }}}
 
-<wiki:video url="http://www.youtube.com/watch?v=e3av1zwjaZE"/>
+<wiki:video url="http://www.youtube.com/watch?v=blynlw1YUKs"/>
 
 A threshold can also be applied, so that only nearby objects are visible.  This can be useful for detecting people at close range.
 
