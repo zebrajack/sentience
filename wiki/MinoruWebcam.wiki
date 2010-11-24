@@ -109,6 +109,8 @@ This means that only pixels having a disparity of three or greater relative to t
 
 <wiki:video url="http://www.youtube.com/watch?v=9UmHVALu-E0"/>
 
+Another possible example situation in which this might be used is a fixed downward looking stereo camera on a mobile robot, which is then able to detect obstacles (collision detection/[http://en.wikipedia.org/wiki/Hazcam hazcam]) or objects on the floor.  In an indoor scenario where the floor is always flat this should work quite well.
+
 Similar to the global disparity threshold situation you can also use a background image if you wish.
 
 {{{
