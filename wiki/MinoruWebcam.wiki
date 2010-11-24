@@ -103,7 +103,11 @@ Then to subsequently use the model:
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal --backgroundmodel model.dat --disparitythreshold 3
 }}}
 
-This means that only pixels having a disparity of three or greater relative to the background will be shown.  Similar to the global disparity threshold situation you can also use a background image if you wish.
+This means that only pixels having a disparity of three or greater relative to the background will be shown.  An example situation is shown in the video below.  Here a background model was created for a desk surface, and objects subsequently placed on or above it then show up quite clearly.
+
+<wiki:video url="http://www.youtube.com/watch?v=9UmHVALu-E0"/>
+
+Similar to the global disparity threshold situation you can also use a background image if you wish.
 
 {{{
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --background mybackground.jpg --equal --backgroundmodel model.dat --disparitythreshold 3
