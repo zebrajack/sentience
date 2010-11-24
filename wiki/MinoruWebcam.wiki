@@ -118,7 +118,7 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --background mybackground.jpg --equal -
 An overhead view of the projected disparity map can also be shown.  This type of projection would be useful for updating occupancy grids.
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --disparitymap --equal --overhead
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --overhead
 }}}
 
 <wiki:video url="http://www.youtube.com/watch?v=kQPIm2Kw5kc"/>
