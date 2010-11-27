@@ -1,5 +1,5 @@
 #summary The first commercial stereoscopic webcam
-#labels webcam,minoru,stereocamera,stereovision,stereoscopic,stereocorrespondence,elas
+#labels webcam,minoru,stereocamera,stereovision,stereoscopic,stereocorrespondence,elas,depthcamera
 
 [http://lh6.ggpht.com/_cGREIsCvj4M/S6zMBC7BevI/AAAAAAAAAjU/YZNB1Uu1Zzo/Minoru.jpg]
 
@@ -129,6 +129,28 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --overhead
 }}}
 
 <wiki:video url="http://www.youtube.com/watch?v=kQPIm2Kw5kc"/>
+
+The point cloud can also be observed from alternative "imaginary" viewpoints using the _virtual camera_ mode.
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --vcamera
+}}}
+
+<wiki:video url="http://www.youtube.com/watch?v=gHv2w9w4zZk"/>
+
+To move the virtual camera use the following keys:
+
+{{{
+A - up
+Z - down
+X - forward
+S - Backward
+< - left
+>  - right
+1/2 - horizontal rotation around the X axis
+3/4 - roll around the Z axis
+5/6 - vertical rotation around the Y axis
+}}}
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
 
