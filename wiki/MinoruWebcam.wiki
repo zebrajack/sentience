@@ -50,6 +50,11 @@ The first number of the calibrate option is the number of squares across, the se
 
 <wiki:video url="http://www.youtube.com/watch?v=o9aUhDe_vPQ"/>
 
+Optionally the number of calibration images which are gathered can be set.  By default this is 20, but higher numbers should give a more accurate result.
+
+{{{
+v4l2stereo --dev0 /dev/video1 --dev1 /dev/video0 --calibrate "6 9 24" --calibrationimages 60
+}}}
 
 Once camera calibration is complete the parameters are automatically saved to a file called _calibration.txt_.  Normally when running _v4l2stereo_ the program will search for this file in the current directory, but optionally you can also specify it as follows:
 
