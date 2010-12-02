@@ -180,6 +180,28 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 
 
 <wiki:video url="http://www.youtube.com/watch?v=InDr6Qr5O-I"/>
 
+Mesh models can be saved either in [http://en.wikipedia.org/wiki/STL_%28file_format%29 STL] or [http://en.wikipedia.org/wiki/X3D X3D] format.  The STL format lacks any colour information, but may be useful for [http://en.wikipedia.org/wiki/RepRap_Project rapid prototyping] applications.  [http://en.wikipedia.org/wiki/X3D X3D] produces a colour and theoretically web compatible 3D mesh
+
+To save the entire scene in X3D format:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --vcamera --savex3d myscene.x3d
+}}}
+
+To detect an object with the camera tilted downwards by 30 degrees, then save it in X3D format:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500 --savex3d mymodel.x3d
+}}}
+
+<wiki:video url="http://www.youtube.com/watch?v=pSVeubPH0xY"/>
+
+Or to save the object as STL:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500 --savestl mymodel.stl
+}}}
+
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
 
 A greater effective range of approximately 3-4 metres can be obtained by using a higher resolution.  However, this requires a slower frame rate, and differences in frame capture times due to unsynchronized capture become a far greater issue.  Also you will need to recalibrate using the higher resolution.  Note that camera calibration at 640x480 resolution can be somewhat haphazard, and may take several attempts before a good rectification result is obtained.
