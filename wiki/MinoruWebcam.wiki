@@ -185,7 +185,7 @@ Mesh models can be saved either in [http://en.wikipedia.org/wiki/STL_%28file_for
 To save the entire scene in X3D format:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --vcamera --savex3d myscene.x3d
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --vcamera --maxrange 2000 --savex3d myscene.x3d
 }}}
 
 To detect an object with the camera tilted downwards by 30 degrees, then save it in X3D format:
