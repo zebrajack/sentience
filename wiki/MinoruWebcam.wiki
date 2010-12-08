@@ -210,6 +210,31 @@ A greater effective range of approximately 3-4 metres can be obtained by using a
 v4l2stereo -0 /dev/video1 -1 /dev/video0 -w 640 -h 480 --fps 15 --disparitymap --equal
 }}}
 
+= Point Clouds =
+
+It's also possible to export the range data as a point cloud file.  For example:
+
+{{{
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal -vcamera --poserotation "0 0 0" --pointcloud mycloud.dat
+}}}
+
+This runs the cameras, creates a mpoint cloud with the given rotational orientation.  The _poserotation_ parameters correspond to tilt, pan and roll angles in degrees, where positive tilt is downwards, positive pan is clockwise as viewed from above and positive roll is clockwise as viewed from behind.
+
+If the stereo camera is mounted on a pan and tilt mechanism, or if the robot observes from different orientations the _poserotation_ and _posetranslation_ options can be used.  The _pcloud_ utility may then be used to visualise and save a composite point cloud model constructed from multiple observations.
+
+{{{
+pcloud -f "mycloud0.fat,mycloud1.dat"
+}}}
+
+The file names should be separated by commas.  You can also save to X3D format.
+
+{{{
+pcloud -f "mycloud0.fat,mycloud1.dat" --savex3d test.x3d
+}}}
+
+An example composite point cloud X3D file, visualised using [http://en.wikipedia.org/wiki/MeshLab MeshLab], is shown below.
+
+<wiki:video url="http://www.youtube.com/watch?v=GnIVTpvdYRk"/>
 
 = Network streaming and headless operation =
 
