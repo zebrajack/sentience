@@ -163,10 +163,10 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --obstacles
 You can also specify more precisely the downward tilt angle of the camera as follows:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --obstacles --poserotation "60 0 0" --obstaclethreshold 3000 --obstaclecellsize 20
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --obstacles --poserotation "30 0 0" --obstaclethreshold 3000 --obstaclecellsize 20
 }}}
 
-Where the first parameter of _poserotation_ specifies the tilt angle in degrees relative to vertical (vertical is zero, straight ahead is 90 degrees).  A threshold value can be used to indicate how much vertical structure is needed in order to qualify as an object above the ground plane (points per grid cell), and the cell size of the 2D ground plane grid used to accumulate points may be given in millimetres.  Unlike with the _background model_ method, this much more reliably removes the background.
+Where the first parameter of _poserotation_ specifies the tilt angle in degrees, with positive being downwards.  A threshold value can be used to indicate how much vertical structure is needed in order to qualify as an object above the ground plane (points per grid cell), and the cell size of the 2D ground plane grid used to accumulate points may be given in millimetres.  Unlike with the _background model_ method, this much more reliably removes the background.
 
 An example of an object on a desk surface is shown in the following video.  As with the _virtual camera_ view the keys can be used to observe from different angles.
 
@@ -175,7 +175,7 @@ An example of an object on a desk surface is shown in the following video.  As w
 Multiple objects can also be detected with this method.  Here we instead use the _objects_ option, and give a minimum and maximum ground plane area in square millimetres.  Objects are colour coded to indicate that they are discreet entities.
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "30 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500
 }}}
 
 <wiki:video url="http://www.youtube.com/watch?v=InDr6Qr5O-I"/>
@@ -191,7 +191,7 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --vcamera --maxrange 2000 --sav
 To detect an object with the camera tilted downwards by 30 degrees, then save it in X3D format:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500 --savex3d mymodel.x3d
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "30 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500 --savex3d mymodel.x3d
 }}}
 
 <wiki:video url="http://www.youtube.com/watch?v=pSVeubPH0xY"/>
@@ -199,7 +199,7 @@ v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 
 Or to save the object as STL:
 
 {{{
-v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "60 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500 --savestl mymodel.stl
+v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal --objects --poserotation "30 0 0" --obstaclethreshold 3000 --obstaclecellsize 20 --minarea 50 --maxarea 500 --savestl mymodel.stl
 }}}
 
 The effective stereo range of the Minoru, using 320x240 images, is between 35cm and 2 metres.  The range is limited mainly by the baseline distance between the cameras and the image resolution.  For close up tasks such as manipulation or inspection of objects this might be quite a useful off-the-shelf sensor.
