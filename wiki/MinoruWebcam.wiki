@@ -218,9 +218,9 @@ It's also possible to export the range data as a point cloud file.  For example:
 v4l2stereo -0 /dev/video1 -1 /dev/video0 --equal -vcamera --poserotation "0 0 0" --pointcloud mycloud.dat
 }}}
 
-This runs the cameras, creates a mpoint cloud with the given rotational orientation.  The _poserotation_ parameters correspond to tilt, pan and roll angles in degrees, where positive tilt is downwards, positive pan is clockwise as viewed from above and positive roll is clockwise as viewed from behind.
+This runs the cameras, creates a point cloud with the given rotational orientation.  The _poserotation_ parameters correspond to tilt, pan and roll angles in degrees, where positive tilt is downwards, positive pan is clockwise as viewed from above and positive roll is clockwise as viewed from behind.
 
-If the stereo camera is mounted on a pan and tilt mechanism, or if the robot observes from different orientations the _poserotation_ and _posetranslation_ options can be used.  The _pcloud_ utility may then be used to visualise and save a composite point cloud model constructed from multiple observations.
+If the stereo camera is mounted on a pan and tilt mechanism, or if the robot observes from different orientations the _poserotation_ and _posetranslation_ options can be used.  The _pcloud_ utility may then be run to visualise and save a composite point cloud model constructed from multiple observations.
 
 {{{
 pcloud -f "mycloud0.fat,mycloud1.dat"
