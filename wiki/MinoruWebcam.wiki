@@ -147,9 +147,9 @@ X - forward
 S - Backward
 < - left
 >  - right
-1/2 - horizontal rotation around the X axis
-3/4 - roll around the Z axis
-5/6 - vertical rotation around the Y axis
+1/2 - Tilt down/up
+3/4 - Pan left/right
+5/6 - Roll anti-clockwise/clockwise
 }}}
 
 One problem which becomes conspicuous with the overhead and virtual camera views is that in low lighting when exposure time is relatively high depth errors due to lack of camera synchronization can become a problem.  Under these conditions the image may appear to oscillate in depth.
