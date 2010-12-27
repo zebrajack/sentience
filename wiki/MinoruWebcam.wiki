@@ -317,7 +317,7 @@ The [http://code.google.com/p/libv4l2cam/ source package] also contains an examp
 
 *Making the package*
 
-Add the directory where the ros stereocam package is located to _/opt/ros/cturtle/setup_
+Add the directory where the ros stereocam package is located to _/opt/ros/cturtle/setup.sh_
 
 Reload
 
