@@ -331,7 +331,7 @@ Then make the package as follows:
 rosmake --rosdep-install stereocam
 }}}
 
-Edit the ''stereocam.launch'' file as appropriate.  If you are only using a single stereo camera then add the desired v4l2stereo command for ''glimpsecommand1'', and leave the other glimpse commands as empty strings.  You may also wish to use a RAM disk for ''outputdirectory'', in order to minimise hard disk access.
+Edit the _stereocam.launch_ file as appropriate.  If you are only using a single stereo camera then add the desired v4l2stereo command for _glimpsecommand1_, and leave the other glimpse commands as empty strings.  You may also wish to use a RAM disk for _outputdirectory_, in order to minimise hard disk access.
 
 *Running the ROS publisher (broadcasting service)*
 
